@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         float xMove = transform.localPosition.x + xMovement;
         float yMove = transform.localPosition.y + yMovement;
-        transform.localPosition = new Vector2(xMove, yMove);
+        transform.localPosition = new Vector3(xMove, yMove, -0.1f);
     }
 
 }
