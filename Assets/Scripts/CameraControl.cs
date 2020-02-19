@@ -45,22 +45,27 @@ public class CameraControl : MonoBehaviour
 
         // Change the camera speed if moving between targets
         // TODO: Need to make change in camera speed smoother
-        Vector2 camXY = new Vector2(cam.transform.position.x, cam.transform.position.y);
-        Vector2 targetXY = new Vector2(target.position.x, target.position.y);
-        if ((targetXY - camXY).magnitude > camTargetRadius) {
-            camLerpSpeed = camLerpSpeedOnTransition;
-        } else {
-            camLerpSpeed = camLerpSpeedOnTarget;
-        }
-        print(camLerpSpeed);
+        //Vector2 camXY = new Vector2(cam.transform.position.x, cam.transform.position.y);
+        //Vector2 targetXY = new Vector2(target.position.x, target.position.y);
+        //if ((targetXY - camXY).magnitude > camTargetRadius) {
+        //    camLerpSpeed = camLerpSpeedOnTransition;
+        //} else {
+        //    camLerpSpeed = camLerpSpeedOnTarget;
+        //}
+        //print(camLerpSpeed);
 
     }
 
     void LateUpdate()
     {
         // Move the camera towards the target using a LERP
+        //if (target) {
+        //    transform.position = Vector3.Lerp(transform.position, target.position, camLerpSpeed) + new Vector3(0, 0, -10f);
+        //}
+
+        // Snap camera transform to player transform
         if (target) {
-            transform.position = Vector3.Lerp(transform.position, target.position, camLerpSpeed) + new Vector3(0, 0, -10f);
+            transform.position = new Vector3(target.position.x, target.position.y, -10f);
         }
     }
 }
