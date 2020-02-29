@@ -20,14 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetPlayerInput()//TO-DO- Sprint Implementation
     {
-        float xPos = Input.GetAxis("Horizontal");
-        float yPos = Input.GetAxis("Vertical");
+        float xPos = Input.GetAxisRaw("Horizontal");//to ensure that movement input is discrete
+        float yPos = Input.GetAxisRaw("Vertical");//to ensure that movement input is discrete
         float xMovement = xPos * walkSpeed * Time.deltaTime;
         float yMovement = yPos * walkSpeed * Time.deltaTime;
 
         float xMove = transform.localPosition.x + xMovement;
         float yMove = transform.localPosition.y + yMovement;
-        transform.localPosition = new Vector2(xMove, yMove);
+        transform.localPosition = new Vector3(xMove, yMove, -0.1f);
     }
 
 }
