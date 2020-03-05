@@ -583,7 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1149d63d05ee3d4459b9e4efe01b81fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 537587354}
 --- !u!1 &579886645
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1149d63d05ee3d4459b9e4efe01b81fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 1130239430}
 --- !u!1 &1143456709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,8 +1283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 44552862}
   dialogueText: {fileID: 1341401244}
-  options: {fileID: 537587358}
-  speech: {fileID: 1130239434}
+  options: {fileID: 537587354}
+  speech: {fileID: 1130239430}
 --- !u!4 &1644296144
 Transform:
   m_ObjectHideFlags: 0

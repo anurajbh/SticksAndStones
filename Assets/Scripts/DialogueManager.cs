@@ -8,20 +8,20 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-    public PanelScript options;
-    public PanelScript speech;
+    public GameObject options;
+    public GameObject speech;
 
     private Queue<string> sentences = new Queue<string>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+      
     }
 
     public void startDialogue(Dialogue dialogue)
     {
-        options.hide();
-        speech.show();
+        options.GetComponent<PanelScript>().hide();
+        speech.GetComponent<PanelScript>().show();
         nameText.text = dialogue.name;
         Debug.Log("Started " + dialogue.name + "'s dialogue");
 
@@ -51,8 +51,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        speech.hide();
-        options.show();
+        speech.GetComponent<PanelScript>().hide();
+        options.GetComponent<PanelScript>().show();
         Debug.Log("End of Dialogue");
     }
 
