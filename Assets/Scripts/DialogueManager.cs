@@ -6,23 +6,27 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
-    public GameObject options;
-    public GameObject speech;
-
+    Text NameText;
+    Text DialogueText;
+    //public GameObject Options;
+    //public GameObject Speech;
+    PanelScript Options;
+    PanelScript Speech;
     private Queue<string> sentences = new Queue<string>();
     // Start is called before the first frame update
     void Awake()
     {
-      
+        Options = GameObject.Find("Options").GetComponent<PanelScript>();
+        Speech = GameObject.Find("DialoguePanel").GetComponent<PanelScript>();
+        NameText = GameObject.Find("Name").GetComponent<Text>();
+        DialogueText = GameObject.Find("Dialogue").GetComponent<Text>();
     }
 
     public void startDialogue(Dialogue dialogue)
     {
-        options.GetComponent<PanelScript>().hide();
-        speech.GetComponent<PanelScript>().show();
-        nameText.text = dialogue.name;
+        Options.GetComponent<PanelScript>().hide();
+        Speech.GetComponent<PanelScript>().show();
+        NameText.text = dialogue.name;
         Debug.Log("Started " + dialogue.name + "'s dialogue");
 
         sentences.Clear();
@@ -45,14 +49,14 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
-        dialogueText.text = sentence;
+        DialogueText.text = sentence;
         DisplayNextSentence();
     }
 
     public void EndDialogue()
     {
-        speech.GetComponent<PanelScript>().hide();
-        options.GetComponent<PanelScript>().show();
+        Speech.GetComponent<PanelScript>().hide();
+        Options.GetComponent<PanelScript>().show();
         Debug.Log("End of Dialogue");
     }
 

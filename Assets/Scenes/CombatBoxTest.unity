@@ -410,10 +410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48624dc25f129b468e7f44bc1b4fb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
-  options: {fileID: 0}
-  speech: {fileID: 0}
+  NameText: {fileID: 0}
+  DialogueText: {fileID: 0}
+  Options: {fileID: 0}
+  Speech: {fileID: 0}
 --- !u!114 &290292463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,10 +1281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48624dc25f129b468e7f44bc1b4fb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 44552862}
-  dialogueText: {fileID: 1341401244}
-  options: {fileID: 537587354}
-  speech: {fileID: 1130239430}
+  NameText: {fileID: 44552862}
+  DialogueText: {fileID: 1341401244}
+  Options: {fileID: 537587354}
+  Speech: {fileID: 1130239430}
 --- !u!4 &1644296144
 Transform:
   m_ObjectHideFlags: 0
