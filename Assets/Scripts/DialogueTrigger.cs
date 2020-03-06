@@ -7,17 +7,29 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     Button button;
+    PlayerStats PlayerStats;
+    NPCEntity NPCEntity;
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().startDialogue(dialogue);
+    }
+    private void Awake()
+    {
+        PlayerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+        NPCEntity = GameObject.Find("NPC").GetComponent<NPCEntity>();
+        button = gameObject.GetComponent<Button>();
     }
     public void TriggerStats()
     {
         switch(button.name)
         {
-            default:
-            break;
+            case "Hurt":
+                NPCEntity.damageEntityStat1(PlayerStats.playerDPS1);//player attacks with attack1
+                PlayerStats.increaseAnxiety(NPCEntity.npcAnxietyAffect);//combat causes anxiety to increase
+                break;
                 //TODO- Check for button names and cause stuff to happen to Player Anxiety and Will depending on buttonname 
+                //TODO- Check for other cases
+
         }
     }
 }

@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    float anxiety;
-    float will;
-
-    void increaseAnxiety(float amount)
+    public float anxiety = 50;
+    public float will = 50;
+    public float playerDPS1 = 10;//placeholder name for attack1
+    public float playerDPS2 = 10;//placeholder name for attack2
+    public void increaseAnxiety(float amount)
     {
         anxiety += amount;
     }
 
-    void increaseWill(float amount)
+    public void increaseWill(float amount)
     {
         will += amount;
     }
 
-    void decreaseAnxiety(float amount)
+    public void decreaseAnxiety(float amount)
     {
         anxiety -= amount;
     }
 
-    void decreaseWill(float amount)
+    public void decreaseWill(float amount)
     {
         will -= amount;
     }
