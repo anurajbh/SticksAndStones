@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class NPCAI : MonoBehaviour
 {
-    public DialogueTrigger playerTurn;//I should probably rename that script
+    public PlayerTurn playerTurn;//I should probably rename that script
     public PlayerStats playerStats;
     public NPCEntity NPCEntity;
+    public PlayerTurn playTurn;
+
     void Awake()
     {
         NPCEntity = gameObject.GetComponent<NPCEntity>();
         playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
-        playerTurn = GameObject.Find("Hurt").GetComponent<DialogueTrigger>();
+        playerTurn = GameObject.Find("PlayerNav").GetComponent<PlayerTurn>();
     }
 
     // Update is called once per frame
@@ -42,12 +44,12 @@ public class NPCAI : MonoBehaviour
                 break;
 
         }
-        playerTurn.NPCTurn = false;
-        playerTurn.PlayerTurn = true;
+        NPCEntity.NPCTurn = false;
+        playerTurn.playerTurn = true;
     }
     public void CheckForTurn()
     {
-        if(!playerTurn.PlayerTurn)
+        if(!playerTurn.playerTurn)
         {
             EnemyTurn();
         }

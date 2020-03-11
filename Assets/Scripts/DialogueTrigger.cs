@@ -9,8 +9,8 @@ public class DialogueTrigger : MonoBehaviour
     Button button;
     PlayerStats PlayerStats;
     NPCEntity NPCEntity;
-    public bool PlayerTurn = true;
-    public bool NPCTurn = false;
+    public PlayerTurn playerTurn;
+
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().startDialogue(dialogue);
@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         PlayerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
         NPCEntity = GameObject.Find("NPC").GetComponent<NPCEntity>();
         button = gameObject.GetComponent<Button>();
+        playerTurn = GameObject.Find("PlayerNav").GetComponent<PlayerTurn>();
     }
     public void TriggerStats()
     {
@@ -27,12 +28,23 @@ public class DialogueTrigger : MonoBehaviour
         {
             case "Hurt":
                 NPCEntity.damageEntityStat1(PlayerStats.playerDPS1);//player attacks with attack1
-                PlayerTurn = false;
-                NPCTurn = true;
+                playerTurn.playerTurn = false;
+                NPCEntity.NPCTurn = true;
                 break;
-                //TODO- Check for button names and cause stuff to happen to Player Anxiety and Will depending on buttonname 
-                //TODO- Check for other cases
-
+            //TODO- Check for button names and cause stuff to happen to Player Anxiety and Will depending on buttonname 
+            //TODO- Check for other cases
+            case "Consume":
+                playerTurn.playerTurn = false;
+                NPCEntity.NPCTurn = true;
+                break;
+            case "Protect":
+                playerTurn.playerTurn = false;
+                NPCEntity.NPCTurn = true;
+                break;
+            case "Run":
+                playerTurn.playerTurn = false;
+                NPCEntity.NPCTurn = true;
+                break;
         }
     }
 }
