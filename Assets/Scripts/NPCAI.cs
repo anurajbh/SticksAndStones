@@ -21,7 +21,7 @@ public class NPCAI : MonoBehaviour
     }
     public void EnemyTurn()
     {
-        int whatItChooses = Random.Range(1, 4);
+        int whatItChooses = Random.Range(1, 5);
         switch(whatItChooses)
         {
             case 1:
