@@ -9,6 +9,8 @@ public class DialogueTrigger : MonoBehaviour
     Button button;
     PlayerStats PlayerStats;
     NPCEntity NPCEntity;
+    public bool PlayerTurn = true;
+    public bool NPCTurn = false;
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().startDialogue(dialogue);
@@ -25,7 +27,8 @@ public class DialogueTrigger : MonoBehaviour
         {
             case "Hurt":
                 NPCEntity.damageEntityStat1(PlayerStats.playerDPS1);//player attacks with attack1
-                PlayerStats.increaseAnxiety(NPCEntity.npcAnxietyAffect);//combat causes anxiety to increase
+                PlayerTurn = false;
+                NPCTurn = true;
                 break;
                 //TODO- Check for button names and cause stuff to happen to Player Anxiety and Will depending on buttonname 
                 //TODO- Check for other cases

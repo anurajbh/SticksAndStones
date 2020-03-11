@@ -827,6 +827,8 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - Muda muda muda, you couldn't hurt a fly if you wanted to.
+  PlayerTurn: 1
+  NPCTurn: 0
 --- !u!1 &873466014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1130,8 @@ MonoBehaviour:
     name: Elena
     sentences:
     - pop another one you'll be fine
+  PlayerTurn: 1
+  NPCTurn: 0
 --- !u!1 &1177976262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773634851}
   - component: {fileID: 1773634852}
+  - component: {fileID: 1773634853}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1518,6 +1523,22 @@ MonoBehaviour:
   entityStat2: 50
   npcAnxietyAffect: 10
   npcWillAffect: 10
+  npcHeal: 10
+--- !u!114 &1773634853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773634850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae66b141e3000964f827d858b03dcb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTurn: {fileID: 0}
+  playerStats: {fileID: 0}
+  NPCEntity: {fileID: 0}
 --- !u!1 &1778936940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1674,8 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - That's cute, you think you can defend yourself.
+  PlayerTurn: 1
+  NPCTurn: 0
 --- !u!1 &1789840561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1911,8 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - You can't run from this.
+  PlayerTurn: 1
+  NPCTurn: 0
 --- !u!1 &1967501018
 GameObject:
   m_ObjectHideFlags: 0

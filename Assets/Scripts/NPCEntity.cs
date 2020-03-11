@@ -8,6 +8,7 @@ public class NPCEntity : MonoBehaviour
     public float entityStat2 = 50;//placeholder stat
     public float npcAnxietyAffect = 10;//damage value 1
     public float npcWillAffect = 10;//damage value 2
+    public float npcHeal = 10;
     public void healEntityStat1(float amount)
     {
         entityStat1 += amount;
