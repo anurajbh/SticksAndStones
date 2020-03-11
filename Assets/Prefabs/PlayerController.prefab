@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3767902322397391934}
   - component: {fileID: 3767902322397391933}
+  - component: {fileID: 518698783}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -177,3 +178,19 @@ MonoBehaviour:
   PlayerBody: {fileID: 3767902320876022043}
   walkSpeed: 5
   sprintSpeed: 5
+--- !u!114 &518698783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767902322397391932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579722bf106c70c4684bc3b11b88ce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxiety: 50
+  will: 50
+  playerDPS1: 10
+  playerDPS2: 10

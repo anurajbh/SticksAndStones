@@ -558,28 +558,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e23edf4f4dd5dc74d9b42fad0f4ff70c, type: 3}
---- !u!1 &518698782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3767902322397391932, guid: e23edf4f4dd5dc74d9b42fad0f4ff70c,
-    type: 3}
-  m_PrefabInstance: {fileID: 518698781}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &518698783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518698782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 579722bf106c70c4684bc3b11b88ce48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anxiety: 50
-  will: 50
-  playerDPS1: 10
-  playerDPS2: 10
 --- !u!1 &537587354
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,8 +805,7 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - Muda muda muda, you couldn't hurt a fly if you wanted to.
-  PlayerTurn: 1
-  NPCTurn: 0
+  playerTurn: {fileID: 0}
 --- !u!1 &873466014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,8 +1107,7 @@ MonoBehaviour:
     name: Elena
     sentences:
     - pop another one you'll be fine
-  PlayerTurn: 1
-  NPCTurn: 0
+  playerTurn: {fileID: 0}
 --- !u!1 &1177976262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1500,7 @@ MonoBehaviour:
   npcAnxietyAffect: 10
   npcWillAffect: 10
   npcHeal: 10
+  NPCTurn: 0
 --- !u!114 &1773634853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,6 +1516,7 @@ MonoBehaviour:
   playerTurn: {fileID: 0}
   playerStats: {fileID: 0}
   NPCEntity: {fileID: 0}
+  playTurn: {fileID: 0}
 --- !u!1 &1778936940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,8 +1652,7 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - That's cute, you think you can defend yourself.
-  PlayerTurn: 1
-  NPCTurn: 0
+  playerTurn: {fileID: 0}
 --- !u!1 &1789840561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,8 +1888,7 @@ MonoBehaviour:
     name: Dwayne Johnson
     sentences:
     - You can't run from this.
-  PlayerTurn: 1
-  NPCTurn: 0
+  playerTurn: {fileID: 0}
 --- !u!1 &1967501018
 GameObject:
   m_ObjectHideFlags: 0
