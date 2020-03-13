@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DisplayInventory : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool isControlInInventory = false;
     public InventoryObject inventory;
     public GameObject itemEntry;
     public GameObject inventoryUI;
 
     private GameObject itemEntries;
     private GameObject scrollbar;
-    private int cursorIndex;
+    private static int cursorIndex;
     private int scrollbarTopIndex;
     private int scrollbarBottomIndex;
 
@@ -21,7 +21,8 @@ public class DisplayInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Resume();
+        isControlInInventory = false;
+        CloseInventory();
         itemEntries = inventoryUI.transform.GetChild(1).GetChild(0).gameObject;
         scrollbar = inventoryUI.transform.GetChild(3).gameObject;
         Debug.Log(scrollbar.name);
@@ -38,19 +39,19 @@ public class DisplayInventory : MonoBehaviour
     {
         UpdateDisplay();
 
-        if (Input.GetKeyDown(KeyCode.I)) {
-            if (GameIsPaused) {
-                Resume();
-            } else {
-                Pause();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.I)) {
+        //    if (GameIsPaused) {
+        //        Resume();
+        //    } else {
+        //        Pause();
+        //    }
+        //}
 
         if (timeSinceInput > 0) {
             timeSinceInput -= 1;
         }
 
-        if (GameIsPaused) {
+        if (isControlInInventory) {
             if (Input.GetAxisRaw("Vertical") == -1 && timeSinceInput == 0) {
                 MoveCursorDown();
                 SetDescriptionBox();
@@ -69,6 +70,7 @@ public class DisplayInventory : MonoBehaviour
                 GameObject entry = Instantiate(itemEntry);
                 entry.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
                 entry.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = "";
+                entry.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "";
                 entry.transform.SetParent(itemEntries.transform);
             }
         }
@@ -87,8 +89,10 @@ public class DisplayInventory : MonoBehaviour
     void UpdateDisplay() {
         for (int i = 0; i < inventory.Container.Count; i++) {
             string itemName = inventory.Container[i].item.itemName;
+            int quantity = inventory.Container[i].quantity;
             GameObject entryI = itemEntries.transform.GetChild(i).gameObject;
             entryI.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = itemName;
+            entryI.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = quantity.ToString();
         }
     }
 
@@ -103,7 +107,7 @@ public class DisplayInventory : MonoBehaviour
             if (cursorIndex < scrollbarTopIndex) {
                 scrollbarTopIndex -= 1;
                 scrollbarBottomIndex -= 1;
-                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 13f));
+                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 14f));
                 scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = newScrollbarValue;
             }
 
@@ -121,7 +125,7 @@ public class DisplayInventory : MonoBehaviour
             if (cursorIndex > scrollbarBottomIndex) {
                 scrollbarTopIndex += 1;
                 scrollbarBottomIndex += 1;
-                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 13f));
+                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 14f));
                 scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = newScrollbarValue;
             }
         }
@@ -129,21 +133,20 @@ public class DisplayInventory : MonoBehaviour
 
     void ResetScrollbar() {
         scrollbarTopIndex = 0;
-        scrollbarBottomIndex = 6;
+        scrollbarBottomIndex = 5;
         scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = 1f;
     }
 
-    void Resume() {
+    public void CloseInventory() {
         inventoryUI.SetActive(false);
-        Time.timeScale = 1f;
         if (inventory.Container.Count > 0) {
             GameObject entryCurr = itemEntries.transform.GetChild(cursorIndex).gameObject;
             entryCurr.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
         }
-        GameIsPaused = false;
+        isControlInInventory = false;
     }
 
-    void Pause() {
+    public void OpenInventory() {
         inventoryUI.SetActive(true);
         Time.timeScale = 0f;
         cursorIndex = 0;
@@ -153,6 +156,6 @@ public class DisplayInventory : MonoBehaviour
             entry0.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = ">";
             SetDescriptionBox();
         }
-        GameIsPaused = true;
+        isControlInInventory = true;
     }
 }
