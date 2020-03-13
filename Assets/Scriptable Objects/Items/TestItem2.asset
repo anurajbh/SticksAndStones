@@ -17,3 +17,4 @@ MonoBehaviour:
   type: 0
   description: Hey look, its a different test item. This is test item 2. Has Flash
     and Trample.
+  useDescription: You used Test Item 2! Your Will increase by 0!
