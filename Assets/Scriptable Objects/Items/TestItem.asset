@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: TestItem
   type: 0
   description: This is a test item. Here is the description.
+  useDescription: You used the TestItem! Nothing happened!

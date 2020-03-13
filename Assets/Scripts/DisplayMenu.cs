@@ -121,11 +121,13 @@ public class DisplayMenu : MonoBehaviour
     }
 
     void HideInventory() {
-        inventoryUI.SetActive(false);
-        this.GetComponent<DisplayInventory>().CloseInventory();
-        IsInventoryMode = false;
-        menuItemsUI.transform.GetChild(cursorIndex).GetComponent<UnityEngine.UI.Image>().enabled = false;
-        IsInSelection = false;
+        if (this.GetComponent<DisplayInventory>().isControlInInventory && this.GetComponent<DisplayInventory>().timeSinceInput == 0) {
+            inventoryUI.SetActive(false);
+            this.GetComponent<DisplayInventory>().CloseInventory();
+            IsInventoryMode = false;
+            menuItemsUI.transform.GetChild(cursorIndex).GetComponent<UnityEngine.UI.Image>().enabled = false;
+            IsInSelection = false;
+        }
     }
 
     void MoveCursorUp() {
