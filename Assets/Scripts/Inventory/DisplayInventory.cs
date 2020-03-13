@@ -70,6 +70,7 @@ public class DisplayInventory : MonoBehaviour
                 GameObject entry = Instantiate(itemEntry);
                 entry.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
                 entry.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = "";
+                entry.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "";
                 entry.transform.SetParent(itemEntries.transform);
             }
         }
@@ -88,8 +89,10 @@ public class DisplayInventory : MonoBehaviour
     void UpdateDisplay() {
         for (int i = 0; i < inventory.Container.Count; i++) {
             string itemName = inventory.Container[i].item.itemName;
+            int quantity = inventory.Container[i].quantity;
             GameObject entryI = itemEntries.transform.GetChild(i).gameObject;
             entryI.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = itemName;
+            entryI.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = quantity.ToString();
         }
     }
 
@@ -104,7 +107,7 @@ public class DisplayInventory : MonoBehaviour
             if (cursorIndex < scrollbarTopIndex) {
                 scrollbarTopIndex -= 1;
                 scrollbarBottomIndex -= 1;
-                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 13f));
+                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 14f));
                 scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = newScrollbarValue;
             }
 
@@ -122,7 +125,7 @@ public class DisplayInventory : MonoBehaviour
             if (cursorIndex > scrollbarBottomIndex) {
                 scrollbarTopIndex += 1;
                 scrollbarBottomIndex += 1;
-                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 13f));
+                float newScrollbarValue = 1f - (scrollbarTopIndex * (1f / 14f));
                 scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = newScrollbarValue;
             }
         }
@@ -130,7 +133,7 @@ public class DisplayInventory : MonoBehaviour
 
     void ResetScrollbar() {
         scrollbarTopIndex = 0;
-        scrollbarBottomIndex = 6;
+        scrollbarBottomIndex = 5;
         scrollbar.GetComponent<UnityEngine.UI.Scrollbar>().value = 1f;
     }
 
