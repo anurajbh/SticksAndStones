@@ -31,17 +31,17 @@ public class CameraControl : MonoBehaviour
         cam.orthographicSize = (Screen.height / 100f) / resolutionScale;
 
         // Change the target of the camera with SPACE
-        if (Input.GetKeyDown("space")) {
-            if (isCamOnPlayer) {
-                if (GameObject.FindGameObjectWithTag("Target") != null) {
-                    target = GameObject.FindGameObjectWithTag("Target").transform;
-                    isCamOnPlayer = false;
-                }
-            } else {
-                target = GameObject.FindGameObjectWithTag("Player").transform;
-                isCamOnPlayer = true;
-            }
-        }
+        //if (Input.GetKeyDown("space")) {
+        //    if (isCamOnPlayer) {
+        //        if (GameObject.FindGameObjectWithTag("Target") != null) {
+        //            target = GameObject.FindGameObjectWithTag("Target").transform;
+        //            isCamOnPlayer = false;
+        //        }
+        //    } else {
+        //        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //        isCamOnPlayer = true;
+        //    }
+        //}
 
         // Change the camera speed if moving between targets
         // TODO: Need to make change in camera speed smoother
