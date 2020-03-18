@@ -24,7 +24,7 @@ public class NPCAI : MonoBehaviour
     public void EnemyTurn()
     {
         int whatItChooses = Random.Range(1, 5);
-        switch(whatItChooses)
+        switch (whatItChooses)
         {
             case 1:
                 playerStats.increaseAnxiety(NPCEntity.npcAnxietyAffect);
@@ -44,9 +44,15 @@ public class NPCAI : MonoBehaviour
                 break;
 
         }
+        //SwitchTurn();
+    }
+
+    public void SwitchTurn()
+    {
         NPCEntity.NPCTurn = false;
         playerTurn.playerTurn = true;
     }
+
     public void CheckForTurn()
     {
         if(!playerTurn.playerTurn)

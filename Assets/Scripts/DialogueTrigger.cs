@@ -31,8 +31,6 @@ public class DialogueTrigger : MonoBehaviour
                 playerTurn.playerTurn = false;
                 NPCEntity.NPCTurn = true;
                 break;
-            //TODO- Check for button names and cause stuff to happen to Player Anxiety and Will depending on buttonname 
-            //TODO- Check for other cases
             case "Consume":
                 playerTurn.playerTurn = false;
                 NPCEntity.NPCTurn = true;

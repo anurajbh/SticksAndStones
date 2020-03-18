@@ -14,9 +14,10 @@ public class PlayerTurn : MonoBehaviour
     Button consume;
     Button protect;
     Button doNothing;
+    Button Continue;
     public bool playerTurn = true;
-    
 
+    //DialogueManager dialogueManager;
 
     void Awake()
     {
@@ -24,10 +25,59 @@ public class PlayerTurn : MonoBehaviour
         consume = GameObject.Find("Consume").GetComponent<Button>();
         protect = GameObject.Find("Protect").GetComponent<Button>();
         doNothing = GameObject.Find("Run").GetComponent<Button>();
+        //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        Continue = GameObject.Find("Continue").GetComponent<Button>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if(playerTurn)
+        {
+            ScrollThroughOptions();
+            CheckForKeyInput();
+        }
+        else if(Input.GetKeyDown(KeyCode.Z))
+        {
+            Continue.onClick.Invoke();
+        }
+
+    }
+
+    private void CheckForKeyInput()
+    {
+        switch (index)
+        {
+            case 0:
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    hurt.onClick.Invoke();
+                }
+                break;
+            case 1:
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    consume.onClick.Invoke();
+                }
+                break;
+            case 2:
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    consume.onClick.Invoke();
+                }
+                break;
+            case 3:
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    doNothing.onClick.Invoke();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ScrollThroughOptions()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -73,36 +123,6 @@ public class PlayerTurn : MonoBehaviour
                     transform.position = position;
                 }
             }
-        }
-
-        switch (index)
-        {
-            case 0:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    hurt.onClick.Invoke();
-                }
-                break;
-            case 1:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    consume.onClick.Invoke();
-                }
-                break;
-            case 2:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    consume.onClick.Invoke();
-                }
-                break;
-            case 3:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    doNothing.onClick.Invoke();
-                }
-                break;
-            default:
-                break;
         }
     }
 }

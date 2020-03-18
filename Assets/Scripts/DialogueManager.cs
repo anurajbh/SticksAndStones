@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     PanelScript Options;
     PanelScript Speech;
     private Queue<string> sentences = new Queue<string>();
+    NPCAI nPCAI;
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,6 +21,7 @@ public class DialogueManager : MonoBehaviour
         Speech = GameObject.Find("DialoguePanel").GetComponent<PanelScript>();
         NameText = GameObject.Find("Name").GetComponent<Text>();
         DialogueText = GameObject.Find("Dialogue").GetComponent<Text>();
+        nPCAI = GameObject.Find("NPC").GetComponent<NPCAI>();
     }
 
     public void startDialogue(Dialogue dialogue)
@@ -35,8 +37,6 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
-        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
@@ -46,7 +46,6 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         DialogueText.text = sentence;
@@ -55,6 +54,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        nPCAI.SwitchTurn();
         Speech.GetComponent<PanelScript>().hide();
         Options.GetComponent<PanelScript>().show();
         Debug.Log("End of Dialogue");
