@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
    
     public float walkSpeed =1f;
     public bool hasMoved = false;
+    public bool inMenu = false;
     private Vector2 movementInput;
 
     private Vector3 movementdirection;
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hasMoved = false;
         }
-        else if ((movementInput.x !=0 && !hasMoved) || (movementInput.y != 0 && !hasMoved) )
+        else if (!inMenu && ((movementInput.x !=0 && !hasMoved) || (movementInput.y != 0 && !hasMoved)) )
         {
             hasMoved = true;
             GetPlayerDirection();
