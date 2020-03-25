@@ -4,7 +4,9 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Default
+    Default,
+    Will,
+    Anxiety
 }
 public abstract class ItemObject : ScriptableObject
 {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DisplayInventory : MonoBehaviour
 {
+    public GameObject playerController;
+
     public bool isControlInInventory = false;
     public bool isControlInSlots = false;
     public bool isControlInConfirm = false;
@@ -21,11 +23,15 @@ public class DisplayInventory : MonoBehaviour
     private static GameObject inventoryOptions;
     private static int optionsCursorIndex;
 
+    private bool isUseMode = false;
+    private bool isDropMode = false;
+    private bool isInfoMode = false;
+
     private static GameObject confirmation;
     private static int confirmationCursorIndex;
 
     public int timeSinceInput;
-    private int numCyclesBetweenInput = 45;
+    private int numCyclesBetweenInput = 35;
     
     // Start is called before the first frame update
     void Start()
@@ -92,13 +98,25 @@ public class DisplayInventory : MonoBehaviour
             } else if (Input.GetKeyDown(KeyCode.Backspace) && timeSinceInput == 0) {
                 BackToOptionSelect();
             } else if (Input.GetKeyDown(KeyCode.Space) && timeSinceInput == 0) {
-                ItemSelect();
+                if ((isUseMode || isDropMode) && inventory.Container.Count > 0) {
+                    ItemSelect();
+                }
             }
         }
 
         if (isControlInConfirm) {
             if (Input.GetKeyDown(KeyCode.Space) && timeSinceInput == 0) {
+                if (confirmationCursorIndex == 0) {
+                    YesConfirm();
+                }
                 BackToItemSelect();
+            } else if (Input.GetAxisRaw("Horizontal") == -1 && timeSinceInput == 0) {
+                MoveConfirmCursorLeft();
+                timeSinceInput = numCyclesBetweenInput;
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 1 && timeSinceInput == 0) {
+                MoveConfirmCursorRight();
+                timeSinceInput = numCyclesBetweenInput;
             }
         }
     }
@@ -122,9 +140,11 @@ public class DisplayInventory : MonoBehaviour
         description.GetComponent<UnityEngine.UI.Text>().text = "";
     }
     void SetDescriptionBox() {
-        string itemDescription = inventory.Container[itemCursorIndex].item.description;
-        GameObject descriptionText = inventoryUI.transform.GetChild(2).GetChild(0).gameObject;
-        descriptionText.GetComponent<UnityEngine.UI.Text>().text = itemDescription;
+        if (inventory.Container.Count > 0) {
+            string itemDescription = inventory.Container[itemCursorIndex].item.description;
+            GameObject descriptionText = inventoryUI.transform.GetChild(2).GetChild(0).gameObject;
+            descriptionText.GetComponent<UnityEngine.UI.Text>().text = itemDescription;
+        }
     }
 
     void UpdateDisplay() {
@@ -135,6 +155,18 @@ public class DisplayInventory : MonoBehaviour
                 GameObject entryI = itemEntries.transform.GetChild(i).gameObject;
                 entryI.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = itemName;
                 entryI.transform.GetChild(3).GetComponent<UnityEngine.UI.Text>().text = quantity.ToString();
+            }
+            for (int i = inventory.Container.Count; i < inventory.maxInventorySize; i++) {
+                GameObject entryI = itemEntries.transform.GetChild(i).gameObject;
+                entryI.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = false;
+                entryI.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = "";
+                entryI.transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "";
+                entryI.transform.GetChild(3).GetComponent<UnityEngine.UI.Text>().text = "";
+            }
+            if (itemCursorIndex < inventory.Container.Count) {
+                SetDescriptionBox();
+            } else {
+                ClearDescriptionBox();
             }
         }
     }
@@ -190,8 +222,21 @@ public class DisplayInventory : MonoBehaviour
         }
     }
 
+    void MoveConfirmCursorLeft() {
+        confirmationCursorIndex = 0;
+        confirmation.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = true;
+        confirmation.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false;
+    }
+
+    void MoveConfirmCursorRight() {
+        confirmationCursorIndex = 1;
+        confirmation.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = false;
+        confirmation.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = true;
+    }
+
     void InventoryOptionSelect() {
         inventoryOptions.transform.GetChild(optionsCursorIndex).GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = false;
+        SetSelectionMode();
         isControlInInventory = false;
         isControlInSlots = true;
         isControlInConfirm = false;
@@ -200,6 +245,22 @@ public class DisplayInventory : MonoBehaviour
             SetDescriptionBox();
         }
         timeSinceInput = numCyclesBetweenInput;
+    }
+
+    void SetSelectionMode() {
+        if (optionsCursorIndex == 0) {
+            isUseMode = true;
+            isDropMode = false;
+            isInfoMode = false;
+        } else if (optionsCursorIndex == 1) {
+            isUseMode = false;
+            isDropMode = true;
+            isInfoMode = false;
+        } else if (optionsCursorIndex == 2) {
+            isUseMode = false;
+            isDropMode = false;
+            isInfoMode = true;
+        }
     }
 
     void ItemSelect() {
@@ -211,6 +272,7 @@ public class DisplayInventory : MonoBehaviour
         confirmation.SetActive(true);
         confirmationCursorIndex = 0;
         confirmation.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().enabled = true;
+        confirmation.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false;
         timeSinceInput = numCyclesBetweenInput;
     }
 
@@ -219,6 +281,21 @@ public class DisplayInventory : MonoBehaviour
     //    isControlInInventory = false;
     //    isControlInSlots = true;
     //}
+
+    void YesConfirm() {
+        if (isUseMode && playerController != null) {
+            ItemObject itemToUse = inventory.Container[itemCursorIndex].item;
+            inventory.UseItem(itemToUse, playerController);
+        }
+        bool didRemoveItemCompletely = inventory.RemoveItem(itemCursorIndex);
+        if (didRemoveItemCompletely) {
+            if (itemCursorIndex > 0) {
+                itemCursorIndex -= 1;
+                itemEntries.transform.GetChild(itemCursorIndex).GetChild(1).GetComponent<UnityEngine.UI.Text>().text = ">";
+            }
+        }
+        UpdateDisplay();
+    }
 
     void BackToOptionSelect() {
         isControlInConfirm = false;
