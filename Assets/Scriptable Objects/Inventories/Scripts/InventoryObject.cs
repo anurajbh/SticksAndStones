@@ -32,6 +32,37 @@ public class InventoryObject : ScriptableObject
         }
         return false;
     }
+
+    public bool RemoveItem(int index) {
+        if (Container.Count > 0) {
+            Container[index].quantity -= 1;
+            if (Container[index].quantity == 0) {
+                Container.RemoveAt(index);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void UseItem(ItemObject item, GameObject playerController) {
+        PlayerStats stats = playerController.GetComponent<PlayerStats>();
+        if (item.type == ItemType.Will) {
+            float willChange = ((WillItem)item).willChange;
+            if (willChange < 0) {
+                stats.decreaseWill(willChange * -1.0f);
+            } else {
+                stats.increaseWill(willChange);
+            }
+        } else if (item.type == ItemType.Anxiety) {
+            float anxietyChange = ((AnxietyItem)item).anxietyChange;
+            if (anxietyChange < 0) {
+                stats.decreaseAnxiety(anxietyChange * -1.0f);
+            }
+            else {
+                stats.increaseAnxiety(anxietyChange);
+            }
+        }
+    }
 }
 
 [System.Serializable]

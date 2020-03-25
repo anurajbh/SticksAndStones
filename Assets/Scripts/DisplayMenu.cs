@@ -23,7 +23,7 @@ public class DisplayMenu : MonoBehaviour
     //private int scrollbarBottomIndex;
 
     private int timeSinceInput;
-    private int numCyclesBetweenInput = 45;
+    private int numCyclesBetweenInput = 35;
 
     // Start is called before the first frame update
     void Start() {
