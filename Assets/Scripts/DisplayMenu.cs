@@ -46,13 +46,13 @@ public class DisplayMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P)) {
             if (GameIsPaused && !IsInSelection) {
                 if (playerController != null) {
-                    playerController.transform.GetChild(0).GetComponent<PlayerMovement>().inMenu = false;
+                    playerController.GetComponent<PlayerMovement>().inMenu = false;
                 }
                 Resume();
             }
             else if (!GameIsPaused && !IsInSelection) {
                 if (playerController != null) {
-                    playerController.transform.GetChild(0).GetComponent<PlayerMovement>().inMenu = true;
+                    playerController.GetComponent<PlayerMovement>().inMenu = true;
                 }
                 Pause();
             }
