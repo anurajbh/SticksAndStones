@@ -37,19 +37,21 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
+            nPCAI.moreDialogue = false;
             EndDialogue();
             return;
         }
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         DialogueText.text = sentence;
-        DisplayNextSentence();
+        //DisplayNextSentence();
     }
 
     public void EndDialogue()

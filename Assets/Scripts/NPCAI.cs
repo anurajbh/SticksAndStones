@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCAI : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class NPCAI : MonoBehaviour
     public PlayerStats playerStats;
     public NPCEntity NPCEntity;
     public PlayerTurn playTurn;
+    public bool moreDialogue = true;
+    Image playerNav;
 
     void Awake()
     {
         NPCEntity = gameObject.GetComponent<NPCEntity>();
         playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
         playerTurn = GameObject.Find("PlayerNav").GetComponent<PlayerTurn>();
+        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -44,7 +48,8 @@ public class NPCAI : MonoBehaviour
                 break;
 
         }
-        //SwitchTurn();
+        moreDialogue = true;
+        playerNav.gameObject.SetActive(true);
     }
 
     public void SwitchTurn()
@@ -57,7 +62,10 @@ public class NPCAI : MonoBehaviour
     {
         if(!playerTurn.playerTurn)
         {
-            EnemyTurn();
+            if (!moreDialogue)
+            {
+                EnemyTurn();
+            }
         }
     }
 }

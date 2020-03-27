@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1406f5e204c50499fb1660d99492f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 689868376}
 --- !u!114 &689868376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,8 +665,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2ab59313181bd4f83c7b9cf821348b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inMenu: 0
   walkSpeed: 2
-  hasMoved: 0
+  movePoint: {fileID: 0}
+  whatStopsYou:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1418586010
 MonoBehaviour:
   m_ObjectHideFlags: 0

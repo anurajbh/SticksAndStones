@@ -13,20 +13,22 @@ public class PlayerTurn : MonoBehaviour
     Button hurt;
     Button consume;
     Button protect;
-    Button doNothing;
+    Button run;
     Button Continue;
     public bool playerTurn = true;
+    Image playerNav;
 
-    //DialogueManager dialogueManager;
+    DialogueManager dialogueManager;
 
     void Awake()
     {
         hurt = GameObject.Find("Hurt").GetComponent<Button>();
         consume = GameObject.Find("Consume").GetComponent<Button>();
         protect = GameObject.Find("Protect").GetComponent<Button>();
-        doNothing = GameObject.Find("Run").GetComponent<Button>();
-        //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        run = GameObject.Find("Run").GetComponent<Button>();
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         Continue = GameObject.Find("Continue").GetComponent<Button>();
+        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,8 @@ public class PlayerTurn : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Z))
         {
-            Continue.onClick.Invoke();
+            //Continue.onClick.Invoke();
+            dialogueManager.DisplayNextSentence();
         }
 
     }
@@ -51,25 +54,29 @@ public class PlayerTurn : MonoBehaviour
             case 0:
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
+                    playerNav.gameObject.SetActive(false);
                     hurt.onClick.Invoke();
                 }
                 break;
             case 1:
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
+                    playerNav.gameObject.SetActive(false);
                     consume.onClick.Invoke();
                 }
                 break;
             case 2:
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
+                    playerNav.gameObject.SetActive(false);
                     consume.onClick.Invoke();
                 }
                 break;
             case 3:
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    doNothing.onClick.Invoke();
+                    playerNav.gameObject.SetActive(false);
+                    run.onClick.Invoke();
                 }
                 break;
             default:
