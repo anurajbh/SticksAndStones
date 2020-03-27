@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3270e3164240e8459f39fb628878951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 53934955}
+  playerController: {fileID: 959469100}
   isControlInInventory: 0
   isControlInSlots: 0
   isControlInConfirm: 0
@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc999f6cb9fd344d83b3a3475107030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 1405260555}
   menuItemsUI: {fileID: 1935703342}
   inventoryUI: {fileID: 548532779}
 --- !u!1 &593225624
