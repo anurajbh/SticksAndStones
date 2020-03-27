@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisplayMenu : MonoBehaviour
 {
-    public GameObject playerController;
+    public GameObject playerBody;
 
     public static bool GameIsPaused = false;
     public static bool IsInSelection = false;
@@ -26,7 +26,7 @@ public class DisplayMenu : MonoBehaviour
     private int numCyclesBetweenInput = 35;
 
     // Start is called before the first frame update
-    void Start() {
+    void Awaket() {
         Resume();
         //itemEntries = inventoryUI.transform.GetChild(1).GetChild(0).gameObject;
         //scrollbar = inventoryUI.transform.GetChild(3).gameObject;
@@ -36,7 +36,7 @@ public class DisplayMenu : MonoBehaviour
         cursorIndex = 0;
         //ResetScrollbar();
         timeSinceInput = 0;
-
+        playerBody = GameObject.Find("Body");
     }
 
     // Update is called once per frame
@@ -45,14 +45,14 @@ public class DisplayMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P)) {
             if (GameIsPaused && !IsInSelection) {
-                if (playerController != null) {
-                    playerController.GetComponent<PlayerMovement>().inMenu = false;
+                if (playerBody != null) {
+                    playerBody.GetComponent<PlayerMovement>().inMenu = false;
                 }
                 Resume();
             }
             else if (!GameIsPaused && !IsInSelection) {
-                if (playerController != null) {
-                    playerController.GetComponent<PlayerMovement>().inMenu = true;
+                if (playerBody != null) {
+                    playerBody.GetComponent<PlayerMovement>().inMenu = true;
                 }
                 Pause();
             }
