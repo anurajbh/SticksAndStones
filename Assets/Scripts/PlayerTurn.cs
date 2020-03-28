@@ -18,7 +18,7 @@ public class PlayerTurn : MonoBehaviour
     public bool playerTurn = true;
     Image playerNav;
 
-    DialogueManager dialogueManager;
+    //DialogueManager dialogueManager;
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerTurn : MonoBehaviour
         consume = GameObject.Find("Consume").GetComponent<Button>();
         protect = GameObject.Find("Protect").GetComponent<Button>();
         run = GameObject.Find("Run").GetComponent<Button>();
-        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         Continue = GameObject.Find("Continue").GetComponent<Button>();
         playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
     }
@@ -39,11 +39,11 @@ public class PlayerTurn : MonoBehaviour
             ScrollThroughOptions();
             CheckForKeyInput();
         }
-        else if(Input.GetKeyDown(KeyCode.Z))
+        /*else if(Input.GetKeyDown(KeyCode.Z))
         {
-            //Continue.onClick.Invoke();
-            dialogueManager.DisplayNextSentence();
-        }
+            Continue.onClick.Invoke();
+            //dialogueManager.DisplayNextSentence();
+        }*/
 
     }
 
