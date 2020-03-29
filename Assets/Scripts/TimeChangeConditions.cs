@@ -9,6 +9,8 @@ public class TimeChangeConditions : MonoBehaviour
     public List<bool> spokenTo;
     public int ctr = 0;
     public int max = 0;
+    static int i = 0;
+    static int j = 0;
     private void Update()
     {
         CheckForConditions();
@@ -16,32 +18,37 @@ public class TimeChangeConditions : MonoBehaviour
 
     private void CheckForConditions()
     {
-        for(int i =0; i <= spokenTo.Count; i++)
+        while(i <= spokenTo.Count)
         {
             if (spokenTo[i])
             {
-                max++;
+                max++;//incrementing for each character spoken to
             }
-
+            i++;
         }
-        for(int i = 0; i <= max; i++)
+        //is there a better way of doing this than two loops- this seems computationally inefficient?
+        while (j <= max)//allowing ctr to move between 0, 1, 2 and 3 for each spokenTo
         {
-            if (ctr == 0)
+            switch (ctr)
             {
-                timeProgression.myCycle = TimeProgression.cycle.dawn;
+                case 0:
+                    timeProgression.myCycle = TimeProgression.cycle.dawn;
+                    break;
+                case 1:
+                    timeProgression.myCycle = TimeProgression.cycle.noon;
+                    break;
+                case 2:
+                    timeProgression.myCycle = TimeProgression.cycle.dusk;
+                    break;
+                case 3:
+                    timeProgression.myCycle = TimeProgression.cycle.night;
+                    break;
+                default:
+                    ctr = 0;
+                    break;
             }
-            else if (ctr == 1)
-            {
-                timeProgression.myCycle = TimeProgression.cycle.noon;
-            }
-            else if (ctr == 2)
-            {
-                timeProgression.myCycle = TimeProgression.cycle.dusk;
-            }
-            else if (ctr == 3)
-            {
-                timeProgression.myCycle = TimeProgression.cycle.night;
-            }
+            ctr++;
+            j++;
         }
        
     }
