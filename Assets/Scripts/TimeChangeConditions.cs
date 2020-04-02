@@ -13,7 +13,7 @@ public class TimeChangeConditions : MonoBehaviour
     static int j = 0;
     private void Update()
     {
-        CheckForConditions();
+        //CheckForConditions();
     }
 
     private void CheckForConditions()

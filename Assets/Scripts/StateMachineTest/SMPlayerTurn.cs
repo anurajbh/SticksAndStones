@@ -16,7 +16,7 @@ public class SMPlayerTurn : MonoBehaviour
     Button button3;
     Button Continue;
     Image playerNav;
-    PlayerStats player;
+    SMPlayerStats player;
     PanelScript attack;
     PanelScript skills;
     PanelScript items;
@@ -25,7 +25,7 @@ public class SMPlayerTurn : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
         //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         Continue = GameObject.Find("Continue").GetComponent<Button>();
         playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();

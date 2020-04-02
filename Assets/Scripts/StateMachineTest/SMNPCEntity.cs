@@ -9,6 +9,7 @@ public class SMNPCEntity : MonoBehaviour
     int health = 10;
     readonly int maxHealth = 10;
     SMPlayerStats player;
+    public bool spokenTo = false;
 
     private void Awake()
     {
