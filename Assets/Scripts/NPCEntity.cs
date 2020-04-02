@@ -5,7 +5,8 @@ using UnityEngine;
 public class NPCEntity : MonoBehaviour
 {
     public float entityStat1 = 50;//placeholder stat
-    public float entityStat2 = 50;//placeholder stat
+    public float entityStat2 = 4;
+    public float health = 50;
     public float npcAnxietyAffect = 10;//damage value 1
     public float npcWillAffect = 10;//damage value 2
     public float npcHeal = 10;

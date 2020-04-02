@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public float anxiety = 50;
-    public float will = 50;
+    public float anxiety = 3f;
+    public float intrinsicW = 15f;
+    public float ambientW = 0;
+    public bool day = true;
     public float playerDPS1 = 10;//placeholder name for attack1
     public float playerDPS2 = 10;//placeholder name for attack2
+    public Transitions.Process state = new Transitions.Process();
+
+    private void Update()
+    {
+        if (anxiety >= 6)
+        {
+            panicAttack();
+        }
+    }
+
     public void increaseAnxiety(float amount)
     {
         anxiety += amount;
@@ -15,7 +27,7 @@ public class PlayerStats : MonoBehaviour
 
     public void increaseWill(float amount)
     {
-        will += amount;
+        ambientW += amount;
     }
 
     public void decreaseAnxiety(float amount)
@@ -25,7 +37,37 @@ public class PlayerStats : MonoBehaviour
 
     public void decreaseWill(float amount)
     {
-        will -= amount;
+        if (ambientW > amount)
+        {
+            ambientW -= amount;
+        }
+        else
+        {
+            amount -= ambientW;
+            intrinsicW -= amount;
+        }
+    }
+
+    private void panicAttack()
+    {
+        if (day)
+        {
+            ambientW = 0;
+        }
+        else
+        {
+            //disable all skills
+        }
+    }
+
+    public void switchState(Transitions.Command command)
+    {
+        state.MoveNext(command);
+    }
+
+    public Transitions.ProcessState getState()
+    {
+        return state.CurrentState;
     }
 }
 
