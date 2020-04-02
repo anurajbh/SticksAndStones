@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
     public float anxiety = 3f;
     public float intrinsicW = 15f;
     public float ambientW = 0;
+    public float will = 5f;
     public bool day = true;
     public float playerDPS1 = 10;//placeholder name for attack1
     public float playerDPS2 = 10;//placeholder name for attack2
@@ -14,6 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
+        will = intrinsicW + ambientW;
         if (anxiety >= 6)
         {
             panicAttack();

@@ -104,6 +104,7 @@ RectTransform:
   - {fileID: 761585252}
   - {fileID: 541935027}
   - {fileID: 771800028}
+  - {fileID: 880949469}
   m_Father: {fileID: 1402839152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,6 +309,104 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &880949468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880949469}
+  - component: {fileID: 880949472}
+  - component: {fileID: 880949471}
+  - component: {fileID: 880949470}
+  m_Layer: 5
+  m_Name: AnxietyBracelet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &880949469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880949468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 585396077}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.202, y: 0.01}
+  m_SizeDelta: {x: 1.067, y: 1.002}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &880949472
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880949468}
+  m_CullTransparentMesh: 0
+--- !u!114 &880949471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880949468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5eb94379c596e44f0a959c30d8e7a03b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &880949470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880949468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9064a3cbea98a4cd0841b1224175897c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Anxiety1: {fileID: 21300000, guid: 113fe4b7967634a31bea5fa3b7f3ab90, type: 3}
+  Anxiety2: {fileID: 21300000, guid: 24367d67893cc4298adbfbaebc67c831, type: 3}
+  Anxiety3: {fileID: 21300000, guid: 5eb94379c596e44f0a959c30d8e7a03b, type: 3}
+  Anxiety4: {fileID: 21300000, guid: 1cb18efc17e28486ea69eacd27d69854, type: 3}
+  Anxiety5: {fileID: 21300000, guid: 62f8c4d5b49f147cbae477099c9e9aa7, type: 3}
+  Anxiety6: {fileID: 21300000, guid: 4577fe38fb43e4a50a348262e7f85de7, type: 3}
+  Anxiety7: {fileID: 21300000, guid: 177f0ec105ba44c75b75ba2c4231d67c, type: 3}
+  Anxiety8: {fileID: 21300000, guid: e27e4d872aa44441c921579e44fe9fec, type: 3}
+  Anxiety9: {fileID: 21300000, guid: 128b8d797ca86477994457895eec748a, type: 3}
+  Anxiety10: {fileID: 21300000, guid: ebc9629543842409a94ff75cfa56d630, type: 3}
+  playerStats: {fileID: 0}
+  anxietyLevel: 0
 --- !u!1 &1402839147
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 8.400002, y: -4.76}
+  m_AnchoredPosition: {x: 11.65, y: 0.45}
   m_SizeDelta: {x: 176.95, y: 66.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1402839151
@@ -421,7 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WillSlider: {fileID: 585396076}
-  AnxietySlider: {fileID: 0}
   playerStats: {fileID: 0}
 --- !u!1 &1171424828767677890
 GameObject:
