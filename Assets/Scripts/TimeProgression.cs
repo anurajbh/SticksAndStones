@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeProgression : MonoBehaviour
 {
-    DayNight dayNight;
+    public DayNight dayNight;
     public enum cycle
     {
         dawn, noon, dusk, night
@@ -32,4 +32,8 @@ public class TimeProgression : MonoBehaviour
         }
     }
 
+    public cycle GetTime()
+    {
+        return myCycle;
+    }
 }

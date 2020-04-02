@@ -13,20 +13,24 @@ public class PlayerTurn : MonoBehaviour
     Button hurt;
     Button consume;
     Button protect;
-    Button doNothing;
+    Button run;
     Button Continue;
     public bool playerTurn = true;
+    Image playerNav;
+    bool switched = false;
 
     //DialogueManager dialogueManager;
 
     void Awake()
     {
+
         hurt = GameObject.Find("Hurt").GetComponent<Button>();
         consume = GameObject.Find("Consume").GetComponent<Button>();
         protect = GameObject.Find("Protect").GetComponent<Button>();
-        doNothing = GameObject.Find("Run").GetComponent<Button>();
+        run = GameObject.Find("Run").GetComponent<Button>();
         //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         Continue = GameObject.Find("Continue").GetComponent<Button>();
+        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -37,43 +41,83 @@ public class PlayerTurn : MonoBehaviour
             ScrollThroughOptions();
             CheckForKeyInput();
         }
-        else if(Input.GetKeyDown(KeyCode.Z))
+        /*else if(Input.GetKeyDown(KeyCode.Z))
         {
             Continue.onClick.Invoke();
-        }
+            //dialogueManager.DisplayNextSentence();
+        }*/
 
     }
 
     private void CheckForKeyInput()
     {
-        switch (index)
+        if (!switched)
         {
-            case 0:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    hurt.onClick.Invoke();
-                }
-                break;
-            case 1:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    consume.onClick.Invoke();
-                }
-                break;
-            case 2:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    consume.onClick.Invoke();
-                }
-                break;
-            case 3:
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    doNothing.onClick.Invoke();
-                }
-                break;
-            default:
-                break;
+            switch (index)
+            {
+                case 0:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        hurt.onClick.Invoke();
+                        switched = true;
+                    }
+                    break;
+                case 1:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        consume.onClick.Invoke();
+                        switched = true;
+                    }
+                    break;
+                case 2:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        consume.onClick.Invoke();
+                        switched = true;
+                    }
+                    break;
+                case 3:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        run.onClick.Invoke();
+                        switched = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else
+        {
+            switch (index)
+            {
+                case 0:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        hurt.onClick.Invoke(); //figure out a way to check which panel is up
+                        //implement this fuckingn state machine already
+                    }
+                    break;
+                case 1:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        consume.onClick.Invoke();
+                    }
+                    break;
+                case 2:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        consume.onClick.Invoke();
+                    }
+                    break;
+                case 3:
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        run.onClick.Invoke();
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

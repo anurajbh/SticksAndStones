@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9064a3cbea98a4cd0841b1224175897c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
   Anxiety1: {fileID: 21300000, guid: 113fe4b7967634a31bea5fa3b7f3ab90, type: 3}
   Anxiety2: {fileID: 21300000, guid: 24367d67893cc4298adbfbaebc67c831, type: 3}
   Anxiety3: {fileID: 21300000, guid: 5eb94379c596e44f0a959c30d8e7a03b, type: 3}
@@ -219,8 +220,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880949468}
   m_CullTransparentMesh: 0
---- !u!1001 &1169749974
-PrefabInstance:
+--- !u!1 &1418586007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3767902320876022043, guid: e23edf4f4dd5dc74d9b42fad0f4ff70c,
+    type: 3}
+  m_PrefabInstance: {fileID: 133659095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418586009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418586007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2ab59313181bd4f83c7b9cf821348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inMenu: 0
+  walkSpeed: 2
+  movePoint: {fileID: 0}
+  whatStopsYou:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1418586010
+MonoBehaviour:
+
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
