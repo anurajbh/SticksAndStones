@@ -11,6 +11,7 @@ public class SMNPCEntity : MonoBehaviour
     SMPlayerStats player;
     public bool spokenTo = false;
 
+
     private void Awake()
     {
         player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();

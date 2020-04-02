@@ -16,7 +16,9 @@ public class SMPlayerTurn : MonoBehaviour
     Button button3;
     Button Continue;
     Image playerNav;
+
     SMPlayerStats player;
+
     PanelScript attack;
     PanelScript skills;
     PanelScript items;

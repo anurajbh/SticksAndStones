@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeChangeConditions : MonoBehaviour
 {
-    TimeProgression timeProgression;
+    public TimeProgression timeProgression;
     public List<bool> spokenTo;
     public int ctr = 0;
     public int max = 0;
