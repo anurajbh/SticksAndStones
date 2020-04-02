@@ -14,9 +14,7 @@ public class DialogueManager : MonoBehaviour
     PanelScript Speech;
     private Queue<string> sentences = new Queue<string>();
     NPCAI nPCAI;
-    Image playerNav;
-    public bool moreDialogue = false;
-    
+    // Start is called before the first frame update
     void Awake()
     {
         Options = GameObject.Find("Options").GetComponent<PanelScript>();
@@ -24,21 +22,12 @@ public class DialogueManager : MonoBehaviour
         NameText = GameObject.Find("Name").GetComponent<Text>();
         DialogueText = GameObject.Find("Dialogue").GetComponent<Text>();
         nPCAI = GameObject.Find("NPC").GetComponent<NPCAI>();
-        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
-    }
-
-    private void Update()
-    {
-        if (moreDialogue && Input.GetKeyDown(KeyCode.Z)) {
-            DisplayNextSentence();
-        }
     }
 
     public void startDialogue(Dialogue dialogue)
     {
         Options.GetComponent<PanelScript>().hide();
         Speech.GetComponent<PanelScript>().show();
-        playerNav.gameObject.SetActive(false);
         NameText.text = dialogue.name;
         Debug.Log("Started " + dialogue.name + "'s dialogue");
 
@@ -48,31 +37,26 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-        moreDialogue = true;
-        DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
-            moreDialogue = false;
             EndDialogue();
             return;
         }
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         DialogueText.text = sentence;
-        //DisplayNextSentence();
+        DisplayNextSentence();
     }
 
     public void EndDialogue()
     {
-        nPCAI.EnemyTurn();
         nPCAI.SwitchTurn();
         Speech.GetComponent<PanelScript>().hide();
         Options.GetComponent<PanelScript>().show();
-        playerNav.gameObject.SetActive(true);
         Debug.Log("End of Dialogue");
     }
 
