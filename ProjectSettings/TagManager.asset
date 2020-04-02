@@ -8,10 +8,6 @@ TagManager:
   - PlayerBody
   - ItemEntries
   - Item
-  - Button0
-  - Button1
-  - Button2
-  - Button3
   layers:
   - Default
   - TransparentFX
