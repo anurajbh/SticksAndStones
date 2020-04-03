@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelScript : MonoBehaviour
 {
@@ -8,11 +9,11 @@ public class PanelScript : MonoBehaviour
 
     public void hide()
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Image>().enabled = false;
     }
 
     public void show()
     {
-        gameObject.SetActive(true);
+        gameObject.GetComponent<Image>().enabled = true;
     }
 }

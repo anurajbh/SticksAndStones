@@ -18,39 +18,43 @@ public class AnxietyStats : MonoBehaviour
 
     public PlayerStats playerStats;
 
-    public float anxietyLevel; 
+    public float anxietyLevel;
     // Update is called once per frame
+    private void Awake()
+    {
+        playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+    }
     private void Update()
     {
     	anxietyLevel = playerStats.anxiety;
-        if (anxietyLevel == 10) {
+        if (anxietyLevel == 1) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety1;
         }   
-        else if (anxietyLevel == 20) {
+        else if (anxietyLevel == 2) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety2;
         }
-        else if (anxietyLevel == 30) {
+        else if (anxietyLevel == 3) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety3;
         }    
-        else if (anxietyLevel == 40) {
+        else if (anxietyLevel == 4) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety4;
         } 
-        else if (anxietyLevel == 50) {
+        else if (anxietyLevel == 5) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety5;
         } 
-        else if (anxietyLevel == 60) {
+        else if (anxietyLevel == 6) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety6;
         } 
-        else if (anxietyLevel == 70) {
+        else if (anxietyLevel == 7) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety7;
         } 
-        else if (anxietyLevel == 80) {
+        else if (anxietyLevel == 8) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety8;
         } 
-        else if (anxietyLevel == 90) {
+        else if (anxietyLevel == 9) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety9;
         } 
-        else if (anxietyLevel == 100) {
+        else if (anxietyLevel == 10) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety10;
         } 
     }

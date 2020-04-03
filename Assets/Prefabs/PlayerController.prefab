@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579722bf106c70c4684bc3b11b88ce48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxiety: 50
+  anxiety: 3
+  intrinsicW: 15
+  ambientW: 0
   will: 50
+  day: 1
   playerDPS1: 10
   playerDPS2: 10
 --- !u!1 &1210520976594384609
