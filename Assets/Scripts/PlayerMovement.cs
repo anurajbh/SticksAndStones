@@ -40,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("West", true);
                 animator.SetBool("East", false);
             }
+            else
+            {
+                animator.SetBool("West", false);
+                animator.SetBool("East", false);
+            }
         }
         else if (Math.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 0f)
         {
@@ -53,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             else if (CrossPlatformInputManager.GetAxisRaw("Vertical") < 0f)
             {
                 animator.SetBool("South", true);
+                animator.SetBool("North", false);
+            }
+            else
+            {
+                animator.SetBool("South", false);
                 animator.SetBool("North", false);
             }
         }
