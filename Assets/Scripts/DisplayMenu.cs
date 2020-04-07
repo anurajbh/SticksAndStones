@@ -26,7 +26,7 @@ public class DisplayMenu : MonoBehaviour
     private int numCyclesBetweenInput = 35;
 
     // Start is called before the first frame update
-    void Awaket() {
+    void Awake() {
         Resume();
         //itemEntries = inventoryUI.transform.GetChild(1).GetChild(0).gameObject;
         //scrollbar = inventoryUI.transform.GetChild(3).gameObject;
