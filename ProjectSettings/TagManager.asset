@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Target
   - PlayerBody
+  - ItemEntries
+  - Item
+  - NPC
+  - Button0
+  - Button3
+  - Button1
+  - Button2
+  - Lamp
   layers:
   - Default
   - TransparentFX
@@ -15,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Colliders
   - 
   - 
   - 
