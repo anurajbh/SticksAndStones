@@ -9,11 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044410726919011762}
-<<<<<<< HEAD
   - component: {fileID: 7469299949497640595}
-=======
-  - component: {fileID: 959469102}
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
   m_Layer: 0
   m_Name: Elle
   m_TagString: Player
@@ -37,11 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!114 &7469299949497640595
-=======
---- !u!114 &959469102
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +42,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6044410726919011760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 579722bf106c70c4684bc3b11b88ce48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -61,15 +52,6 @@ MonoBehaviour:
   day: 1
   playerDPS1: 10
   playerDPS2: 10
-=======
-  m_Script: {fileID: 11500000, guid: 2645e1f006d24d642b62cbd0b40e0f21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anxiety: 3
-  ambientW: 15
-  intrinsicW: 0
-  will: 15
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
 --- !u!1 &6044410727442624616
 GameObject:
   m_ObjectHideFlags: 0

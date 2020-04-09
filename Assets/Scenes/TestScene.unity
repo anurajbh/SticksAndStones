@@ -273,7 +273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124392601
 GameObject:
@@ -449,7 +449,7 @@ Transform:
   - {fileID: 593225625}
   - {fileID: 1914261765}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &184262028
 GameObject:
@@ -759,7 +759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515350389
 GameObject:
@@ -1416,7 +1416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &741560569
 MonoBehaviour:
@@ -2217,7 +2217,7 @@ Transform:
   m_Children:
   - {fileID: 1595838068}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405260555 stripped
 GameObject:
@@ -2397,7 +2397,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 56b5872f1e9269844b75e9cd45a3904b, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4014,27 +4014,11 @@ PrefabInstance:
     - target: {fileID: 880949470, guid: ce722045cc253b14cad0f84148c05dfb, type: 3}
       propertyPath: playerStats
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 3767902321896803599}
     - target: {fileID: 1402839148, guid: ce722045cc253b14cad0f84148c05dfb, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 3767902321896803599}
-=======
-<<<<<<< Updated upstream
-      objectReference: {fileID: 959469102}
-    - target: {fileID: 1402839148, guid: ce722045cc253b14cad0f84148c05dfb, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 959469102}
-=======
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402839148, guid: ce722045cc253b14cad0f84148c05dfb, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 0}
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
     - target: {fileID: 1171424828767677758, guid: ce722045cc253b14cad0f84148c05dfb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4073,7 +4057,7 @@ PrefabInstance:
     - target: {fileID: 1171424828767677758, guid: ce722045cc253b14cad0f84148c05dfb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1171424828767677758, guid: ce722045cc253b14cad0f84148c05dfb,
         type: 3}
@@ -4097,7 +4081,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce722045cc253b14cad0f84148c05dfb, type: 3}
-<<<<<<< HEAD
 --- !u!114 &3767902321896803599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7469299949497640595, guid: fccfd4795f3918346a17eba6f61da57b,
@@ -4111,13 +4094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4159990654151849719
-=======
-<<<<<<< Updated upstream
---- !u!1001 &1210520976970165525
-=======
---- !u!1001 &4159990654151849719
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4167,15 +4143,7 @@ PrefabInstance:
     - target: {fileID: 4159990654320212813, guid: 2f091a3a676fec44fbf3032cc15bb527,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 8
-=======
-<<<<<<< Updated upstream
-      value: 3
-=======
-      value: 9
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
       objectReference: {fileID: 0}
     - target: {fileID: 4159990654320212813, guid: 2f091a3a676fec44fbf3032cc15bb527,
         type: 3}
@@ -4244,15 +4212,7 @@ PrefabInstance:
     - target: {fileID: 6044410726919011762, guid: fccfd4795f3918346a17eba6f61da57b,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-<<<<<<< Updated upstream
-      value: 8
-=======
-      value: 4
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
       objectReference: {fileID: 0}
     - target: {fileID: 6044410726919011762, guid: fccfd4795f3918346a17eba6f61da57b,
         type: 3}
@@ -4270,84 +4230,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: fccfd4795f3918346a17eba6f61da57b, type: 3}
-=======
-<<<<<<< Updated upstream
-  m_SourcePrefab: {fileID: 100100000, guid: 2f091a3a676fec44fbf3032cc15bb527, type: 3}
-=======
-  m_SourcePrefab: {fileID: 100100000, guid: fccfd4795f3918346a17eba6f61da57b, type: 3}
---- !u!1001 &7652780136709262853
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9430289
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.6110961
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.984375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323834, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064463090996323836, guid: e8a37657661fe14408e3c3549c2bb642,
-        type: 3}
-      propertyPath: m_Name
-      value: Time
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8a37657661fe14408e3c3549c2bb642, type: 3}
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
 --- !u!1001 &7663904981374291661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4403,7 +4286,7 @@ PrefabInstance:
     - target: {fileID: 7663904980786336171, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7663904980786336171, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}

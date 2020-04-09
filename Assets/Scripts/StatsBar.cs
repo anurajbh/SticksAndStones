@@ -10,15 +10,7 @@ public class StatsBar : MonoBehaviour
     public SMPlayerStats playerStats;
     private void Awake()
     {
-<<<<<<< HEAD
         playerStats = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
-=======
-<<<<<<< Updated upstream
-        playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
-=======
-        playerStats = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
->>>>>>> Stashed changes
->>>>>>> parent of 441c890... Revert "Time prefab for DayNight cycle, updates to Elle and PlayerController"
         SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
     }
