@@ -7,10 +7,10 @@ public class StatsBar : MonoBehaviour
 {
     public Slider WillSlider;
     //public Slider AnxietySlider;
-    public PlayerStats playerStats;
+    public SMPlayerStats playerStats;
     private void Awake()
     {
-        playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+        playerStats = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
         SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
     }

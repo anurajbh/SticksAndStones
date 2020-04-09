@@ -17,6 +17,7 @@ public class SMPlayerStats : MonoBehaviour
     readonly int maxIntrinsic = 15;
     bool overloaded = false;
     bool panic = false;
+    public int will = 15;
     Transitions.Process state = new Transitions.Process();
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class SMPlayerStats : MonoBehaviour
     {
         Time = GameObject.Find("Time").GetComponent<TimeProgression>();
         time = Time.GetTime();
+        will = ambientW + intrinsicW;
     }
 
     // Update is called once per frame
