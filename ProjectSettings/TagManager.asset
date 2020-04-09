@@ -9,6 +9,11 @@ TagManager:
   - ItemEntries
   - Item
   - NPC
+  - Button0
+  - Button3
+  - Button1
+  - Button2
+  - Lamp
   layers:
   - Default
   - TransparentFX
