@@ -13,7 +13,7 @@ public class TimeProgression : MonoBehaviour
     public cycle myCycle;
     private void Awake()
     {
-        myCycle = cycle.dawn;
+        dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();
     }
     private void Update()
     {
@@ -22,11 +22,19 @@ public class TimeProgression : MonoBehaviour
 
     private void CheckForTimeChange()
     {
-        if (myCycle == cycle.dawn || myCycle == cycle.noon)
+        if (myCycle == cycle.dawn)
+        {
+            dayNight.DawnTime();
+        }
+        else if(myCycle == cycle.noon)
         {
             dayNight.DayTime();
         }
-        else if(myCycle == cycle.dusk || myCycle == cycle.night)
+        else if (myCycle == cycle.dusk)
+        {
+            dayNight.DuskTime();
+        }
+        else if(myCycle == cycle.night)
         {
             dayNight.NightTime();
         }

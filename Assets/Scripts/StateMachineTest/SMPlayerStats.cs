@@ -9,7 +9,7 @@ public class SMPlayerStats : MonoBehaviour
 
     TimeProgression.cycle time;
     TimeProgression Time;
-    int anxiety = 3;
+    public int anxiety = 3;
     readonly int maxAnxiety = 10;
     int ambientW = 15;
     int intrinsicW = 0;
@@ -17,13 +17,15 @@ public class SMPlayerStats : MonoBehaviour
     readonly int maxIntrinsic = 15;
     bool overloaded = false;
     bool panic = false;
+    public int will = 15;
     Transitions.Process state = new Transitions.Process();
 
     // Start is called before the first frame update
     void Awake()
     {
-        Time = GameObject.Find("Time").GetComponent<TimeProgression>();
+        Time = GameObject.FindWithTag("Time").GetComponent<TimeProgression>();
         time = Time.GetTime();
+        will = ambientW + intrinsicW;
     }
 
     // Update is called once per frame
