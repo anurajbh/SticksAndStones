@@ -9,10 +9,10 @@ public class SMPlayerStats : MonoBehaviour
 
     TimeProgression.cycle time;
     TimeProgression Time;
-    int anxiety = 3;
+    public int anxiety = 3;
     readonly int maxAnxiety = 10;
-    int ambientW = 15;
-    int intrinsicW = 0;
+    public int ambientW = 15;
+    public int intrinsicW = 0;
     readonly int maxAmbient = 10;
     readonly int maxIntrinsic = 15;
     bool overloaded = false;
