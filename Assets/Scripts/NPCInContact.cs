@@ -2,10 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPCInContact : MonoBehaviour
 {
+    SMPlayerStats player;
     public bool CanBeSpokenTo = false;
+    private void Awake()
+    {
+        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("NPC"))
@@ -30,7 +37,8 @@ public class NPCInContact : MonoBehaviour
 
     private void SpeakToNPC()
     {
-        print("Hello fellow sprite!");
-        //trigger dialogue system
+        print("Start battle");
+        player.switchState(Transitions.Command.startBattle);
+        SceneManager.LoadScene("Combat");
     }
 }
