@@ -22,19 +22,11 @@ public class TimeProgression : MonoBehaviour
 
     private void CheckForTimeChange()
     {
-        if (myCycle == cycle.dawn)
-        {
-            dayNight.DawnTime();
-        }
-        else if (myCycle == cycle.noon)
+        if (myCycle == cycle.dawn || myCycle == cycle.noon)
         {
             dayNight.DayTime();
         }
-        else if (myCycle == cycle.dusk)
-        {
-            dayNight.DuskTime();
-        }
-        else if (myCycle == cycle.night)
+        else if(myCycle == cycle.dusk || myCycle == cycle.night)
         {
             dayNight.NightTime();
         }

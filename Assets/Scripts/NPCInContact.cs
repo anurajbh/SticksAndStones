@@ -6,14 +6,6 @@ using UnityEngine;
 public class NPCInContact : MonoBehaviour
 {
     public bool CanBeSpokenTo = false;
-<<<<<<< Updated upstream
-=======
-    private void Awake()
-    {
-        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
-    }
-
->>>>>>> Stashed changes
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("NPC"))

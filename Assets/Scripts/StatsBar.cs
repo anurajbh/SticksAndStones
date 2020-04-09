@@ -10,11 +10,7 @@ public class StatsBar : MonoBehaviour
     public PlayerStats playerStats;
     private void Awake()
     {
-<<<<<<< Updated upstream
         playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
-=======
-        playerStats = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
->>>>>>> Stashed changes
         SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
     }
