@@ -10,7 +10,7 @@ public class StatsBar : MonoBehaviour
     public SMPlayerStats playerStats;
     private void Awake()
     {
-        playerStats = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        playerStats = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
     }
