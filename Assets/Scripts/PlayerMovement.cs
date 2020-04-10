@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform movePoint;
     public LayerMask whatStopsYou;
     public Animator animator;
+	public static bool teleporting = false;
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
