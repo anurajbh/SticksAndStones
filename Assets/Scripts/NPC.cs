@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class NPC : MonoBehaviour
 {
-    protected SMPlayerStats player;
-    protected SMNPCEntity enemy;
+    protected PlayerStats player;
+    protected NPCEntity enemy;
     public string[][] interaction;
 
     public abstract (int, int) Use(string moveName);

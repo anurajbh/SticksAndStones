@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Charlotte : NPC
 {
-    SMDialogueTrigger trigger;
-    SMPlayerTurn playerTurn;
+    DialogueTrigger trigger;
+    PlayerTurn playerTurn;
     int eventCounter = 1;
     int dialogueCounter = 1;
     private bool convo = false;
@@ -20,10 +20,10 @@ public class Charlotte : NPC
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
-        enemy = GameObject.FindWithTag("NPC").GetComponent<SMNPCEntity>();
-        trigger = GetComponent<SMDialogueTrigger>();
-        playerTurn = GameObject.FindWithTag("Player").GetComponent<SMPlayerTurn>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        //enemy = GameObject.FindWithTag("NPC").GetComponent<NPCEntity>();
+        trigger = GetComponent<DialogueTrigger>();
+        playerTurn = GameObject.FindWithTag("Player").GetComponent<PlayerTurn>();
         parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
     }
 
@@ -49,21 +49,25 @@ public class Charlotte : NPC
                         trigger.dialogue = new Dialogue("Charlotte", toSay);
                         if (eventSelect[dialogueName].Item2)
                         {
-                            SMDialogueTrigger.turn = 1;
+                            DialogueManager.calledBy = DialogueManager.Caller.regDialogue;
                         }
                         else
                         {
-                            SMDialogueTrigger.turn = 0;
+                            DialogueManager.calledBy = DialogueManager.Caller.nar;
                             dialogueCounter++;
                         }
                         player.switchState(Transitions.Command.enterConvo);
                         break;
                     case Transitions.ProcessState.dialogueChoice:
                         dialogueChoice = playerTurn.CheckForChoice();
-                        dialogueName = dialogueName + dialogueChoice;
+                        if (dialogueCounter <= 2)
+                        {
+                            dialogueName = dialogueName + dialogueChoice;
+                        }
+                        print(dialogueName);
                         toSay = eventSelect[dialogueName].Item1;
                         trigger.dialogue = new Dialogue("Charlotte", toSay);
-                        SMDialogueTrigger.turn = 0;
+                        DialogueManager.calledBy = DialogueManager.Caller.nar;
                         dialogueCounter++;
                         player.switchState(Transitions.Command.makeChoice);
                         break;
@@ -79,7 +83,7 @@ public class Charlotte : NPC
         player.adjustAnxiety(anxiety);
         player.adjustWill(will);
         string[] msg = new string[] { attacks[moveName].Item1 };
-        trigger.TriggerDialogue(new Dialogue("", msg));
+        DialogueTrigger.TriggerDialogue(new Dialogue("", msg));
         player.switchState(Transitions.Command.enemyChoice);
         return (anxiety, will);
     }

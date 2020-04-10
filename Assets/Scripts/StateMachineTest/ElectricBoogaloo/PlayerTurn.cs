@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SMPlayerTurn : MonoBehaviour
+public class PlayerTurn : MonoBehaviour
 {
     int index = 0;
     int totalOptions = 4;
@@ -19,7 +19,7 @@ public class SMPlayerTurn : MonoBehaviour
     Button Continue;
     Image playerNav;
 
-    SMPlayerStats player;
+    PlayerStats player;
 
     PanelScript attack;
     PanelScript skills;
@@ -33,16 +33,7 @@ public class SMPlayerTurn : MonoBehaviour
     {
         parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
         parent.alpha = 0;
-        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
-        //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        //Continue = GameObject.Find("Continue").GetComponent<Button>();
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
         attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
         skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
@@ -55,14 +46,18 @@ public class SMPlayerTurn : MonoBehaviour
         skills.hide();
         items.hide();
         playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
                 parent.alpha = 1;
                 playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
                 options.show();
-                ScrollThroughOptions();
-                CheckForSubOption();
+                StartCoroutine("ScrollThroughOptions");
                 break;
             case Transitions.ProcessState.attackSub:
                 button0 = attack.gameObject.transform.Find("Attack 1").GetComponent<Button>();
@@ -91,36 +86,11 @@ public class SMPlayerTurn : MonoBehaviour
             case Transitions.ProcessState.dialogueChoice:
                 playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
                 choices.show();
-                ScrollThroughChoices();
+                StartCoroutine("ScrollThroughChoices");
                 break;
             default:
                 break;
         }
-    }
-
-    public char CheckForChoice()
-    {
-        char choice = 'a';
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            switch (index)
-            {
-                case 0:
-                    choice = 'a';
-                    break;
-                case 1:
-                    choice = 'b';
-                    break;
-                case 2:
-                    choice = 'c';
-                    break;
-                default:
-                    break;
-            }
-            choices.hide();
-            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
-        }
-        return choice;
     }
 
     private void ScrollThroughChoices()
@@ -219,6 +189,31 @@ public class SMPlayerTurn : MonoBehaviour
             SMDialogueTrigger.turn = 2;
             player.switchState(Transitions.Command.playerChoice);
         }
+    }
+
+    public char CheckForChoice()
+    {
+        char choice = 'a';
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            switch (index)
+            {
+                case 0:
+                    choice = 'a';
+                    break;
+                case 1:
+                    choice = 'b';
+                    break;
+                case 2:
+                    choice = 'c';
+                    break;
+                default:
+                    break;
+            }
+            choices.hide();
+            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
+        }
+        return choice;
     }
 
     private void CheckForSubOption()

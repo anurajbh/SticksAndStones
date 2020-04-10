@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class NPCInContact : MonoBehaviour
 {
-    SMPlayerStats player;
+    PlayerStats player;
     public bool CanBeSpokenTo = false;
     TimeProgression.cycle time;
     TimeProgression Time;
@@ -16,7 +16,7 @@ public class NPCInContact : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         Time = GameObject.FindWithTag("Time").GetComponent<TimeProgression>();
         time = Time.GetTime();
     }
@@ -45,6 +45,7 @@ public class NPCInContact : MonoBehaviour
         if(CanBeSpokenTo && Input.GetKeyDown(KeyCode.Z))
         {
             SpeakToNPC();
+            
             print("speaking to npc");
         }
     }
@@ -54,6 +55,7 @@ public class NPCInContact : MonoBehaviour
         if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
         {
             npc.Converse();
+            player.switchState(Transitions.Command.enterConvo);
         }
         else
         {
