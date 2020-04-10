@@ -23,7 +23,7 @@ public class NPCInContact : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("colliding");
+        //Debug.Log("colliding");
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = true;
