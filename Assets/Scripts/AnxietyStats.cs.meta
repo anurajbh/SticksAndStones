@@ -3,7 +3,18 @@ guid: 9064a3cbea98a4cd0841b1224175897c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Anxiety1: {fileID: 21300000, guid: 200287a68fc249344a64bae143218f7c, type: 3}
+  - Anxiety2: {fileID: 21300000, guid: a6abcd4873ed0f24b96210d5ab6f58d3, type: 3}
+  - Anxiety3: {fileID: 21300000, guid: 09fd6b99cc98dd44a83658f7de0a9290, type: 3}
+  - Anxiety4: {fileID: 21300000, guid: 0ef61ad694038d744a65430583edc057, type: 3}
+  - Anxiety5: {fileID: 21300000, guid: 516198b262724034fa49b25cfb2779b2, type: 3}
+  - Anxiety6: {fileID: 21300000, guid: 6c52f312ce135c84684947c34ad55175, type: 3}
+  - Anxiety7: {fileID: 21300000, guid: 7c1f27a0ce2e38c4ab9ffa4c835d404b, type: 3}
+  - Anxiety8: {fileID: 21300000, guid: fe0f7d10b75c4d142945154099388986, type: 3}
+  - Anxiety9: {fileID: 21300000, guid: 940a515c181911043848121c08f53224, type: 3}
+  - Anxiety10: {fileID: 21300000, guid: 7dece6a5390c07f47836a84c8e6384ef, type: 3}
+  - playerStats: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

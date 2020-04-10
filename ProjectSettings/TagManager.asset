@@ -15,6 +15,7 @@ TagManager:
   - Button2
   - Lamp
   - Time
+  - nameTag
   layers:
   - Default
   - TransparentFX
