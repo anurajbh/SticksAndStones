@@ -6,7 +6,8 @@ public class SMDialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     SMPlayerStats player;
-    public static int turn = 0; //0 indicates call by player, 1 indicates call by enemy
+    public static int turn = 0; //0 indicates call by regular dialogue, 1 indicates dialogue with choice, 2 indicates
+                                //call by player, 3 indicates call by enemy
 
     private void Awake()
     {
@@ -18,18 +19,25 @@ public class SMDialogueTrigger : MonoBehaviour
     {
         switch (player.getState())
         {
-            //need a way to differentiate when this state has been called by
-            //player action or enemy action
             case Transitions.ProcessState.dialogue:
                 TriggerDialogue();
-                if (turn == 0)
+                switch (turn)
                 {
-                    player.switchState(Transitions.Command.waitForEnemy);
+                    case 0:
+                        break;
+                    case 1:
+                        player.switchState(Transitions.Command.waitForChoice);
+                        break;
+                    case 2:
+                        player.switchState(Transitions.Command.waitForEnemy);
+                        break;
+                    case 3:
+                        player.switchState(Transitions.Command.waitForPlayer);
+                        break;
+                    default:
+                        break;
                 }
-                else if (turn == 1)
-                {
-                    player.switchState(Transitions.Command.waitForPlayer);
-                }
+                
                 break;
             default:
                 break;

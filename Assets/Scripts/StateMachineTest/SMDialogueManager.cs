@@ -14,6 +14,7 @@ public class SMDialogueManager : MonoBehaviour
     //Image playerNav;
     bool moreDialogue = false;
     SMPlayerStats player;
+    PanelScript nameTag;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +26,7 @@ public class SMDialogueManager : MonoBehaviour
         nPCAI = GameObject.Find("NPC").GetComponent<NPCAI>();
         //playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
         player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        nameTag = GameObject.FindGameObjectWithTag("nameTag").GetComponent<PanelScript>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,15 @@ public class SMDialogueManager : MonoBehaviour
         //options.GetComponent<PanelScript>().hide();
         display.GetComponent<PanelScript>().show();
         //playerNav.gameObject.SetActive(false);
-        nameText.text = dialogue.name;
+        if (nameText.text.Equals(""))
+        {
+            nameTag.hide();
+        }
+        else
+        {
+            nameTag.show();
+            nameText.text = dialogue.name;
+        }
         Debug.Log("Started " + dialogue.name + "'s dialogue");
 
         sentences.Clear();

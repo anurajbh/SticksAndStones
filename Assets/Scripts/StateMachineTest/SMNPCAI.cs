@@ -55,7 +55,7 @@ public class SMNPCAI : MonoBehaviour
         string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!" };
         displayStat.TriggerDialogue(new Dialogue("", msg));
-        SMDialogueTrigger.turn = 1;
+        SMDialogueTrigger.turn = 3;
         player.switchState(Transitions.Command.enemyChoice);
     }
 }

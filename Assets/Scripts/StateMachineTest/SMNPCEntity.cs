@@ -10,11 +10,16 @@ public class SMNPCEntity : MonoBehaviour
     readonly int maxHealth = 10;
     SMPlayerStats player;
     public bool spokenTo = false;
+    string charName;
+    NPC character;
+    SMDialogueTrigger trigger;
 
 
     private void Awake()
     {
         player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        charName = gameObject.name;
+        trigger = gameObject.GetComponent<SMDialogueTrigger>();
     }
 
     public int adjustHealth(int amount)
@@ -34,6 +39,28 @@ public class SMNPCEntity : MonoBehaviour
         }
 
         return health;
+    }
+
+    public IEnumerator Converse(string eventName)
+    {
+        for (int i = 0; i < Charlotte.events[eventName].Item1; i++)
+        {
+            string dialogueName = "dialogue" + i;
+            Dictionary<string, (string[], bool)> eventSelect = Charlotte.events[eventName].Item2;
+            string[] toSay = eventSelect[dialogueName].Item1;
+            trigger.dialogue = new Dialogue(charName, toSay);
+            if (eventSelect[dialogueName].Item2)
+            {
+                SMDialogueTrigger.turn = 1;
+            }
+            else
+            {
+                SMDialogueTrigger.turn = 0;
+            }
+            player.switchState(Transitions.Command.enterConvo);
+            yield return null;
+        }
+        yield return null;
     }
 
     public void Die()

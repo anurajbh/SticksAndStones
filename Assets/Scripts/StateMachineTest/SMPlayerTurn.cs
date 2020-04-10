@@ -7,8 +7,10 @@ public class SMPlayerTurn : MonoBehaviour
 {
     int index = 0;
     int totalOptions = 4;
-    public float xOffset = 239.93f;
-    public float yOffset = 130.59f;
+    int totalChoices = 3;
+    readonly float cxOffset = 239.93f;
+    readonly float cyOffset = 130.59f;
+    readonly float dyOffset = 40f;
     Vector2 position;
     Button button0;
     Button button1;
@@ -23,6 +25,7 @@ public class SMPlayerTurn : MonoBehaviour
     PanelScript skills;
     PanelScript items;
     PanelScript options;
+    PanelScript choices;
     SMDialogueTrigger displayStat;
 
     void Awake()
@@ -35,8 +38,9 @@ public class SMPlayerTurn : MonoBehaviour
         skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
         items = GameObject.Find("Item sub").GetComponent<PanelScript>();
         options = GameObject.Find("Options").GetComponent<PanelScript>();
+        choices = GameObject.Find("Choices").GetComponent<PanelScript>();
 
-        options.show();
+        options.hide();
         attack.hide();
         skills.hide();
         items.hide();
@@ -50,6 +54,7 @@ public class SMPlayerTurn : MonoBehaviour
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
+                options.show();
                 ScrollThroughOptions();
                 CheckForSubOption();
                 break;
@@ -77,8 +82,55 @@ public class SMPlayerTurn : MonoBehaviour
                 ScrollThroughOptions();
                 CheckForAction("item");
                 break;
+            case Transitions.ProcessState.dialogueChoice:
+                choices.show();
+                ScrollThroughChoices();
+                CheckForChoice();
+                break;
             default:
                 break;
+        }
+    }
+
+    private char CheckForChoice()
+    {
+        player.switchState(Transitions.Command.makeChoice);
+        choices.hide();
+        switch (index)
+        {
+            case 0:
+                return 'a';
+            case 1:
+                return 'b';
+            case 2:
+                return 'c';
+            default:
+                return 'a';
+        }
+    }
+
+    private void ScrollThroughChoices()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (index < totalChoices)
+            {
+                index++;
+                position = transform.position;
+                position.y -= dyOffset;
+                transform.position = position;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (index > 0)
+            {
+                index--;
+                position = transform.position;
+                position.y += dyOffset;
+                transform.position = position;
+            }
         }
     }
 
@@ -150,7 +202,7 @@ public class SMPlayerTurn : MonoBehaviour
                 "!\nYour will changed by " + stats.Item2 + "!\nYou dealt " + stats.Item3 +
                 " damage to the enemy!"};
             displayStat.TriggerDialogue(new Dialogue("", msg));
-            SMDialogueTrigger.turn = 0;
+            SMDialogueTrigger.turn = 2;
             player.switchState(Transitions.Command.playerChoice);
         }
     }
@@ -203,7 +255,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index + 2;
                 position = transform.position;
-                position.y -= yOffset;
+                position.y -= cyOffset;
                 transform.position = position;
             }
         }
@@ -214,7 +266,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index - 2;
                 position = transform.position;
-                position.y += yOffset;
+                position.y += cyOffset;
                 transform.position = position;
             }
         }
@@ -225,7 +277,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index + 1;
                 position = transform.position;
-                position.x += xOffset;
+                position.x += cxOffset;
                 transform.position = position;
             }
         }
@@ -237,7 +289,7 @@ public class SMPlayerTurn : MonoBehaviour
                 {
                     index = index - 1;
                     position = transform.position;
-                    position.x -= xOffset;
+                    position.x -= cxOffset;
                     transform.position = position;
                 }
             }
