@@ -23,10 +23,12 @@ public class NPCInContact : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("colliding");
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = true;
             npc = other.GetComponent<Charlotte>();
+            Debug.Log("can be spoken to");
         }
     }
     public void OnTriggerExit2D(Collider2D other)
@@ -35,6 +37,7 @@ public class NPCInContact : MonoBehaviour
         {
             CanBeSpokenTo = false;
             npc = other.GetComponent<Charlotte>();
+            Debug.Log("can no longer be spoken to");
         }
     }
     void Update()
@@ -42,6 +45,7 @@ public class NPCInContact : MonoBehaviour
         if(CanBeSpokenTo && Input.GetKeyDown(KeyCode.Z))
         {
             SpeakToNPC();
+            print("speaking to npc");
         }
     }
 
