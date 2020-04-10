@@ -10,7 +10,7 @@ public class NPCInContact : MonoBehaviour
     public bool CanBeSpokenTo = false;
     private void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
     }
 
     public void OnTriggerEnter2D(Collider2D other)

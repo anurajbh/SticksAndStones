@@ -14,27 +14,26 @@ public class DayNight : MonoBehaviour
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Lamp")) { //Takes in all the lamps at start of scene
             lamps.Add(obj);
         }
-        DawnTime();//JUST HERE FOR TESTING PURPOSES. Doesn't need to start on a default light setting
     }
     
     public void DayTime()
     {
         myDirLight.color = dayColor;//Changes sunlight color
-        myDirLight.transform.Rotate(dayRotation);//Changes the intensity of the light by rotating
+        //myDirLight.transform.Rotate(dayRotation);//Changes the intensity of the light by rotating
         foreach(GameObject obj in lamps) {//Changes the intensity of all lamps
             obj.GetComponent<Light>().intensity = dayLamp;
         }
     }
     public void DawnTime() {
         myDirLight.color = dawnColor;
-        myDirLight.transform.Rotate(dawnRotation);
+        //myDirLight.transform.Rotate(dawnRotation);
         foreach(GameObject obj in lamps) {
             obj.GetComponent<Light>().intensity = dawnLamp;
         }
     }
     public void DuskTime() {
         myDirLight.color = duskColor;
-        myDirLight.transform.Rotate(duskRotation);
+       // myDirLight.transform.Rotate(duskRotation);
         foreach(GameObject obj in lamps) {
             obj.GetComponent<Light>().intensity = duskLamp;
         }
@@ -42,7 +41,7 @@ public class DayNight : MonoBehaviour
     public void NightTime()
     {
         myDirLight.color = nightColor;
-        myDirLight.transform.Rotate(nightRotation);
+        //myDirLight.transform.Rotate(nightRotation);
         foreach(GameObject obj in lamps) {
             obj.GetComponent<Light>().intensity = nightLamp;
         }
