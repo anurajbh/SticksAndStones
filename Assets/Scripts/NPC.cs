@@ -10,4 +10,6 @@ public abstract class NPC : MonoBehaviour
 
     public abstract void Use(string moveName);
 
+    public abstract void Converse();
+
 }

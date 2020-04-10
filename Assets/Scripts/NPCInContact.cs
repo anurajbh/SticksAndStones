@@ -10,8 +10,9 @@ public class NPCInContact : MonoBehaviour
     public bool CanBeSpokenTo = false;
     TimeProgression.cycle time;
     TimeProgression Time;
-    string interaction = "event" + 1;
-    SMNPCEntity npc;
+    static int eventCounter = 1;
+    string interaction = "event" + eventCounter;
+    Charlotte npc;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class NPCInContact : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = true;
-            npc = other.GetComponent<SMNPCEntity>();
+            npc = other.GetComponent<Charlotte>();
         }
     }
     public void OnTriggerExit2D(Collider2D other)
@@ -33,7 +34,7 @@ public class NPCInContact : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = false;
-            npc = other.GetComponent<SMNPCEntity>();
+            npc = other.GetComponent<Charlotte>();
         }
     }
     void Update()
@@ -48,7 +49,7 @@ public class NPCInContact : MonoBehaviour
     {
         if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
         {
-            StartCoroutine(npc.Converse(interaction));
+            npc.Converse();
         }
         else
         {

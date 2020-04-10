@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Charlotte : NPC
 {
-    SMDialogueTrigger stats;
+    SMDialogueTrigger trigger;
+    SMPlayerTurn playerTurn;
+    int eventCounter = 1;
+    int dialogueCounter = 1;
+    private bool convo = false;
+    public static char dialogueChoice;
 
     static Dictionary<string, (string, int, int)> attacks = new Dictionary<string, (string, int, int)>
     {
@@ -16,7 +21,52 @@ public class Charlotte : NPC
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<SMPlayerStats>();
         enemy = GameObject.FindGameObjectWithTag("NPC").GetComponent<SMNPCEntity>();
-        stats = GameObject.FindGameObjectWithTag("NPC").GetComponent<SMDialogueTrigger>();
+        trigger = GameObject.FindGameObjectWithTag("NPC").GetComponent<SMDialogueTrigger>();
+        playerTurn = GameObject.FindWithTag("Player").GetComponent<SMPlayerTurn>();
+    }
+
+    private void Update()
+    {
+        if (convo)
+        {
+            string dialogueName = "dialogue" + dialogueCounter;
+            Dictionary<string, (string[], bool)> eventSelect = events["event" + eventCounter].Item2;
+            string[] toSay = { };
+            if (dialogueCounter >= events["event" + eventCounter].Item1)
+            {
+                convo = false;
+                player.switchState(Transitions.Command.exitConvo);
+            }
+            else
+            {
+                switch (player.getState())
+                {
+                    case Transitions.ProcessState.noBattle:
+                        toSay = eventSelect[dialogueName].Item1;
+                        trigger.dialogue = new Dialogue("Charlotte", toSay);
+                        if (eventSelect[dialogueName].Item2)
+                        {
+                            SMDialogueTrigger.turn = 1;
+                        }
+                        else
+                        {
+                            SMDialogueTrigger.turn = 0;
+                            dialogueCounter++;
+                        }
+                        player.switchState(Transitions.Command.enterConvo);
+                        break;
+                    case Transitions.ProcessState.dialogueChoice:
+                        dialogueChoice = playerTurn.CheckForChoice();
+                        dialogueName = dialogueName + dialogueChoice;
+                        toSay = eventSelect[dialogueName].Item1;
+                        trigger.dialogue = new Dialogue("Charlotte", toSay);
+                        SMDialogueTrigger.turn = 0;
+                        dialogueCounter++;
+                        player.switchState(Transitions.Command.makeChoice);
+                        break;
+                }
+            }
+        }
     }
 
     public override void Use(string moveName)
@@ -24,11 +74,14 @@ public class Charlotte : NPC
         player.adjustAnxiety(attacks[moveName].Item2);
         player.adjustWill(attacks[moveName].Item3);
         string[] msg = new string[] { attacks[moveName].Item1 };
-        stats.TriggerDialogue(new Dialogue("", msg));
+        trigger.TriggerDialogue(new Dialogue("", msg));
         player.switchState(Transitions.Command.enemyChoice);
     }
 
-    
+    public override void Converse()
+    {
+        convo = true;
+    }
 
     static string[] dialogue1 = { "Hey there! Would you be interested in hearing about the drama club on campus?",
     "You must be a first-year student, so it would be a great way for you to make some new friends while having fun!"};

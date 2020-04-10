@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SMNPCEntity : MonoBehaviour
 {
-    //TO DO: finish implementing NPC death/defeat (more below)
 
     int health = 10;
     readonly int maxHealth = 10;
@@ -13,6 +12,7 @@ public class SMNPCEntity : MonoBehaviour
     string charName;
     NPC character;
     SMDialogueTrigger trigger;
+    public static char dialogueChoice = 'a';
 
 
     private void Awake()
@@ -41,33 +41,17 @@ public class SMNPCEntity : MonoBehaviour
         return health;
     }
 
-    public IEnumerator Converse(string eventName)
-    {
-        for (int i = 0; i < Charlotte.events[eventName].Item1; i++)
-        {
-            string dialogueName = "dialogue" + i;
-            Dictionary<string, (string[], bool)> eventSelect = Charlotte.events[eventName].Item2;
-            string[] toSay = eventSelect[dialogueName].Item1;
-            trigger.dialogue = new Dialogue(charName, toSay);
-            if (eventSelect[dialogueName].Item2)
-            {
-                SMDialogueTrigger.turn = 1;
-            }
-            else
-            {
-                SMDialogueTrigger.turn = 0;
-            }
-            player.switchState(Transitions.Command.enterConvo);
-            yield return null;
-        }
-        yield return null;
-    }
 
     public void Die()
     {
-        //should display final dialogue before battle exit
+        string[] endSpeech = { "Hmph. I didn’t ask for your permission to make my own life choices.",
+        "I’ll join the drama club on my own accord! You don’t have any say in it!"};
+        trigger.TriggerDialogue(new Dialogue("Elly", endSpeech));
+        player.adjustAnxiety(-2);
+        player.adjustWill(2);
+        Destroy(gameObject);
         player.switchState(Transitions.Command.exitBattle);
-        //what happens to an NPC when they're defeated?
+        
     }
 
 }

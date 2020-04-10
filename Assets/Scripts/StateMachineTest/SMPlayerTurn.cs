@@ -44,7 +44,7 @@ public class SMPlayerTurn : MonoBehaviour
         attack.hide();
         skills.hide();
         items.hide();
-        playerNav.gameObject.SetActive(true);
+        playerNav.gameObject.SetActive(false);
 
     }
 
@@ -54,6 +54,7 @@ public class SMPlayerTurn : MonoBehaviour
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
+                playerNav.gameObject.SetActive(true);
                 options.show();
                 ScrollThroughOptions();
                 CheckForSubOption();
@@ -83,30 +84,38 @@ public class SMPlayerTurn : MonoBehaviour
                 CheckForAction("item");
                 break;
             case Transitions.ProcessState.dialogueChoice:
+                playerNav.gameObject.SetActive(true);
                 choices.show();
                 ScrollThroughChoices();
-                CheckForChoice();
                 break;
             default:
                 break;
         }
     }
 
-    private char CheckForChoice()
+    public char CheckForChoice()
     {
-        player.switchState(Transitions.Command.makeChoice);
-        choices.hide();
-        switch (index)
+        char choice = 'a';
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            case 0:
-                return 'a';
-            case 1:
-                return 'b';
-            case 2:
-                return 'c';
-            default:
-                return 'a';
+            switch (index)
+            {
+                case 0:
+                    choice = 'a';
+                    break;
+                case 1:
+                    choice = 'b';
+                    break;
+                case 2:
+                    choice = 'c';
+                    break;
+                default:
+                    break;
+            }
+            choices.hide();
+            playerNav.gameObject.SetActive(false);
         }
+        return choice;
     }
 
     private void ScrollThroughChoices()
