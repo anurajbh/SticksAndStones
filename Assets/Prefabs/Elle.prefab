@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044410726919011762}
+<<<<<<< Updated upstream
   - component: {fileID: 959469102}
+=======
+  - component: {fileID: 4813104055622310154}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Elle
   m_TagString: Player
@@ -33,7 +37,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!114 &959469102
+=======
+--- !u!114 &4813104055622310154
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2645e1f006d24d642b62cbd0b40e0f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   anxiety: 3
+=======
+>>>>>>> Stashed changes
   will: 15
 --- !u!1 &6044410727442624616
 GameObject:

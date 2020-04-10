@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 5e6e782cc873c1a488787338ba76d19f
+guid: ada8dcd5d0a865145a42d69e7e2037a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5825353454521307728
-    second: down_barrier
+      213: 1807125615787039003
+    second: tiles_0
   - first:
-      213: -2879559799014178883
-    second: sidehall walls_1
-  - first:
-      213: -5300602268600973115
-    second: up_wall
+      213: 6707992137844853795
+    second: tiles_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,53 +92,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sidehall walls_0
+      name: tiles_0
       rect:
         serializedVersion: 2
-        x: 166
-        y: 209
-        width: 23
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05256d35a10d7d050800000000000000
-      internalID: 5825353454521307728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sidehall walls_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 320
-        height: 223
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbfb34e8e9fb908d0800000000000000
-      internalID: -2879559799014178883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: up_wall
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
+        x: 64
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -151,8 +106,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c8c86c025a7076b0800000000000000
-      internalID: -5300602268600973115
+      spriteID: 32c0b541f43971d50800000000000000
+      internalID: 6707992137844853795
       vertices: []
       indices: 
       edges: []
