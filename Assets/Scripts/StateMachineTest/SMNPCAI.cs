@@ -10,11 +10,13 @@ public class SMNPCAI : MonoBehaviour
     public SMNPCEntity npc;
     SMPlayerStats player;
     SMDialogueTrigger displayStat;
+    Charlotte charlotte;
 
     void Awake()
     {
         npc = gameObject.GetComponent<SMNPCEntity>();
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        charlotte = gameObject.GetComponent<Charlotte>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         displayStat = gameObject.GetComponent<SMDialogueTrigger>();
     }
 
@@ -29,26 +31,15 @@ public class SMNPCAI : MonoBehaviour
 
     public void EnemyTurn()
     {
-        Attacks move = new Attacks();
-        (int, int, int) stats = (0, 0, 0);
-        int whatItChooses = Random.Range(1, 5);
+        (int, int) stats = (0, 0);
+        int whatItChooses = Random.Range(1, 3);
         switch (whatItChooses)
         {
             case 1:
-                stats = move.Use(name);
-                print("They scared you!");
+                stats = charlotte.Use("Woeful Screech");
                 break;
             case 2:
-                stats = move.Use(name);
-                print("They healed themself");
-                break;
-            case 3:
-                stats = move.Use(name);
-                print("They attacked you!");
-                break;
-            case 4:
-                stats = move.Use(name);
-                print("Their mental attribute increased");
+                stats = charlotte.Use("Speechless Gambit");
                 break;
         }
 

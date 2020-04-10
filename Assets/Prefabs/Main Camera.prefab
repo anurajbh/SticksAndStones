@@ -119,6 +119,71 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety1
+      value: 
+      objectReference: {fileID: 21300000, guid: 200287a68fc249344a64bae143218f7c,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety2
+      value: 
+      objectReference: {fileID: 21300000, guid: a6abcd4873ed0f24b96210d5ab6f58d3,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety3
+      value: 
+      objectReference: {fileID: 21300000, guid: 09fd6b99cc98dd44a83658f7de0a9290,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety5
+      value: 
+      objectReference: {fileID: 21300000, guid: 516198b262724034fa49b25cfb2779b2,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety4
+      value: 
+      objectReference: {fileID: 21300000, guid: 0ef61ad694038d744a65430583edc057,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety6
+      value: 
+      objectReference: {fileID: 21300000, guid: 6c52f312ce135c84684947c34ad55175,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety7
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c1f27a0ce2e38c4ab9ffa4c835d404b,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety8
+      value: 
+      objectReference: {fileID: 21300000, guid: fe0f7d10b75c4d142945154099388986,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety9
+      value: 
+      objectReference: {fileID: 21300000, guid: 940a515c181911043848121c08f53224,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: Anxiety10
+      value: 
+      objectReference: {fileID: 21300000, guid: 7dece6a5390c07f47836a84c8e6384ef,
+        type: 3}
+    - target: {fileID: 6120195573812346116, guid: fd15e9ee3850df3468452ee3c7622123,
+        type: 3}
+      propertyPath: anxietyLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6120195574300878250, guid: fd15e9ee3850df3468452ee3c7622123,
         type: 3}
       propertyPath: m_LocalPosition.x

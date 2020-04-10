@@ -17,7 +17,7 @@ public class SMNPCEntity : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         charName = gameObject.name;
         trigger = gameObject.GetComponent<SMDialogueTrigger>();
     }

@@ -8,7 +8,7 @@ public abstract class NPC : MonoBehaviour
     protected SMNPCEntity enemy;
     public string[][] interaction;
 
-    public abstract void Use(string moveName);
+    public abstract (int, int) Use(string moveName);
 
     public abstract void Converse();
 

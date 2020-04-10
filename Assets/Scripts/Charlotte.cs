@@ -10,6 +10,7 @@ public class Charlotte : NPC
     int dialogueCounter = 1;
     private bool convo = false;
     public static char dialogueChoice;
+    Canvas parent;
 
     static Dictionary<string, (string, int, int)> attacks = new Dictionary<string, (string, int, int)>
     {
@@ -19,10 +20,11 @@ public class Charlotte : NPC
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<SMPlayerStats>();
-        enemy = GameObject.FindGameObjectWithTag("NPC").GetComponent<SMNPCEntity>();
-        trigger = GameObject.FindGameObjectWithTag("NPC").GetComponent<SMDialogueTrigger>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
+        enemy = GameObject.FindWithTag("NPC").GetComponent<SMNPCEntity>();
+        trigger = GameObject.FindWithTag("NPC").GetComponent<SMDialogueTrigger>();
         playerTurn = GameObject.FindWithTag("Player").GetComponent<SMPlayerTurn>();
+        parent = GameObject.Find("DialogueSystem").GetComponent<Canvas>();
     }
 
     private void Update()
@@ -35,6 +37,7 @@ public class Charlotte : NPC
             if (dialogueCounter >= events["event" + eventCounter].Item1)
             {
                 convo = false;
+                parent.gameObject.SetActive(false);
                 player.switchState(Transitions.Command.exitConvo);
             }
             else
@@ -69,13 +72,16 @@ public class Charlotte : NPC
         }
     }
 
-    public override void Use(string moveName)
+    public override (int, int) Use(string moveName)
     {
-        player.adjustAnxiety(attacks[moveName].Item2);
-        player.adjustWill(attacks[moveName].Item3);
+        int anxiety = attacks[moveName].Item2;
+        int will = attacks[moveName].Item3;
+        player.adjustAnxiety(anxiety);
+        player.adjustWill(will);
         string[] msg = new string[] { attacks[moveName].Item1 };
         trigger.TriggerDialogue(new Dialogue("", msg));
         player.switchState(Transitions.Command.enemyChoice);
+        return (anxiety, will);
     }
 
     public override void Converse()

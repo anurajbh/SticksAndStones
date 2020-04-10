@@ -26,34 +26,42 @@ public class SMPlayerTurn : MonoBehaviour
     PanelScript items;
     PanelScript options;
     PanelScript choices;
+    Canvas parent;
     SMDialogueTrigger displayStat;
 
     void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        parent = GameObject.Find("DialogueSystem").GetComponent<Canvas>();
+        parent.gameObject.SetActive(false);
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        Continue = GameObject.Find("Continue").GetComponent<Button>();
-        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
-        attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
-        skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
-        items = GameObject.Find("Item sub").GetComponent<PanelScript>();
-        options = GameObject.Find("Options").GetComponent<PanelScript>();
-        choices = GameObject.Find("Choices").GetComponent<PanelScript>();
-
-        options.hide();
-        attack.hide();
-        skills.hide();
-        items.hide();
-        playerNav.gameObject.SetActive(false);
+        //Continue = GameObject.Find("Continue").GetComponent<Button>();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (parent.isActiveAndEnabled)
+        {
+            playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
+            attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
+            skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
+            items = GameObject.Find("Item sub").GetComponent<PanelScript>();
+            options = GameObject.Find("Options").GetComponent<PanelScript>();
+            choices = GameObject.Find("Choices").GetComponent<PanelScript>();
+
+            options.hide();
+            attack.hide();
+            skills.hide();
+            items.hide();
+            playerNav.gameObject.SetActive(false);
+        }
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
+                parent.gameObject.SetActive(true);
                 playerNav.gameObject.SetActive(true);
                 options.show();
                 ScrollThroughOptions();
@@ -248,6 +256,7 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
                 case 3:
                     options.hide();
+                    parent.gameObject.SetActive(false);
                     player.switchState(Transitions.Command.exitBattle);
                     break;
                 default:
