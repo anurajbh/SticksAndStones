@@ -14,6 +14,7 @@ TagManager:
   - Button1
   - Button2
   - Lamp
+  - Time
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 111461849
     locked: 0

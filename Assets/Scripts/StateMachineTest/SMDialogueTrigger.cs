@@ -10,7 +10,7 @@ public class SMDialogueTrigger : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
     }
 
     // Update is called once per frame

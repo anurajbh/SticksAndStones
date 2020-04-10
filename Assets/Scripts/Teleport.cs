@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public GameObject playerController;
+    private GameObject playerController;
     public Vector2 teleportPoint;
-    private void Awake()
+	private AudioSource openDoor;
+    
+	private void Awake()
     {
         playerController = GameObject.Find("MovePoint");
+		openDoor = GetComponent<AudioSource>();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+
+	IEnumerator Teleportation()
+	{
+		yield return new WaitForSeconds(2);
+		PlayerMovement.teleporting = false;
+	}
+    
+	private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PlayerBody"))
+        if(other.CompareTag("PlayerBody") && PlayerMovement.teleporting == false)
         {
-            print("Hello there");
+			openDoor.Play();
+			PlayerMovement.teleporting = true;
+			print("Hello there");
             playerController.transform.position = new Vector2(teleportPoint.x, teleportPoint.y);
+			StartCoroutine(Teleportation());
         }
     }
 }
