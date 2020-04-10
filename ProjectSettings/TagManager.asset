@@ -14,6 +14,7 @@ TagManager:
   - Button1
   - Button2
   - Lamp
+  - Time
   layers:
   - Default
   - TransparentFX
@@ -52,5 +53,5 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Player
-    uniqueID: 3882055779
+    uniqueID: 111461849
     locked: 0

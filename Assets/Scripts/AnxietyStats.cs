@@ -16,13 +16,13 @@ public class AnxietyStats : MonoBehaviour
     public Sprite Anxiety9;
     public Sprite Anxiety10;
 
-    public PlayerStats playerStats;
+    public SMPlayerStats playerStats;
 
     public float anxietyLevel;
     // Update is called once per frame
     private void Awake()
     {
-        playerStats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+        playerStats = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
     }
     private void Update()
     {
