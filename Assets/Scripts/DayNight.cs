@@ -4,21 +4,46 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour
 {
-    public Light myLight;//directional light- TODO- add other conditions associated with DayNight
-    public float dayRed, dayGreen, dayBlue;//day rgb
-    public float nightRed, nightGreen, nightBlue;//night rgb
-    Color color0, color1;
+    public Light myDirLight;//directional light- TODO- add other conditions associated with DayNight
+    public Color dayColor, dawnColor, duskColor, nightColor;
+    public Vector3 dayRotation, dawnRotation, duskRotation, nightRotation;
+    public List<GameObject> lamps = new List<GameObject>();//List of lamps
+    public float dayLamp, dawnLamp, duskLamp, nightLamp;//Point light intensities
     private void Awake()
     {
-        color0 = new Color(dayRed / 255f, dayGreen / 255f, dayBlue / 255f);
-        color1 = new Color(nightRed / 255f, nightGreen / 255f, nightBlue / 255f);
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Lamp")) { //Takes in all the lamps at start of scene
+            lamps.Add(obj);
+        }
     }
+    
     public void DayTime()
     {
-        myLight.color = color0;
+        myDirLight.color = dayColor;//Changes sunlight color
+        //myDirLight.transform.Rotate(dayRotation);//Changes the intensity of the light by rotating
+        foreach(GameObject obj in lamps) {//Changes the intensity of all lamps
+            obj.GetComponent<Light>().intensity = dayLamp;
+        }
+    }
+    public void DawnTime() {
+        myDirLight.color = dawnColor;
+        //myDirLight.transform.Rotate(dawnRotation);
+        foreach(GameObject obj in lamps) {
+            obj.GetComponent<Light>().intensity = dawnLamp;
+        }
+    }
+    public void DuskTime() {
+        myDirLight.color = duskColor;
+       // myDirLight.transform.Rotate(duskRotation);
+        foreach(GameObject obj in lamps) {
+            obj.GetComponent<Light>().intensity = duskLamp;
+        }
     }
     public void NightTime()
     {
-        myLight.color = color1;
+        myDirLight.color = nightColor;
+        //myDirLight.transform.Rotate(nightRotation);
+        foreach(GameObject obj in lamps) {
+            obj.GetComponent<Light>().intensity = nightLamp;
+        }
     }
 }
