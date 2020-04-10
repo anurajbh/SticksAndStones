@@ -2275,6 +2275,7 @@ GameObject:
   - component: {fileID: 7829581339330771718}
   - component: {fileID: 7829581339330771713}
   - component: {fileID: 7829581339330771712}
+  - component: {fileID: 7565623974505449315}
   m_Layer: 5
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -2369,6 +2370,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &7565623974505449315
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829581339330771715}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7829581339356863599
 GameObject:
   m_ObjectHideFlags: 0

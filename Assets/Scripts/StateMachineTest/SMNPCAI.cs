@@ -10,14 +10,14 @@ public class SMNPCAI : MonoBehaviour
     public SMNPCEntity npc;
     SMPlayerStats player;
     SMDialogueTrigger displayStat;
-    Charlotte charlotte;
+    public Charlotte charlotte;
 
     void Awake()
     {
         npc = gameObject.GetComponent<SMNPCEntity>();
-        charlotte = gameObject.GetComponent<Charlotte>();
         player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         displayStat = gameObject.GetComponent<SMDialogueTrigger>();
+        charlotte = GetComponent<Charlotte>();
     }
 
     // Update is called once per frame
@@ -41,12 +41,14 @@ public class SMNPCAI : MonoBehaviour
             case 2:
                 stats = charlotte.Use("Speechless Gambit");
                 break;
+            default:
+                break;
         }
 
         string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!" };
         displayStat.TriggerDialogue(new Dialogue("", msg));
-        SMDialogueTrigger.turn = 3;
         player.switchState(Transitions.Command.enemyChoice);
+        SMDialogueTrigger.turn = 3;
     }
 }

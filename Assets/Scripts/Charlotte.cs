@@ -10,7 +10,7 @@ public class Charlotte : NPC
     int dialogueCounter = 1;
     private bool convo = false;
     public static char dialogueChoice;
-    Canvas parent;
+    CanvasGroup parent;
 
     static Dictionary<string, (string, int, int)> attacks = new Dictionary<string, (string, int, int)>
     {
@@ -22,9 +22,9 @@ public class Charlotte : NPC
     {
         player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         enemy = GameObject.FindWithTag("NPC").GetComponent<SMNPCEntity>();
-        trigger = GameObject.FindWithTag("NPC").GetComponent<SMDialogueTrigger>();
+        trigger = GetComponent<SMDialogueTrigger>();
         playerTurn = GameObject.FindWithTag("Player").GetComponent<SMPlayerTurn>();
-        parent = GameObject.Find("DialogueSystem").GetComponent<Canvas>();
+        parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class Charlotte : NPC
             if (dialogueCounter >= events["event" + eventCounter].Item1)
             {
                 convo = false;
-                parent.gameObject.SetActive(false);
+                parent.alpha = 0;
                 player.switchState(Transitions.Command.exitConvo);
             }
             else

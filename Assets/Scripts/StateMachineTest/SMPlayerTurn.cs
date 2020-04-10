@@ -26,13 +26,13 @@ public class SMPlayerTurn : MonoBehaviour
     PanelScript items;
     PanelScript options;
     PanelScript choices;
-    Canvas parent;
+    CanvasGroup parent;
     SMDialogueTrigger displayStat;
 
     void Awake()
     {
-        parent = GameObject.Find("DialogueSystem").GetComponent<Canvas>();
-        parent.gameObject.SetActive(false);
+        parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
+        parent.alpha = 0;
         player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         //Continue = GameObject.Find("Continue").GetComponent<Button>();
@@ -43,26 +43,23 @@ public class SMPlayerTurn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (parent.isActiveAndEnabled)
-        {
-            playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
-            attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
-            skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
-            items = GameObject.Find("Item sub").GetComponent<PanelScript>();
-            options = GameObject.Find("Options").GetComponent<PanelScript>();
-            choices = GameObject.Find("Choices").GetComponent<PanelScript>();
+        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
+        attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
+        skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
+        items = GameObject.Find("Item sub").GetComponent<PanelScript>();
+        options = GameObject.Find("Options").GetComponent<PanelScript>();
+        choices = GameObject.Find("Choices").GetComponent<PanelScript>();
 
-            options.hide();
-            attack.hide();
-            skills.hide();
-            items.hide();
-            playerNav.gameObject.SetActive(false);
-        }
+        options.hide();
+        attack.hide();
+        skills.hide();
+        items.hide();
+        playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
-                parent.gameObject.SetActive(true);
-                playerNav.gameObject.SetActive(true);
+                parent.alpha = 1;
+                playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
                 options.show();
                 ScrollThroughOptions();
                 CheckForSubOption();
@@ -92,7 +89,7 @@ public class SMPlayerTurn : MonoBehaviour
                 CheckForAction("item");
                 break;
             case Transitions.ProcessState.dialogueChoice:
-                playerNav.gameObject.SetActive(true);
+                playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
                 choices.show();
                 ScrollThroughChoices();
                 break;
@@ -121,7 +118,7 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
             }
             choices.hide();
-            playerNav.gameObject.SetActive(false);
+            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
         }
         return choice;
     }
@@ -214,7 +211,7 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
             }
 
-            playerNav.gameObject.SetActive(false);
+            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
             string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!\nYou dealt " + stats.Item3 +
                 " damage to the enemy!"};
@@ -256,7 +253,7 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
                 case 3:
                     options.hide();
-                    parent.gameObject.SetActive(false);
+                    parent.alpha = 0;
                     player.switchState(Transitions.Command.exitBattle);
                     break;
                 default:

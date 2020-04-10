@@ -8,6 +8,7 @@ public class SMDialogueTrigger : MonoBehaviour
     SMPlayerStats player;
     public static int turn = 0; //0 indicates call by regular dialogue, 1 indicates dialogue with choice, 2 indicates
                                 //call by player, 3 indicates call by enemy
+    public static bool moreDialogue = true;
 
     private void Awake()
     {
@@ -21,23 +22,25 @@ public class SMDialogueTrigger : MonoBehaviour
         {
             case Transitions.ProcessState.dialogue:
                 TriggerDialogue();
-                switch (turn)
+                if (!moreDialogue)
                 {
-                    case 0:
-                        break;
-                    case 1:
-                        player.switchState(Transitions.Command.waitForChoice);
-                        break;
-                    case 2:
-                        player.switchState(Transitions.Command.waitForEnemy);
-                        break;
-                    case 3:
-                        player.switchState(Transitions.Command.waitForPlayer);
-                        break;
-                    default:
-                        break;
+                    switch (turn)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            player.switchState(Transitions.Command.waitForChoice);
+                            break;
+                        case 2:
+                            player.switchState(Transitions.Command.waitForEnemy);
+                            break;
+                        case 3:
+                            player.switchState(Transitions.Command.waitForPlayer);
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                
                 break;
             default:
                 break;
@@ -46,12 +49,12 @@ public class SMDialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().startDialogue(dialogue);
+        FindObjectOfType<SMDialogueManager>().startDialogue(dialogue);
     }
 
     public void TriggerDialogue(Dialogue text)
     {
         dialogue = text;
-        FindObjectOfType<DialogueManager>().startDialogue(dialogue);
+        FindObjectOfType<SMDialogueManager>().startDialogue(dialogue);
     }
 }
