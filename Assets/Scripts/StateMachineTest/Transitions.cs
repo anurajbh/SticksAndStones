@@ -13,7 +13,8 @@ public class Transitions : MonoBehaviour
         dialogue,
         attackSub,
         skillSub,
-        itemSub
+        itemSub,
+        dialogueChoice
     }
 
     public enum Command
@@ -27,7 +28,11 @@ public class Transitions : MonoBehaviour
         enemyChoice,
         waitForPlayer,
         waitForEnemy,
-        exitBattle
+        exitBattle,
+        enterConvo,
+        waitForChoice,
+        makeChoice,
+        exitConvo
     }
 
     public class Process
@@ -77,7 +82,10 @@ public class Transitions : MonoBehaviour
                 { new StateTransition(ProcessState.dialogue, Command.waitForEnemy), ProcessState.enemyTurn },
                 { new StateTransition(ProcessState.dialogue, Command.waitForPlayer), ProcessState.playerTurn },
                 { new StateTransition(ProcessState.dialogue, Command.exitBattle), ProcessState.noBattle },
-                { new StateTransition(ProcessState.enemyTurn, Command.enemyChoice), ProcessState.dialogue }
+                { new StateTransition(ProcessState.enemyTurn, Command.enemyChoice), ProcessState.dialogue },
+                { new StateTransition(ProcessState.noBattle, Command.enterConvo), ProcessState.dialogue },
+                { new StateTransition(ProcessState.dialogue, Command.waitForChoice), ProcessState.dialogueChoice },
+                { new StateTransition(ProcessState.dialogueChoice, Command.makeChoice), ProcessState.dialogue }
             };
         }
 

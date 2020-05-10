@@ -45,22 +45,13 @@ public class InventoryObject : ScriptableObject
     }
 
     public void UseItem(ItemObject item, GameObject playerController) {
-        PlayerStats stats = playerController.GetComponent<PlayerStats>();
+        SMPlayerStats stats = playerController.GetComponent<SMPlayerStats>();
         if (item.type == ItemType.Will) {
             float willChange = ((WillItem)item).willChange;
-            if (willChange < 0) {
-                stats.decreaseWill(willChange * -1.0f);
-            } else {
-                stats.increaseWill(willChange);
-            }
+            stats.adjustWill((int)willChange);
         } else if (item.type == ItemType.Anxiety) {
             float anxietyChange = ((AnxietyItem)item).anxietyChange;
-            if (anxietyChange < 0) {
-                stats.decreaseAnxiety(anxietyChange * -1.0f);
-            }
-            else {
-                stats.increaseAnxiety(anxietyChange);
-            }
+            stats.adjustAnxiety((int)anxietyChange);
         }
     }
 }

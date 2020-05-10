@@ -7,8 +7,10 @@ public class SMPlayerTurn : MonoBehaviour
 {
     int index = 0;
     int totalOptions = 4;
-    public float xOffset = 239.93f;
-    public float yOffset = 130.59f;
+    int totalChoices = 3;
+    readonly float cxOffset = 239.93f;
+    readonly float cyOffset = 130.59f;
+    readonly float dyOffset = 40f;
     Vector2 position;
     Button button0;
     Button button1;
@@ -23,33 +25,42 @@ public class SMPlayerTurn : MonoBehaviour
     PanelScript skills;
     PanelScript items;
     PanelScript options;
+    PanelScript choices;
+    CanvasGroup parent;
     SMDialogueTrigger displayStat;
 
     void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
+        parent.alpha = 0;
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         //dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        Continue = GameObject.Find("Continue").GetComponent<Button>();
-        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
-        attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
-        skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
-        items = GameObject.Find("Item sub").GetComponent<PanelScript>();
-        options = GameObject.Find("Options").GetComponent<PanelScript>();
-
-        options.show();
-        attack.hide();
-        skills.hide();
-        items.hide();
-        playerNav.gameObject.SetActive(true);
+        //Continue = GameObject.Find("Continue").GetComponent<Button>();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
+        attack = GameObject.Find("Attack sub").GetComponent<PanelScript>();
+        skills = GameObject.Find("Skill sub").GetComponent<PanelScript>();
+        items = GameObject.Find("Item sub").GetComponent<PanelScript>();
+        options = GameObject.Find("Options").GetComponent<PanelScript>();
+        choices = GameObject.Find("Choices").GetComponent<PanelScript>();
+
+        options.hide();
+        attack.hide();
+        skills.hide();
+        items.hide();
+        playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
         switch (player.getState())
         {
             case Transitions.ProcessState.playerTurn:
+                parent.alpha = 1;
+                playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
+                options.show();
                 ScrollThroughOptions();
                 CheckForSubOption();
                 break;
@@ -77,8 +88,63 @@ public class SMPlayerTurn : MonoBehaviour
                 ScrollThroughOptions();
                 CheckForAction("item");
                 break;
+            case Transitions.ProcessState.dialogueChoice:
+                playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 1f);
+                choices.show();
+                ScrollThroughChoices();
+                break;
             default:
                 break;
+        }
+    }
+
+    public char CheckForChoice()
+    {
+        char choice = 'a';
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            switch (index)
+            {
+                case 0:
+                    choice = 'a';
+                    break;
+                case 1:
+                    choice = 'b';
+                    break;
+                case 2:
+                    choice = 'c';
+                    break;
+                default:
+                    break;
+            }
+            choices.hide();
+            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
+        }
+        return choice;
+    }
+
+    private void ScrollThroughChoices()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (index < totalChoices)
+            {
+                index++;
+                position = transform.position;
+                position.y -= dyOffset;
+                transform.position = position;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (index > 0)
+            {
+                index--;
+                position = transform.position;
+                position.y += dyOffset;
+                transform.position = position;
+            }
         }
     }
 
@@ -145,12 +211,12 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
             }
 
-            playerNav.gameObject.SetActive(false);
+            playerNav.color = new Color(playerNav.color.r, playerNav.color.g, playerNav.color.b, 0f);
             string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!\nYou dealt " + stats.Item3 +
                 " damage to the enemy!"};
             displayStat.TriggerDialogue(new Dialogue("", msg));
-            SMDialogueTrigger.turn = 0;
+            SMDialogueTrigger.turn = 2;
             player.switchState(Transitions.Command.playerChoice);
         }
     }
@@ -187,6 +253,7 @@ public class SMPlayerTurn : MonoBehaviour
                     break;
                 case 3:
                     options.hide();
+                    parent.alpha = 0;
                     player.switchState(Transitions.Command.exitBattle);
                     break;
                 default:
@@ -203,7 +270,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index + 2;
                 position = transform.position;
-                position.y -= yOffset;
+                position.y -= cyOffset;
                 transform.position = position;
             }
         }
@@ -214,7 +281,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index - 2;
                 position = transform.position;
-                position.y += yOffset;
+                position.y += cyOffset;
                 transform.position = position;
             }
         }
@@ -225,7 +292,7 @@ public class SMPlayerTurn : MonoBehaviour
             {
                 index = index + 1;
                 position = transform.position;
-                position.x += xOffset;
+                position.x += cxOffset;
                 transform.position = position;
             }
         }
@@ -237,7 +304,7 @@ public class SMPlayerTurn : MonoBehaviour
                 {
                     index = index - 1;
                     position = transform.position;
-                    position.x -= xOffset;
+                    position.x -= cxOffset;
                     transform.position = position;
                 }
             }
