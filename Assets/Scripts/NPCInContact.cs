@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class NPCInContact : MonoBehaviour
 {
-    PlayerStats player;
+    //TO DO: replace all commented lines with the correct code for this to function
+
+    //PlayerStats player;
     public bool CanBeSpokenTo = false;
     TimeProgression.cycle time;
     TimeProgression Time;
@@ -16,7 +18,7 @@ public class NPCInContact : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        //player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         Time = GameObject.FindWithTag("Time").GetComponent<TimeProgression>();
         time = Time.GetTime();
     }
@@ -54,13 +56,13 @@ public class NPCInContact : MonoBehaviour
     {
         if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
         {
-            npc.Converse();
-            player.switchState(Transitions.Command.enterConvo);
+            //npc.Converse();
+            //player.switchState(Transitions.Command.enterConvo);
         }
         else
         {
             print("Start battle");
-            player.switchState(Transitions.Command.startBattle);
+            //player.switchState(Transitions.Command.startBattle);
             //SceneManager.LoadScene("Combat");
         }
     }

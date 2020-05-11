@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SMNPCEntity : MonoBehaviour
 {
+    //TO DO: replace all commented lines with the correct code for this to function
+
 
     int health = 10;
     readonly int maxHealth = 10;
@@ -11,7 +13,7 @@ public class SMNPCEntity : MonoBehaviour
     public bool spokenTo = false;
     string charName;
     NPC character;
-    SMDialogueTrigger trigger;
+    //SMDialogueTrigger trigger;
     public static char dialogueChoice = 'a';
 
 
@@ -19,7 +21,7 @@ public class SMNPCEntity : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
         charName = gameObject.name;
-        trigger = gameObject.GetComponent<SMDialogueTrigger>();
+        //trigger = gameObject.GetComponent<SMDialogueTrigger>();
     }
 
     public int adjustHealth(int amount)
@@ -46,7 +48,7 @@ public class SMNPCEntity : MonoBehaviour
     {
         string[] endSpeech = { "Hmph. I didn’t ask for your permission to make my own life choices.",
         "I’ll join the drama club on my own accord! You don’t have any say in it!"};
-        trigger.TriggerDialogue(new Dialogue("Elly", endSpeech));
+        //trigger.TriggerDialogue(new Dialogue("Elly", endSpeech));
         player.adjustAnxiety(-2);
         player.adjustWill(2);
         Destroy(gameObject);

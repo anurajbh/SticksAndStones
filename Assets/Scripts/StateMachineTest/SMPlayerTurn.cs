@@ -27,7 +27,7 @@ public class SMPlayerTurn : MonoBehaviour
     PanelScript options;
     PanelScript choices;
     CanvasGroup parent;
-    SMDialogueTrigger displayStat;
+    //SMDialogueTrigger displayStat;
 
     void Awake()
     {
@@ -186,25 +186,25 @@ public class SMPlayerTurn : MonoBehaviour
                 case 0:
                     text = button0.GetComponentInChildren<Text>();
                     name = text.ToString();
-                    displayStat = button0.GetComponent<SMDialogueTrigger>();
+                    //displayStat = button0.GetComponent<SMDialogueTrigger>();
                     stats = move.Use(name);
                     break;
                 case 1:
                     text = button1.GetComponentInChildren<Text>();
                     name = text.ToString();
-                    displayStat = button1.GetComponent<SMDialogueTrigger>();
+                    //displayStat = button1.GetComponent<SMDialogueTrigger>();
                     stats = move.Use(name);
                     break;
                 case 2:
                     text = button2.GetComponentInChildren<Text>();
                     name = text.ToString();
-                    displayStat = button2.GetComponent<SMDialogueTrigger>();
+                    //displayStat = button2.GetComponent<SMDialogueTrigger>();
                     stats = move.Use(name);
                     break;
                 case 3:
                     text = button3.GetComponentInChildren<Text>();
                     name = text.ToString();
-                    displayStat = button3.GetComponent<SMDialogueTrigger>();
+                    //displayStat = button3.GetComponent<SMDialogueTrigger>();
                     stats = move.Use(name);
                     break;
                 default:
@@ -215,8 +215,8 @@ public class SMPlayerTurn : MonoBehaviour
             string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!\nYou dealt " + stats.Item3 +
                 " damage to the enemy!"};
-            displayStat.TriggerDialogue(new Dialogue("", msg));
-            SMDialogueTrigger.turn = 2;
+            //displayStat.TriggerDialogue(new Dialogue("", msg));
+            //SMDialogueTrigger.turn = 2;
             player.switchState(Transitions.Command.playerChoice);
         }
     }
@@ -232,7 +232,7 @@ public class SMPlayerTurn : MonoBehaviour
                     attack.show();
                     skills.hide();
                     items.hide();
-                    totalOptions = Attacks.GetSize();
+                    //totalOptions = Attacks.GetSize();
                     player.switchState(Transitions.Command.attackSelect);
                     break;
                 case 1:
