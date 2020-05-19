@@ -19,7 +19,6 @@ public class SMPlayerStats : MonoBehaviour
     bool panic = false;
     public int will = 15;
     Transitions.Process state = new Transitions.Process();
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,7 +39,7 @@ public class SMPlayerStats : MonoBehaviour
                     ambientW = 0;
                     if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
                     {
-                        Blackout();
+                        //PlayerEffects.Instance.StartCoroutine(PlayerEffects.Instance.Blackout());
                     }
                 }
                 else
@@ -132,14 +131,6 @@ public class SMPlayerStats : MonoBehaviour
     public Transitions.ProcessState getState()
     {
         return state.CurrentState;
-    }
-
-    void Blackout()
-    {
-        //this is supposed to have the whole screen fade to black and display
-        //a text box that says "I-I couldn't breathe.
-        //My vision went dark. The rest of the day went by in a blur."
-        //and move straight to the night cycle
     }
 
     void Overload()
