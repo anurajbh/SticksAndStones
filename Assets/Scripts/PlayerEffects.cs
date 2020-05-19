@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerEffects : MonoBehaviour
 {
     public static PlayerEffects Instance { get; private set; }//this class is singleton because it is only relevant to the player
+    public GameObject textObject;
     public float fadeFactor = 0.02f;
     void Awake()
     {
@@ -28,13 +30,15 @@ public class PlayerEffects : MonoBehaviour
         //and move straight to the night cycle
         //StartCoroutine(DoFade());
         yield return StartCoroutine("DoFade");
+        yield return StartCoroutine("DisplayBlackoutText");
+        yield return new WaitForSeconds(3f);
         Reload();
     }
 
     void Reload()
     {
-        
-        TimeProgression.Instance.myCycle = TimeProgression.cycle.night;
+
+        TimeProgression.Instance.TransitionToNight();
         StartCoroutine(EndFade());
     }
 
@@ -47,9 +51,14 @@ public class PlayerEffects : MonoBehaviour
             yield return new WaitForSeconds(fadeFactor);//pauses to run coroutine again next Frame
         }
     }
-
+    IEnumerator DisplayBlackoutText()
+    {
+        textObject.SetActive(true);
+        yield return null;
+    }
     IEnumerator EndFade()
     {
+        textObject.SetActive(false);
         CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
         while (canvasGroup.alpha > 0)
         {
@@ -59,9 +68,13 @@ public class PlayerEffects : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.I))//testing for blackout
         {
             StartCoroutine(Blackout());
+        }
+        else if (Input.GetKeyDown(KeyCode.U))//testing for night effect on stats
+        {
+            TimeProgression.Instance.TransitionToNight();
         }
     }
 }

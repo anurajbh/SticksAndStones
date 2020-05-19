@@ -42,6 +42,7 @@ public class DayNight : MonoBehaviour
     {
         myDirLight.color = nightColor;
         //myDirLight.transform.Rotate(nightRotation);
+       // TimeProgression.Instance.TransitionToNight();
         foreach(GameObject obj in lamps) {
             obj.GetComponent<Light>().intensity = nightLamp;
         }

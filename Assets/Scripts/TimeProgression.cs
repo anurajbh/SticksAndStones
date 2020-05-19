@@ -49,9 +49,9 @@ public class TimeProgression : MonoBehaviour
             dayNight.NightTime();
         }
     }
-
-    public cycle GetTime()
+    public void TransitionToNight()
     {
-        return myCycle;
+        myCycle = cycle.night;
+        SMPlayerStats.Instance.will = SMPlayerStats.Instance.adjustWill(-SMPlayerStats.Instance.anxiety / 2);
     }
 }

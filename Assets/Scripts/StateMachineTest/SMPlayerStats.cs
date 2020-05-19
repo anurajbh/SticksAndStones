@@ -6,10 +6,8 @@ public class SMPlayerStats : MonoBehaviour
 {
     //TO DO: imlpement Blackout() and Overload(), figure out locking skills 
     //and reducing attack while (panic)
-
-    TimeProgression.cycle time;
-    TimeProgression Time;
-    public int anxiety = 3;
+    public static SMPlayerStats Instance;//only one instance of PlayerStats should be present in the scene, we wont be having two players at once
+    public int anxiety = 6;
     readonly int maxAnxiety = 10;
     int ambientW = 15;
     int intrinsicW = 0;
@@ -22,22 +20,29 @@ public class SMPlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Time = GameObject.FindWithTag("Time").GetComponent<TimeProgression>();
-        time = Time.GetTime();
         will = ambientW + intrinsicW;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (panic)
+       /* while (panic)
         {
             while (ambientW > 0)
             {
                 if (ambientW - 2 < 0)
                 {
                     ambientW = 0;
-                    if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
+                    if (TimeProgression.Instance.myCycle == TimeProgression.cycle.dawn || TimeProgression.Instance.myCycle == TimeProgression.cycle.noon)
                     {
                         //PlayerEffects.Instance.StartCoroutine(PlayerEffects.Instance.Blackout());
                     }
@@ -47,24 +52,25 @@ public class SMPlayerStats : MonoBehaviour
                     ambientW = ambientW - 2;
                 }
             }
-        }
+        }*/
     }
 
-    void PanicAttack()
+    /*void PanicAttack()
     {
         if (overloaded)
         {
             overloaded = false;
         }
         //seal skills
-    }
+    }*/
+    
 
     public int adjustAnxiety(int amount)
     {
         if (amount + anxiety > maxAnxiety)
         {
             panic = true;
-            PanicAttack();
+            //PanicAttack();
         }
         else if (amount + anxiety <= 0)
         {
@@ -88,6 +94,10 @@ public class SMPlayerStats : MonoBehaviour
             else if (ambientW < amount * -1)
             {
                 amount += ambientW;
+                intrinsicW += amount;
+            }
+            else
+            {
                 intrinsicW += amount;
             }
         }
