@@ -8,8 +8,10 @@ public class PlayerEffects : MonoBehaviour
     public static PlayerEffects Instance { get; private set; }//this class is singleton because it is only relevant to the player
     public GameObject textObject;
     public float fadeFactor = 0.02f;
+    public CanvasGroup canvasGroup;
     void Awake()
     {
+        canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
         if (Instance == null)
         {
             Instance = this;
@@ -44,7 +46,6 @@ public class PlayerEffects : MonoBehaviour
 
     IEnumerator DoFade()
     {
-        CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
         while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime;
@@ -59,7 +60,6 @@ public class PlayerEffects : MonoBehaviour
     IEnumerator EndFade()
     {
         textObject.SetActive(false);
-        CanvasGroup canvasGroup = GetComponentInChildren<CanvasGroup>();
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime;
