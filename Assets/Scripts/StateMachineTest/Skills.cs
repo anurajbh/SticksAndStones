@@ -7,8 +7,7 @@ public class Skills : Action
     SMDialogueTrigger error;
     static Dictionary<string, (int, int, int)> skills = new Dictionary<string, (int, int, int)>
     {
-        { "aggravate", (3, -1, 0) },
-        { "offend", (4, -2, -1) }
+        
     };
 
     private void Awake()

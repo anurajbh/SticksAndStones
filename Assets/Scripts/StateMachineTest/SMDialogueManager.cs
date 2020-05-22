@@ -10,21 +10,26 @@ public class SMDialogueManager : MonoBehaviour
     //PanelScript options;
     PanelScript display;
     private Queue<string> sentences = new Queue<string>();
-    NPCAI nPCAI;
+    SMNPCAI nPCAI;
     //Image playerNav;
     bool moreDialogue = false;
     SMPlayerStats player;
+    PanelScript nameTag;
+    CanvasGroup parent;
 
     // Start is called before the first frame update
     void Awake()
     {
+        parent = GameObject.Find("DialogueSystem").GetComponent<CanvasGroup>();
+        parent.alpha = 0;
         nameText = GameObject.Find("Name").GetComponent<Text>(); 
         dialogueText = GameObject.Find("Dialogue").GetComponent<Text>();
         //options = GameObject.Find("Options").GetComponent<PanelScript>();
         display = GameObject.Find("DialoguePanel").GetComponent<PanelScript>();
-        nPCAI = GameObject.Find("NPC").GetComponent<NPCAI>();
+        nPCAI = GameObject.FindWithTag("NPC").GetComponent<SMNPCAI>();
         //playerNav = GameObject.Find("PlayerNav").GetComponent<Image>();
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
+        nameTag = GameObject.FindGameObjectWithTag("nameTag").GetComponent<PanelScript>();
     }
 
     // Update is called once per frame
@@ -38,10 +43,20 @@ public class SMDialogueManager : MonoBehaviour
 
     public void startDialogue(Dialogue dialogue)
     {
+        parent.alpha = 1;
         //options.GetComponent<PanelScript>().hide();
         display.GetComponent<PanelScript>().show();
         //playerNav.gameObject.SetActive(false);
-        nameText.text = dialogue.name;
+        SMDialogueTrigger.moreDialogue = true;
+        if (nameText.text.Equals(""))
+        {
+            nameTag.hide();
+        }
+        else
+        {
+            nameTag.show();
+            nameText.text = dialogue.name;
+        }
         Debug.Log("Started " + dialogue.name + "'s dialogue");
 
         sentences.Clear();
@@ -71,8 +86,10 @@ public class SMDialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         display.GetComponent<PanelScript>().hide();
+        parent.alpha = 0;
         //options.GetComponent<PanelScript>().show();
         //playerNav.gameObject.SetActive(true);
+        SMDialogueTrigger.moreDialogue = false;
         player.switchState(Transitions.Command.waitForEnemy);
         Debug.Log("End of Dialogue");
     }
