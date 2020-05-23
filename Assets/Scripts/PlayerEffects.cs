@@ -12,6 +12,7 @@ public class PlayerEffects : MonoBehaviour
     void Awake()
     {
         canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
+        textObject = GameObject.Find("BlackoutText");
         if (Instance == null)
         {
             Instance = this;

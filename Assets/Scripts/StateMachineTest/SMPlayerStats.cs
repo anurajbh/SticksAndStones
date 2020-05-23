@@ -17,10 +17,14 @@ public class SMPlayerStats : MonoBehaviour
     bool panic = false;
     public int will = 15;
     Transitions.Process state = new Transitions.Process();
+    public Attacks attacks;
+    public Skills skills;
     // Start is called before the first frame update
     void Awake()
     {
         will = ambientW + intrinsicW;
+        attacks = GetComponent<Attacks>();
+        skills = GetComponent<Skills>();
         if (Instance == null)
         {
             Instance = this;
