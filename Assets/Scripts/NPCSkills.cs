@@ -20,9 +20,9 @@ public class NPCSkills : MonoBehaviour
         public int npcEffect;//effect on self
     }
     //Unity Editor does not Serialize structs
-    public List<Ability> AttackAbilities;//add attacks to this NPC
+    public List<Ability> AttackAbilities;//add attack abilities to this NPC in Editor
 
-    public List<Ability> SkillAbilities;//add skills to this NPC
+    public List<Ability> SkillAbilities;//add skill abilities to this NPC in Editor
 
     void Awake()
     {
