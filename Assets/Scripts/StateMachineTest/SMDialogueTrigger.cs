@@ -6,11 +6,13 @@ public class SMDialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     SMPlayerStats player;
-    public static int turn = 0; //0 indicates call by player, 1 indicates call by enemy
+    public static int turn = 0; //0 indicates call by regular dialogue, 1 indicates dialogue with choice, 2 indicates
+                                //call by player, 3 indicates call by enemy
+    public static bool moreDialogue = true;
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
+        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
     }
 
     // Update is called once per frame
@@ -18,17 +20,26 @@ public class SMDialogueTrigger : MonoBehaviour
     {
         switch (player.getState())
         {
-            //need a way to differentiate when this state has been called by
-            //player action or enemy action
             case Transitions.ProcessState.dialogue:
                 TriggerDialogue();
-                if (turn == 0)
+                if (!moreDialogue)
                 {
-                    player.switchState(Transitions.Command.waitForEnemy);
-                }
-                else if (turn == 1)
-                {
-                    player.switchState(Transitions.Command.waitForPlayer);
+                    switch (turn)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            player.switchState(Transitions.Command.waitForChoice);
+                            break;
+                        case 2:
+                            player.switchState(Transitions.Command.waitForEnemy);
+                            break;
+                        case 3:
+                            player.switchState(Transitions.Command.waitForPlayer);
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 break;
             default:
@@ -38,12 +49,12 @@ public class SMDialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().startDialogue(dialogue);
+        FindObjectOfType<SMDialogueManager>().startDialogue(dialogue);
     }
 
     public void TriggerDialogue(Dialogue text)
     {
         dialogue = text;
-        FindObjectOfType<DialogueManager>().startDialogue(dialogue);
+        FindObjectOfType<SMDialogueManager>().startDialogue(dialogue);
     }
 }

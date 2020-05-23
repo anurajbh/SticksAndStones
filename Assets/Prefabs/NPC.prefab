@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4159990654320212813}
   - component: {fileID: 4159990654320212814}
   - component: {fileID: 4159990654320212815}
+  - component: {fileID: 1306419984452583425}
+  - component: {fileID: 6801311281342557954}
   m_Layer: 8
-  m_Name: TestNPC
+  m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0011748336, y: 0.007999174}
+  m_Offset: {x: 0.00043058395, y: 0.0052006207}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -106,5 +108,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13998908, y: 0.13998888}
+  m_Size: {x: 0.14319992, y: 0.14558598}
   m_EdgeRadius: 0
+--- !u!114 &1306419984452583425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fb15c64d9916b4d9d31545b0c1175a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spokenTo: 0
+--- !u!114 &6801311281342557954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42c8c3cbc5c2244ea418732ac96aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 1306419984452583425}
