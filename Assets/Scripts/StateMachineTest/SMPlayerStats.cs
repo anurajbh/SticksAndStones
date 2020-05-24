@@ -6,10 +6,8 @@ public class SMPlayerStats : MonoBehaviour
 {
     //TO DO: imlpement Blackout() and Overload(), figure out locking skills 
     //and reducing attack while (panic)
-
-    TimeProgression.cycle time;
-    TimeProgression Time;
-    public int anxiety = 3;
+    public static SMPlayerStats Instance;//only one instance of PlayerStats should be present in the scene, we wont be having two players at once
+    public int anxiety = 6;
     readonly int maxAnxiety = 10;
     int ambientW = 15;
     int intrinsicW = 0;
@@ -19,28 +17,38 @@ public class SMPlayerStats : MonoBehaviour
     bool panic = false;
     public int will = 15;
     Transitions.Process state = new Transitions.Process();
-
+    public Attacks attacks;
+    public Skills skills;
     // Start is called before the first frame update
     void Awake()
     {
-        Time = GameObject.FindWithTag("Time").GetComponent<TimeProgression>();
-        time = Time.GetTime();
         will = ambientW + intrinsicW;
+        attacks = GetComponent<Attacks>();
+        skills = GetComponent<Skills>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (panic)
+       /* while (panic)
         {
             while (ambientW > 0)
             {
                 if (ambientW - 2 < 0)
                 {
                     ambientW = 0;
-                    if (time == TimeProgression.cycle.dawn || time == TimeProgression.cycle.noon)
+                    if (TimeProgression.Instance.myCycle == TimeProgression.cycle.dawn || TimeProgression.Instance.myCycle == TimeProgression.cycle.noon)
                     {
-                        Blackout();
+                        //PlayerEffects.Instance.StartCoroutine(PlayerEffects.Instance.Blackout());
                     }
                 }
                 else
@@ -48,24 +56,25 @@ public class SMPlayerStats : MonoBehaviour
                     ambientW = ambientW - 2;
                 }
             }
-        }
+        }*/
     }
 
-    void PanicAttack()
+    /*void PanicAttack()
     {
         if (overloaded)
         {
             overloaded = false;
         }
         //seal skills
-    }
+    }*/
+    
 
     public int adjustAnxiety(int amount)
     {
         if (amount + anxiety > maxAnxiety)
         {
             panic = true;
-            PanicAttack();
+            //PanicAttack();
         }
         else if (amount + anxiety <= 0)
         {
@@ -89,6 +98,10 @@ public class SMPlayerStats : MonoBehaviour
             else if (ambientW < amount * -1)
             {
                 amount += ambientW;
+                intrinsicW += amount;
+            }
+            else
+            {
                 intrinsicW += amount;
             }
         }
@@ -132,14 +145,6 @@ public class SMPlayerStats : MonoBehaviour
     public Transitions.ProcessState getState()
     {
         return state.CurrentState;
-    }
-
-    void Blackout()
-    {
-        //this is supposed to have the whole screen fade to black and display
-        //a text box that says "I-I couldn't breathe.
-        //My vision went dark. The rest of the day went by in a blur."
-        //and move straight to the night cycle
     }
 
     void Overload()

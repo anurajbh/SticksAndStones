@@ -6,6 +6,7 @@ using UnityEngine;
 public class TimeProgression : MonoBehaviour
 {
     public DayNight dayNight;
+    public static TimeProgression Instance;
     public enum cycle
     {
         dawn, noon, dusk, night
@@ -14,6 +15,15 @@ public class TimeProgression : MonoBehaviour
     private void Awake()
     {
         dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
@@ -39,9 +49,9 @@ public class TimeProgression : MonoBehaviour
             dayNight.NightTime();
         }
     }
-
-    public cycle GetTime()
+    public void TransitionToNight()
     {
-        return myCycle;
+        myCycle = cycle.night;
+        SMPlayerStats.Instance.will = SMPlayerStats.Instance.adjustWill(-SMPlayerStats.Instance.anxiety / 2);
     }
 }
