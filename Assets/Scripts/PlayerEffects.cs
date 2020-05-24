@@ -7,12 +7,12 @@ public class PlayerEffects : MonoBehaviour
 {
     public static PlayerEffects Instance { get; private set; }//this class is singleton because it is only relevant to the player
     public GameObject textObject;
-    public float fadeFactor = 0.02f;
+    public float fadeFactor = 0.2f;
     public CanvasGroup canvasGroup;
     void Awake()
     {
         canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
-        textObject = GameObject.Find("BlackoutText");
+        //textObject = GameObject.Find("BlackoutText");
         if (Instance == null)
         {
             Instance = this;

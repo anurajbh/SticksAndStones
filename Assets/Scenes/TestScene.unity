@@ -458,6 +458,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3288262537818848075, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: textObject
+      value: 
+      objectReference: {fileID: 1428817145}
+    - target: {fileID: 3288262537818848075, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: fadeFactor
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 9097357916279234140, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
       propertyPath: m_Name
@@ -2514,6 +2524,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1428817145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 512109644981182941, guid: 77b19cb1e08b20d49b881db6f1441702,
+    type: 3}
+  m_PrefabInstance: {fileID: 857440958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1450156991
 GameObject:
   m_ObjectHideFlags: 0
