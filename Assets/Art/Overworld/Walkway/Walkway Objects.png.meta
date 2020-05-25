@@ -1,0 +1,775 @@
+fileFormatVersion: 2
+guid: 0dac446f7085b1341a9dcec1b150de42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5129420507886068303
+    second: Walkway Objects_0
+  - first:
+      213: 5018976614243735923
+    second: Walkway Objects_1
+  - first:
+      213: -7445615326481917272
+    second: Walkway Objects_2
+  - first:
+      213: -3039473888771080115
+    second: Walkway Objects_3
+  - first:
+      213: -9021957664312357795
+    second: Walkway Objects_4
+  - first:
+      213: -3133850838709887942
+    second: Walkway Objects_5
+  - first:
+      213: 5743470822694234877
+    second: Walkway Objects_6
+  - first:
+      213: 8298461982698174990
+    second: Walkway Objects_7
+  - first:
+      213: -7555026589577983816
+    second: Walkway Objects_8
+  - first:
+      213: -5249141555362655849
+    second: Walkway Objects_9
+  - first:
+      213: -5148327749289937284
+    second: Walkway Objects_10
+  - first:
+      213: -1500613743262237813
+    second: Walkway Objects_11
+  - first:
+      213: -8219201244604461287
+    second: Walkway Objects_12
+  - first:
+      213: 5143725610478982089
+    second: Walkway Objects_13
+  - first:
+      213: -3599104741070627975
+    second: Walkway Objects_14
+  - first:
+      213: 7337254117957817420
+    second: Walkway Objects_15
+  - first:
+      213: -5151390393330124723
+    second: Walkway Objects_16
+  - first:
+      213: 3652094332592106395
+    second: Walkway Objects_17
+  - first:
+      213: 2605302909867033225
+    second: Walkway Objects_18
+  - first:
+      213: 2351230182734348495
+    second: Walkway Objects_19
+  - first:
+      213: 7677192867614996925
+    second: Walkway Objects_20
+  - first:
+      213: -7179046427274984846
+    second: Walkway Objects_21
+  - first:
+      213: 1009360484224513108
+    second: Walkway Objects_22
+  - first:
+      213: 6539905937594372453
+    second: Walkway Objects_23
+  - first:
+      213: 682115631389718263
+    second: Walkway Objects_24
+  - first:
+      213: 5738163847178975126
+    second: Walkway Objects_25
+  - first:
+      213: -2431692330675044677
+    second: Walkway Objects_26
+  - first:
+      213: -3450216007170428952
+    second: Walkway Objects_27
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Walkway Objects_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 228
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42272c66cc5f2740800000000000000
+      internalID: 5129420507886068303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3799df393acf6a540800000000000000
+      internalID: 5018976614243735923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa57d22f4cdba890800000000000000
+      internalID: -7445615326481917272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4089bb1a9e91d5d0800000000000000
+      internalID: -3039473888771080115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c8c000e419bc280800000000000000
+      internalID: -9021957664312357795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 228
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c13ab14435284d0800000000000000
+      internalID: -3133850838709887942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfaa2847848e4bf40800000000000000
+      internalID: 5743470822694234877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_7
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0afec4c43f0a2370800000000000000
+      internalID: 8298461982698174990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_8
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8c2935857272790800000000000000
+      internalID: -7555026589577983816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_9
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 227
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7911ed8019d4727b0800000000000000
+      internalID: -5249141555362655849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_10
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 195
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76794460377d88b0800000000000000
+      internalID: -5148327749289937284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_11
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 195
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8bf8c740cfbc2be0800000000000000
+      internalID: -1500613743262237813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_12
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 195
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f07e5e3088fed80800000000000000
+      internalID: -8219201244604461287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_13
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 195
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3ddaaa03f226740800000000000000
+      internalID: 5143725610478982089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_14
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 67
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b9f0f8e496d0ec0800000000000000
+      internalID: -3599104741070627975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 99
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44d5afeeb923d560800000000000000
+      internalID: 7337254117957817420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 99
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48b2320bb59288b0800000000000000
+      internalID: -5151390393330124723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_17
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 67
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bae542278dea230800000000000000
+      internalID: 3652094332592106395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_18
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 99
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9828aea6135e72420800000000000000
+      internalID: 2605302909867033225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_19
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 99
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0ce03d46f31a020800000000000000
+      internalID: 2351230182734348495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_20
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9ba52dc3eda8a60800000000000000
+      internalID: 7677192867614996925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_21
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272cc348f47ee5c90800000000000000
+      internalID: -7179046427274984846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454b4883308f10e00800000000000000
+      internalID: 1009360484224513108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_23
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561d7c2ecc962ca50800000000000000
+      internalID: 6539905937594372453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_24
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6b9b08d8c577900800000000000000
+      internalID: 682115631389718263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_25
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697771eed9d02af40800000000000000
+      internalID: 5738163847178975126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_26
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe721b75b4e04ed0800000000000000
+      internalID: -2431692330675044677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walkway Objects_27
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef6d3e42de5e10d0800000000000000
+      internalID: -3450216007170428952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
