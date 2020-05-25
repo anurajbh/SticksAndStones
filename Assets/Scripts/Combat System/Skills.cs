@@ -14,8 +14,8 @@ public class Skills : Action
 
     private void Awake()
     {
-        //player = GameObject.Find("PlayerController").GetComponent<SMPlayerStats>();
-        //enemy = GameObject.Find("NPC").GetComponent<SMNPCEntity>();
+        //player = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+        //enemy = GameObject.Find("NPC").GetComponent<NPC>();
         //error = GameObject.Find("Attack 1").GetComponent<SMDialogueTrigger>();
     }
     

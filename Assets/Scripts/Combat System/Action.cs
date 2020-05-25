@@ -6,8 +6,8 @@ public abstract class Action : MonoBehaviour
 {
     //TO DO: replace all commented lines with the correct code for this to function
 
-    //protected SMPlayerStats player;
-    //protected SMNPCEntity enemy;
+    //protected PlayerStats player;
+    //protected NPC enemy;
 
 
     public abstract (int, int, int) Use(string moveName);

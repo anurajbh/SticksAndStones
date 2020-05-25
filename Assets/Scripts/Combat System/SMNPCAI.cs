@@ -8,26 +8,17 @@ public class SMNPCAI : MonoBehaviour
     //TO DO: implement the different attacks for Charlotte, James, and the shadow
     //(essentially find and assign 'name')
 
-    public SMNPCEntity npc;
-    SMPlayerStats player;
+    public NPC npc;
+    PlayerStats player;
     //SMDialogueTrigger displayStat;
-    public Charlotte charlotte;
+    //public Charlotte charlotte;
 
     void Awake()
     {
-        npc = gameObject.GetComponent<SMNPCEntity>();
-        player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
+        npc = gameObject.GetComponent<NPC>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         //displayStat = gameObject.GetComponent<SMDialogueTrigger>();
-        charlotte = GetComponent<Charlotte>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       if (player.getState() == Transitions.ProcessState.enemyTurn)
-        {
-            EnemyTurn();
-        }  
+        //charlotte = GetComponent<Charlotte>();
     }
 
     public void EnemyTurn()
@@ -49,7 +40,7 @@ public class SMNPCAI : MonoBehaviour
         string[] msg = new string[] { "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!" };
         //displayStat.TriggerDialogue(new Dialogue("", msg));
-        player.switchState(Transitions.Command.enemyChoice);
+        //player.switchState(Transitions.Command.enemyChoice);
         //SMDialogueTrigger.turn = 3;
     }
 }

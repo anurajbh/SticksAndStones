@@ -5,7 +5,7 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "New Attack", menuName = "Attack")]
 public class Attacks : Action
 {
-    //TO DO: replace all commented lines with the correct code for this to function
+    //TO DO: trigger error message for limited will, deal enemy damage
 
     PlayerStats player = PlayerStats.instance;
 
@@ -20,7 +20,7 @@ public class Attacks : Action
 
     private void Awake()
     {
-        //enemy = GameObject.Find("NPC").GetComponent<SMNPCEntity>();
+        //enemy = GameObject.Find("NPC").GetComponent<NPC>();
         //error = GameObject.Find("Attack 1").GetComponent<SMDialogueTrigger>();
     }
     public override void Learn(string name, int anxiety, int will, int enemyDamage)
@@ -30,18 +30,17 @@ public class Attacks : Action
 
     public override (int, int, int) Use(string moveName)
     {
-        /*player.adjustAnxiety(attacks[moveName].Item1);
-        if (player.adjustWill(attacks[moveName].Item2) < 0)
+        player.adjustAnxiety(PlayerStats.attacks[moveName].Item1);
+        if (!player.adjustWill(PlayerStats.attacks[moveName].Item2))
         {
             string[] msg = new string[] { "You don't have enough Will!" };
             //error.TriggerDialogue(new Dialogue("", msg));
-            player.switchState(Transitions.Command.waitForPlayer);
             return (0, 0, 0);
         }                   //rework playerStats so that you get unsuccessful moves if you don't have enough will
-        enemy.adjustHealth(attacks[moveName].Item3);
-        return attacks[moveName];*/
+        //enemy.adjustHealth(attacks[moveName].Item3);
+        return PlayerStats.attacks[moveName];
 
-        return (0, 0, 0);
+        //return (0, 0, 0);
     }
 
 }

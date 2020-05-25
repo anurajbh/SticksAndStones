@@ -13,6 +13,22 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatStopsYou;
     public Animator animator;
 	public static bool teleporting = false;
+
+    public bool CheckFreeze()
+    {
+        bool b;
+
+        if (DialogueManager.triggered)
+        {
+            b = true;
+        }
+        else
+        {
+            b = false;
+        }
+        return b;
+    }
+
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -20,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (CheckFreeze()) { return; }
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
         CheckForMovementInput();
         CheckForPlayerDirection();

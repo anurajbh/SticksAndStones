@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Manager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
-    public static Manager instance;
+    public static DialogueManager instance;
     public static bool triggered;
     public DialogueBase next;
 
@@ -28,7 +28,7 @@ public class Manager : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 NextLine();
             }
@@ -49,6 +49,7 @@ public class Manager : MonoBehaviour
     public GameObject optionUI;
     public GameObject[] optionButtons;
     public GameObject dialogueUI;
+    private bool buffer;
 
     public void AddDialogue(DialogueBase db)
     {
@@ -56,6 +57,8 @@ public class Manager : MonoBehaviour
         {
             return;
         }
+
+        StartCoroutine(Buffer());
 
         triggered = true;
         dialogueInfo.Clear();
@@ -76,6 +79,7 @@ public class Manager : MonoBehaviour
     {
         if (typing)
         {
+            if (buffer) return;
             CompleteText();
             StopAllCoroutines();
             typing = false;
@@ -130,6 +134,12 @@ public class Manager : MonoBehaviour
         typing = false;
     }
 
+    IEnumerator Buffer()
+    {
+        yield return new WaitForSeconds(0.1f);
+        buffer = false;
+    }
+
     private void CompleteText()
     {
         dialogueText.text = completeText;
@@ -178,6 +188,8 @@ public class Manager : MonoBehaviour
             isDialogueOption = true;
             DialogueOptions dialogueOptions = db as DialogueOptions;
             numOptions = dialogueOptions.optionInfo.Length;
+
+            optionButtons[0].GetComponent<Button>().Select();
 
             for (int i = 0; i < optionButtons.Length; i++)
             {

@@ -4,20 +4,26 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class UnityEventHandler : MonoBehaviour, IPointerDownHandler
+public class UnityEventHandler : MonoBehaviour
 {
-    public UnityEvent eventHandler;
-    public DialogueBase dialogue;
+    [HideInInspector] public UnityEvent eventHandler;
+    [HideInInspector] public DialogueBase dialogue;
 
-    public void OnPointerDown(PointerEventData pointerEventData)
+    public void InitiateAction()
     {
+        StartCoroutine(InDialogueBuffer());
+    }
+
+    IEnumerator InDialogueBuffer()
+    {
+        yield return new WaitForSeconds(0.01f);
         eventHandler.Invoke();
-        Manager.instance.CloseOptions();
-        Manager.triggered = false;
+        DialogueManager.instance.CloseOptions();
+        DialogueManager.triggered = false;
 
         if (dialogue != null)
         {
-            Manager.instance.AddDialogue(dialogue);
+            DialogueManager.instance.AddDialogue(dialogue);
         }
     }
 }

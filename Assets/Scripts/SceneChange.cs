@@ -25,7 +25,7 @@ public class SceneChange : MonoBehaviour
         {
             SceneManager.LoadScene("OutsideTest");
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.L))
         {
             SceneManager.LoadScene("SampleScene");
         }

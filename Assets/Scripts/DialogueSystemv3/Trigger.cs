@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class Trigger : Interactable
 {
     public DialogueBase dialogue;
 
     public void TriggerDialogue()
     {
-        Manager.instance.AddDialogue(dialogue);
+        DialogueManager.instance.AddDialogue(dialogue);
     }
 
-    private void Update()
+    public override void Interact()
+    {
+        TriggerDialogue();
+    }
+
+    /*private void Update()
     {
         //start interaction collisions should be done through here
         if (!Manager.triggered && Input.GetKeyDown(KeyCode.Z))
         {
             TriggerDialogue();
         }
-    }
+    }*/
 }

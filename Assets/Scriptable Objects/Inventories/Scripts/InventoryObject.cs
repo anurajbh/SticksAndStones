@@ -45,7 +45,7 @@ public class InventoryObject : ScriptableObject
     }
 
     public void UseItem(ItemObject item, GameObject playerController) {
-        SMPlayerStats stats = playerController.GetComponent<SMPlayerStats>();
+        PlayerStats stats = playerController.GetComponent<PlayerStats>();
         if (item.type == ItemType.Will) {
             float willChange = ((WillItem)item).willChange;
             stats.adjustWill((int)willChange);
