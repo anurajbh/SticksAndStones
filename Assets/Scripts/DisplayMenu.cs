@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DisplayMenu : MonoBehaviour
 {
@@ -126,6 +127,7 @@ public class DisplayMenu : MonoBehaviour
     }
     void QuitGame() {
         IsQuitMode = true;
+        SceneManager.LoadScene("MainMenu");
     }
 
     void HideInventory() {

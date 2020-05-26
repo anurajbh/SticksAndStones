@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LockedDoor : MonoBehaviour
 {
-	public SMDialogueTrigger trigger;
+    //TO DO: replace commented line with correct dialogue syntax
+	public Trigger trigger;
 
 	void Awake()
 	{
-		trigger = GetComponent<SMDialogueTrigger>();
+		trigger = GetComponent<Trigger>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -17,7 +18,7 @@ public class LockedDoor : MonoBehaviour
 		{
 			Debug.Log("Encountered locked door");
 			string[] sentence = { "This door is locked." };
-			trigger.TriggerDialogue(new Dialogue("", sentence));
+			//trigger.TriggerDialogue(new Dialogue("", sentence));
 		}
 	}
 }
