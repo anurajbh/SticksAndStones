@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 4159990654320212815}
   - component: {fileID: 1306419984452583425}
   - component: {fileID: 6801311281342557954}
+  - component: {fileID: 1400150453}
+  - component: {fileID: 1400150454}
+  - component: {fileID: 1400150455}
   m_Layer: 8
   m_Name: NPC
   m_TagString: NPC
@@ -136,3 +139,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 1306419984452583425}
+  charlotte: {fileID: 0}
+--- !u!114 &1400150453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55351102bcf3a7418900be375f4d3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAbilities: []
+  SkillAbilities: []
+--- !u!114 &1400150454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720bcc9aa01e2eb43bc7acb0facc2eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1400150455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031629d800f9f7d42809568091a2e186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

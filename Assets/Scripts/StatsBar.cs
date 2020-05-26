@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class StatsBar : MonoBehaviour
 {
+    //TO DO: replace all commented lines with the correct code for this to function
+
     public Slider WillSlider;
     //public Slider AnxietySlider;
-    public SMPlayerStats playerStats;
+    //public PlayerStats playerStats;
     private void Awake()
     {
-        playerStats = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
-        SetWillBar(playerStats.will);
+        //playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        //SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
     }
     private void Update()
     {
-        SetWill(playerStats.will);
+        //SetWill(playerStats.will);
         //SetAnxiety(playerStats.anxiety);
     }
 
