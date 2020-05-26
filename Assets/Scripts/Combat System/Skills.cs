@@ -10,7 +10,7 @@ public class Skills : Action
     static Dictionary<string, (int, int, int)> skills = new Dictionary<string, (int, int, int)>
     {
         
-    };
+    }; //skills stored as name, (anxietyEffect, willEffect, enemyDamage) pairs
 
     private void Awake()
     {
@@ -26,15 +26,15 @@ public class Skills : Action
 
     public override (int, int, int) Use(string moveName)
     {
-        /*player.adjustAnxiety(skills[moveName].Item1);
-        if (player.adjustWill(skills[moveName].Item2) < 0)
+        SMPlayerStats.Instance.adjustAnxiety(skills[moveName].Item1);
+        if (SMPlayerStats.Instance.adjustWill(skills[moveName].Item2) < 0)
         {
             string[] msg = new string[] { "You don't have enough Will!" };
             //error.TriggerDialogue(new Dialogue("", msg));
-            //player.switchState(Transitions.Command.waitForPlayer);
+            //player.switchState(Transitions.Command.waitForPlayer);//should be in combat system
             return (0, 0, 0);
         }
-        enemy.adjustHealth(skills[moveName].Item3);
+        //enemy.adjustHealth(skills[moveName].Item3);
         return skills[moveName];*/
         return (0, 0, 0);
     }
