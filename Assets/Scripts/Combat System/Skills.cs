@@ -35,8 +35,8 @@ public class Skills : Action
             return (0, 0, 0);
         }
         //enemy.adjustHealth(skills[moveName].Item3);
-        return skills[moveName];*/
-        return (0, 0, 0);
+        return skills[moveName];
+        //return (0, 0, 0);
     }
 
     public static int GetSize()

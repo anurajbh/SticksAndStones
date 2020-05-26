@@ -16,7 +16,7 @@ public class SMPlayerStats : MonoBehaviour
     bool overloaded = false;
     bool panic = false;
     public int will = 15;
-    Transitions.Process state = new Transitions.Process();
+    //Transitions.Process state = new Transitions.Process();
     public Attacks attacks;
     public Skills skills;
     // Start is called before the first frame update
@@ -137,7 +137,7 @@ public class SMPlayerStats : MonoBehaviour
         
     }
 
-    public void switchState(Transitions.Command command)
+    /*public void switchState(Transitions.Command command)
     {
         state.MoveNext(command);
     }
@@ -145,7 +145,7 @@ public class SMPlayerStats : MonoBehaviour
     public Transitions.ProcessState getState()
     {
         return state.CurrentState;
-    }
+    }*/
 
     void Overload()
     {

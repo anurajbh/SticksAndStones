@@ -7,16 +7,12 @@ public class Attacks : Action
 {
     //TO DO: trigger error message for limited will, deal enemy damage
 
-    PlayerStats player = PlayerStats.instance;
+    //PlayerStats player = PlayerStats.instance;
 
-    //SMDialogueTrigger error;
-    /*static Dictionary<string, (int, int, int)> allAttacks = new Dictionary<string, (int, int, int)>
+    // SMDialogueTrigger error;
+    static Dictionary<string, (int, int, int)> attacks = new Dictionary<string, (int, int, int)>//int or float?
     {
-        //hub dictionary for all attacks/skills that the player can learn
-        //also a hub for npc moves
-        { "poke", (1, -1, -1) },
-        { "cry", (2, -3, 0) },
-    };    */                                                                             //attacks will be stored as name, (anxietyEffect, willEffect, enemyDamage) pairs
+    };                                                                                 //attacks stored as name, (anxietyEffect, willEffect, enemyDamage) pairs
 
     private void Awake()
     {
@@ -25,22 +21,26 @@ public class Attacks : Action
     }
     public override void Learn(string name, int anxiety, int will, int enemyDamage)
     {
-        PlayerStats.attacks.Add(name, (anxiety, will, enemyDamage));
+        attacks.Add(name, (anxiety, will, enemyDamage));
     }
 
     public override (int, int, int) Use(string moveName)
     {
-        player.adjustAnxiety(PlayerStats.attacks[moveName].Item1);
-        if (!player.adjustWill(PlayerStats.attacks[moveName].Item2))
+        SMPlayerStats.Instance.adjustAnxiety(attacks[moveName].Item1);
+        if (SMPlayerStats.Instance.adjustWill(attacks[moveName].Item2) < 0)
         {
             string[] msg = new string[] { "You don't have enough Will!" };
             //error.TriggerDialogue(new Dialogue("", msg));
+            //player.switchState(Transitions.Command.waitForPlayer);// should be in combat system
             return (0, 0, 0);
         }                   //rework playerStats so that you get unsuccessful moves if you don't have enough will
         //enemy.adjustHealth(attacks[moveName].Item3);
-        return PlayerStats.attacks[moveName];
+        return attacks[moveName];
+    }
 
-        //return (0, 0, 0);
+    public static int GetSize()
+    {
+        return attacks.Count;
     }
 
 }

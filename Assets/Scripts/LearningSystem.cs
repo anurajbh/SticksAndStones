@@ -5,7 +5,7 @@ using UnityEngine;
 public class LearningSystem : MonoBehaviour
 {
     SMPlayerStats player;
-    public Skills ;
+    public Skills skills;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,7 @@ public class LearningSystem : MonoBehaviour
     }
 
     //Adds a skill onto skills
-    private void learnSkill(Skill skill) {
+    private void learnSkill(Skills skill) {
         //Todo: get skills from the entity
         player = GameObject.FindWithTag("Player").GetComponent<SMPlayerStats>();
     } 

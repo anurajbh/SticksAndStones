@@ -12,7 +12,7 @@ public class NPCInContact : MonoBehaviour
     TimeProgression Time;
     static int eventCounter = 1;
     string interaction = "event" + eventCounter;
-    Charlotte npc;
+    //Charlotte npc;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class NPCInContact : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = true;
-            npc = other.GetComponent<Charlotte>();
+           // npc = other.GetComponent<Charlotte>();
             Debug.Log("can be spoken to");
         }
     }
@@ -34,7 +34,7 @@ public class NPCInContact : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             CanBeSpokenTo = false;
-            npc = other.GetComponent<Charlotte>();
+            //npc = other.GetComponent<Charlotte>();
             Debug.Log("can no longer be spoken to");
         }
     }
@@ -51,12 +51,12 @@ public class NPCInContact : MonoBehaviour
     {
         if (TimeProgression.Instance.myCycle == TimeProgression.cycle.dawn || TimeProgression.Instance.myCycle == TimeProgression.cycle.noon)
         {
-            npc.Converse();
+            //npc.Converse();
         }
         else
         {
             print("Start battle");
-            player.switchState(Transitions.Command.startBattle);
+            //player.switchState(Transitions.Command.startBattle);
             //SceneManager.LoadScene("Combat");
         }
     }
