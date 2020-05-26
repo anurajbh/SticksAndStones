@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7c385f14206b044a12361bd44d46fc, type: 3}
+  m_Name: Option 2
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: Anyways, let me tell you more about the drama club, just FYI.
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: Our goal is to help you learn more about the different aspects of theater,
+      which includes learning stage terminology, developing your acting skills, what
+      goes behind set building, yadda-yadda.
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: 'We meet Thursdays at 6 p.m. in one of the classrooms on the second floor
+      of the main building. '
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "Furthermore, you\u2019re not required to attend every meeting unless
+      you\u2019re a part of one of our semesterly productions. So, if you\u2019re
+      busy sometimes and can\u2019t make it, that\u2019s totally fine!"
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "And, just like any other club on campus, we have a president, vice president,
+      treasurer, and secretary, which is who you\u2019re speaking to right now!"
+  - nextDialogue: {fileID: 0}
+    charName: 
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "The drama club recruiter\u2019s eyes grow wide."
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "Oh shoot, that reminds me! I haven\u2019t even introduced myself yet!
+      Silly me!"
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "I\u2019m Charlotte, and I\u2019m the secretary of the drama club!"
+  optionInfo:
+  - nextDialogue: {fileID: 0}
+    buttonName: "\u201CMy name\u2019s Elena, but I go by Elly.\u201D"
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - nextDialogue: {fileID: 0}
+    buttonName: "\u201CI\u2019m Elly, president of the boring club.\u201D"
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - nextDialogue: {fileID: 0}
+    buttonName: "\u201CNice to meet you, Charlotte.\u201D"
+    myEvent:
+      m_PersistentCalls:
+        m_Calls: []
