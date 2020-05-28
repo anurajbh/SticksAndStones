@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class LearningSystem : MonoBehaviour
 {
     public PlayerAbility skill; // use this to add one skill
@@ -9,11 +8,15 @@ public class LearningSystem : MonoBehaviour
     public List<PlayerAbility> skills; //use this to add skills
     public List<PlayerAbility> attacks; //use this to add attacks
 
+
     //Used to learn singular skill
     public void learnSkill() {
-        if (!SMPlayerStats.Instance.skills.Contains(skill.name) && skill != null) {
+        if (SMPlayerStats.Instance.skills == null || !SMPlayerStats.Instance.skills.Contains(skill.name) && skill != null) {
             SMPlayerStats.Instance.skills.Learn(skill.name, skill.anxietyEffect, skill.willEffect, skill.enemyDamage);
-        }
+            Debug.Log(skill.name + " has been learned!");
+        } else {
+            Debug.Log(skill.name + " has already been learned!");
+        } 
     } 
     //Used to learn singular attack
     public void learnAttack() {
@@ -38,5 +41,9 @@ public class LearningSystem : MonoBehaviour
                 //broadcast you learned an attack?
             }
         }
+    }
+
+    public void addSkill(PlayerAbility skill) {
+        this.skill = skill;
     }
 }
