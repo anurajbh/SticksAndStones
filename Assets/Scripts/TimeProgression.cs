@@ -52,6 +52,6 @@ public class TimeProgression : MonoBehaviour
     public void TransitionToNight()
     {
         myCycle = cycle.night;
-        SMPlayerStats.Instance.will = SMPlayerStats.Instance.adjustWill(-SMPlayerStats.Instance.anxiety / 2);
+        PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
     }
 }

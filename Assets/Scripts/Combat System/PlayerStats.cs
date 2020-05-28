@@ -20,19 +20,23 @@ public class PlayerStats : MonoBehaviour
     public int maxInt;
     bool overloaded;
 
-    public static PlayerStats instance;
+    public static PlayerStats Instance;
 
-    public static Dictionary<string, (int, int, int)> attacks = new Dictionary<string, (int, int, int)>
-    {
-        { "poke", (1, -1, -1) },
-        { "cry", (2, -3, 0) },
-    };
+    public Attacks attacks;//object that contains a dictionary of attacks
+    public Skills skills;//object that contains a dictionary of skills
 
     private void Awake()
     {
-        if (instance == null)
+        attacks = GetComponent<Attacks>();
+        skills = GetComponent<Skills>();
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
