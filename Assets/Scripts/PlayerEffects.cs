@@ -12,6 +12,7 @@ public class PlayerEffects : MonoBehaviour
     void Awake()
     {
         canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
+        textObject = GameObject.Find("BlackoutText");
         //textObject = GameObject.Find("BlackoutText");
         if (Instance == null)
         {
@@ -55,12 +56,12 @@ public class PlayerEffects : MonoBehaviour
     }
     IEnumerator DisplayBlackoutText()
     {
-        textObject.SetActive(true);
+        textObject.GetComponent<Text>().enabled = true;
         yield return null;
     }
     IEnumerator EndFade()
     {
-        textObject.SetActive(false);
+        textObject.GetComponent<Text>().enabled = false;
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime;
