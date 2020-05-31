@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerAbility : Ability
 {
    public int enemyDamage; //Damage on enemy
+   public Sprite abilityImage; // UI image for the ability 
 }
