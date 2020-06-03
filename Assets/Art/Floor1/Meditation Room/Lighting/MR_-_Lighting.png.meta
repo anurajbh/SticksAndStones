@@ -1,7 +1,25 @@
 fileFormatVersion: 2
-guid: 086a1842d1ace28418e43ed438b0c091
+guid: 469715bfd5801704aac909a005c79508
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1709990169899466408
+    second: MR_-_Lighting_0
+  - first:
+      213: 8470080920644228089
+    second: MR_-_Lighting_1
+  - first:
+      213: 421759228935305244
+    second: MR_-_Lighting_2
+  - first:
+      213: -2948505232163959161
+    second: MR_-_Lighting_3
+  - first:
+      213: -3646467630665795531
+    second: MR_-_Lighting_4
+  - first:
+      213: 6531750577305598566
+    second: MR_-_Lighting_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -86,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dorm1_0
+      name: MR_-_Lighting_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 30
-        height: 68
+        x: 5
+        y: 201
+        width: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ae8aa71d1807e490800000000000000
-      internalID: -7717190515431928152
+      spriteID: 8518bb91005e448e0800000000000000
+      internalID: -1709990169899466408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dorm1_1
+      name: MR_-_Lighting_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 81
-        width: 33
-        height: 46
+        x: 13
+        y: 22
+        width: 11
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,8 +139,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b382e44239102a380800000000000000
-      internalID: -8961598577032943557
+      spriteID: 9f310dd88b5cb8570800000000000000
+      internalID: 8470080920644228089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MR_-_Lighting_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 132
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c187e6db8c36ad500800000000000000
+      internalID: 421759228935305244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MR_-_Lighting_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 130
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e8c7afc1ec417d0800000000000000
+      internalID: -2948505232163959161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MR_-_Lighting_4
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 44
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538743d7205256dc0800000000000000
+      internalID: -3646467630665795531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MR_-_Lighting_5
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 46
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ab0c91b8075aa50800000000000000
+      internalID: 6531750577305598566
       vertices: []
       indices: 
       edges: []
