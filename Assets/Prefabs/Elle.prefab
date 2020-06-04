@@ -39,11 +39,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9097357916279234142}
-  - component: {fileID: 3288262537128736194}
   - component: {fileID: 3288262537818848075}
   - component: {fileID: 6924980572455517128}
   - component: {fileID: 5200720823003099720}
   - component: {fileID: 7359227852442944095}
+  - component: {fileID: 8570476944222150501}
   m_Layer: 5
   m_Name: Elle
   m_TagString: Player
@@ -66,22 +66,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3288262537128736194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097357916279234140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2645e1f006d24d642b62cbd0b40e0f21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anxiety: 3
-  will: 15
-  attacks: {fileID: 0}
-  skills: {fileID: 0}
 --- !u!114 &3288262537818848075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +117,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfa0b5312eebe64a90ab9cc2ba768ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8570476944222150501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097357916279234140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec652fbc1ddfaf4eac3df4e5ba0cb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxiety: 4
+  maxAnx: 10
+  totalWill: 0
+  ambWill: 0
+  maxAmb: 10
+  intWill: 15
+  maxInt: 15
+  attacks: {fileID: 0}
+  skills: {fileID: 0}
 --- !u!1 &9097357916920060795
 GameObject:
   m_ObjectHideFlags: 0

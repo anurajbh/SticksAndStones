@@ -26,8 +26,9 @@ public class Skills : Action
 
     public override (int, int, int) Use(string moveName)
     {
-        SMPlayerStats.Instance.adjustAnxiety(skills[moveName].Item1);
-        if (SMPlayerStats.Instance.adjustWill(skills[moveName].Item2) < 0)
+        PlayerStats.Instance.adjustAnxiety(skills[moveName].Item1);
+        PlayerStats.Instance.adjustWill(skills[moveName].Item2);
+        if (PlayerStats.Instance.totalWill < 0)
         {
             string[] msg = new string[] { "You don't have enough Will!" };
             //error.TriggerDialogue(new Dialogue("", msg));
@@ -42,5 +43,9 @@ public class Skills : Action
     public static int GetSize()
     {
         return skills.Count;
+    }
+    //Checks for skill in dictionary
+    public bool Contains(string skillName) {
+        return skills.ContainsKey(skillName);
     }
 }
