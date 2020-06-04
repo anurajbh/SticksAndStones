@@ -347,10 +347,10 @@ TextureImporter:
       name: MR_-_Props_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 32
-        height: 48
+        x: 21
+        y: 120
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: MR_-_Props_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 112
-        width: 32
-        height: 48
+        x: 73
+        y: 120
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,10 +389,10 @@ TextureImporter:
       name: MR_-_Props_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 112
-        width: 32
-        height: 48
+        x: 125
+        y: 119
+        width: 25
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,10 +410,10 @@ TextureImporter:
       name: MR_-_Props_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 112
-        width: 32
-        height: 48
+        x: 177
+        y: 119
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,10 +431,10 @@ TextureImporter:
       name: MR_-_Props_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 112
-        width: 32
-        height: 48
+        x: 229
+        y: 119
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,10 +452,10 @@ TextureImporter:
       name: MR_-_Props_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 112
-        width: 32
-        height: 48
+        x: 325
+        y: 37
+        width: 54
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,10 +473,10 @@ TextureImporter:
       name: MR_-_Props_6
       rect:
         serializedVersion: 2
-        x: 192
-        y: 112
-        width: 32
-        height: 48
+        x: 21
+        y: 72
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,10 +494,10 @@ TextureImporter:
       name: MR_-_Props_7
       rect:
         serializedVersion: 2
-        x: 224
-        y: 112
-        width: 32
-        height: 48
+        x: 73
+        y: 72
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,10 +515,10 @@ TextureImporter:
       name: MR_-_Props_8
       rect:
         serializedVersion: 2
-        x: 320
-        y: 112
-        width: 32
-        height: 48
+        x: 125
+        y: 71
+        width: 25
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,10 +536,10 @@ TextureImporter:
       name: MR_-_Props_9
       rect:
         serializedVersion: 2
-        x: 352
-        y: 112
-        width: 32
-        height: 48
+        x: 177
+        y: 71
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,10 +557,10 @@ TextureImporter:
       name: MR_-_Props_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 48
+        x: 229
+        y: 71
+        width: 25
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,10 +578,10 @@ TextureImporter:
       name: MR_-_Props_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 48
+        x: 282
+        y: 60
+        width: 27
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,9 +599,9 @@ TextureImporter:
       name: MR_-_Props_12
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
+        x: 16
+        y: 16
+        width: 30
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -620,9 +620,9 @@ TextureImporter:
       name: MR_-_Props_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
+        x: 70
+        y: 16
+        width: 28
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -641,9 +641,9 @@ TextureImporter:
       name: MR_-_Props_14
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
+        x: 122
+        y: 16
+        width: 28
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -662,10 +662,10 @@ TextureImporter:
       name: MR_-_Props_15
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
-        width: 32
-        height: 48
+        x: 175
+        y: 16
+        width: 27
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -683,10 +683,10 @@ TextureImporter:
       name: MR_-_Props_16
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 32
-        height: 48
+        x: 226
+        y: 16
+        width: 28
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -696,342 +696,6 @@ TextureImporter:
       bones: []
       spriteID: b94344d012a9eba90800000000000000
       internalID: -7296224879546452837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_17
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 64
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbe6aa1aca1ae15f0800000000000000
-      internalID: -784011522297139524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_18
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff8446d10972fd880800000000000000
-      internalID: -8584098864822990593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_19
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 64
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5509800ecc835720800000000000000
-      internalID: 2833763406946305375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_20
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f82b5d3d14a5cbd40800000000000000
-      internalID: 5601451275315425935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_21
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 64
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 684f3afc69288cdb0800000000000000
-      internalID: -4771420220958706554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_22
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05fd48fdbbabe1290800000000000000
-      internalID: -7917685778799075504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_23
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e5ab3aeb7a66fc50800000000000000
-      internalID: 6698658576203490791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_24
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 875f7178c2e572ca0800000000000000
-      internalID: -6041756829756164744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_25
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f59f66ecb7279700800000000000000
-      internalID: 546949572022212083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_26
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0339baaae0ed6af90800000000000000
-      internalID: -6942617620970761424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_27
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4100e7479b96320f0800000000000000
-      internalID: -1142953635177693164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_28
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e65cc08e163ae6e30800000000000000
-      internalID: 4498712718690010478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_29
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96181507bef723950800000000000000
-      internalID: 6427340267389550953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_30
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87d27e10e1abf83e0800000000000000
-      internalID: -2049214667386573448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_31
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f63676535b49d3f0800000000000000
-      internalID: -875585831241894158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MR_-_Props_32
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 16
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f3c6e0155b2309b0800000000000000
-      internalID: -5115197107406978060
       vertices: []
       indices: 
       edges: []

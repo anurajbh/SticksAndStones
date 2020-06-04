@@ -43,5 +43,8 @@ public class Attacks : Action
     {
         return attacks.Count;
     }
-
+    //Checks for skill in dictionary
+    public bool Contains(string attackName) {
+        return attacks.ContainsKey(attackName);
+    }
 }
