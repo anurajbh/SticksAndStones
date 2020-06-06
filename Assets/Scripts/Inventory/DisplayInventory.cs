@@ -36,6 +36,7 @@ public class DisplayInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player");
         isControlInInventory = false;
         isControlInSlots = false;
         isControlInSlots = false;
