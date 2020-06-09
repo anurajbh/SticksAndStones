@@ -127,16 +127,6 @@ public class PlayerStats : MonoBehaviour
         //seal skills
     }*/
 
-    void Blackout()
-    {
-        //this is supposed to have the whole screen fade to black and display
-        //a text box that says "I-I couldn't breathe.
-        //My vision went dark. The rest of the day went by in a blur."
-        //and move straight to the night cycle
-
-        //use 2D canvas for making the screen turn black, change alpha of the canvas group
-    }
-
     void Overload()
     {
         overloaded = true;

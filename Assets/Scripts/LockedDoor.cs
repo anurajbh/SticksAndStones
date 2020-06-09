@@ -14,7 +14,7 @@ public class LockedDoor : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.CompareTag("PlayerBody"))
+		if(other.CompareTag("Player"))
 		{
 			Debug.Log("Encountered locked door");
 			string[] sentence = { "This door is locked." };

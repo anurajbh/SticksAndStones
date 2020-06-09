@@ -22,7 +22,7 @@ public class Teleport : MonoBehaviour
     
 	private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PlayerBody") && PlayerMovement.teleporting == false)
+        if(other.CompareTag("Player") && PlayerMovement.teleporting == false)
         {
 			openDoor.Play();
 			PlayerMovement.teleporting = true;
