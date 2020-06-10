@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance;
+    public static DialogueManager instance;  //to make the class Singleton
     public static bool triggered;
-    public DialogueBase next;
+    public DialogueBase next; //this should be set when returning to base dialogue after completing an option branch
 
     private bool typing;
     private string completeText;
 
+    //This is just making sure this is the class being referenced by DialogueManager
     private void Awake()
     {
         if (instance != null)
@@ -58,25 +59,26 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(Buffer());
+        StartCoroutine(Buffer()); //required so that the first text to appear types instead of just appearing
 
         triggered = true;
-        dialogueInfo.Clear();
-        display.SetActive(true);
-        dialogueUI.SetActive(true);
+        dialogueInfo.Clear();  //makes sure the queue is empty before queuing new dialogue
+        display.SetActive(true);  //UI updates
+        dialogueUI.SetActive(true);   //UI updates
 
-        ParseOptions(db);
+        ParseOptions(db); //done before enqueuing the dilaogue so the options actually display
 
         foreach (DialogueBase.Info info in db.dialogueInfo)
         {
             dialogueInfo.Enqueue(info);
         }
 
-        DequeueDialogue();
+        DequeueDialogue(); //start displaying the dialogue
     }
 
     public void DequeueDialogue()
     {
+        //the following if ensures that text doesn't get jumbled if you try to skip through quickly
         if (typing)
         {
             if (buffer) return;
@@ -97,6 +99,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = info.words;
         dialoguePortrait.sprite = info.portrait;
 
+        //setting UI elements
         if (info.charName == "")
         {
             dialogueName.text = "";
@@ -108,6 +111,7 @@ public class DialogueManager : MonoBehaviour
             nameTag.SetActive(true);
         }
 
+        //setting next dialogue if necessary
         if (info.nextDialogue != null)
         {
             next = info.nextDialogue;
@@ -121,6 +125,8 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeText(info));
     }
 
+    //Coroutine to type the text instead of having it just appear
+    //Needs to be a coroutine otherwise the letters get jumbled
     IEnumerator TypeText(DialogueBase.Info info)
     {
         typing = true;
@@ -134,12 +140,14 @@ public class DialogueManager : MonoBehaviour
         typing = false;
     }
 
+    //for waiting purposes :)
     IEnumerator Buffer()
     {
         yield return new WaitForSeconds(0.1f);
         buffer = false;
     }
 
+    //replaces whatever's in the dialogue box with the completed version of the text
     private void CompleteText()
     {
         dialogueText.text = completeText;
@@ -152,7 +160,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        OptionsLogic();
+        OptionsLogic(); //allows selection between options if available
+        //queues up next dialogue if available
         if (next != null)
         {
             AddDialogue(next);
@@ -160,6 +169,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    //displays options if available or closes dialogue (latter doesn't matter if next dialogue is queued up)
     private void OptionsLogic()
     {
         if (isDialogueOption)
@@ -176,6 +186,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    //pure UI update
     public void CloseOptions()
     {
         optionUI.SetActive(false);
@@ -189,27 +200,27 @@ public class DialogueManager : MonoBehaviour
             DialogueOptions dialogueOptions = db as DialogueOptions;
             numOptions = dialogueOptions.optionInfo.Length;
 
-            optionButtons[0].GetComponent<Button>().Select();
+            optionButtons[0].GetComponent<Button>().Select(); //has the first button automatically selected (won't be highlighted until you move the cursor)
 
             for (int i = 0; i < optionButtons.Length; i++)
             {
-                optionButtons[i].SetActive(false);
+                optionButtons[i].SetActive(false); //makes sure no buttons are showing
             }
 
             for (int i = 0; i < numOptions; i++)
             {
-                optionButtons[i].SetActive(true);
-                optionButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = dialogueOptions.optionInfo[i].buttonName;
-                UnityEventHandler handler = optionButtons[i].GetComponent<UnityEventHandler>();
-                handler.eventHandler = dialogueOptions.optionInfo[i].myEvent;
+                optionButtons[i].SetActive(true); //activates only the required number of options
+                optionButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = dialogueOptions.optionInfo[i].buttonName; //sets button names
+                UnityEventHandler handler = optionButtons[i].GetComponent<UnityEventHandler>(); //allows access to button trigger to set custom event
+                handler.eventHandler = dialogueOptions.optionInfo[i].myEvent; //hooks up the UnityEventHandler to the button's events and triggers
 
                 if (dialogueOptions.optionInfo[i].nextDialogue != null)
                 {
-                    handler.dialogue = dialogueOptions.optionInfo[i].nextDialogue;
+                    handler.dialogue = dialogueOptions.optionInfo[i].nextDialogue; //displays option branch dialogue if available
                 }
                 else
                 {
-                    handler.dialogue = null;
+                    handler.dialogue = null; //needs to be null for UnityEventHandler to know what to do with it
                 }
             }
         }

@@ -13,7 +13,6 @@ public class DialogueBase : ScriptableObject
         public Sprite portrait;
         [TextArea(4, 10)]
         public string words;
-        //public Action toLearn;    need to double check how to do these
     }
 
     [Header("Insert dialogue info below")]

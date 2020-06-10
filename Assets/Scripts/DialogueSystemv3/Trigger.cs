@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Trigger : Interactable
 {
+    //literally just triggers dialogue
+    //notice it derives from interactable
+
     public DialogueBase dialogue;
 
+    //a separate method in case we need to call it separate to the interactable stuff
     public void TriggerDialogue()
     {
         DialogueManager.instance.AddDialogue(dialogue);
@@ -15,13 +19,4 @@ public class Trigger : Interactable
     {
         TriggerDialogue();
     }
-
-    /*private void Update()
-    {
-        //start interaction collisions should be done through here
-        if (!Manager.triggered && Input.GetKeyDown(KeyCode.Z))
-        {
-            TriggerDialogue();
-        }
-    }*/
 }
