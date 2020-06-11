@@ -17,34 +17,58 @@ MonoBehaviour:
     charName: 
     portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
     words: Wait...how did she know I was a first-year? Do I look that awkward?...
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: Elly
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: H-How did you know I was a first-year student?...
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: 
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: The drama club recruiter elevates her chin and smirks pridefully.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: Hehe, call it impressive intuition.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: "Just kidding. I\u2019m a second-year and I\u2019ve never seen you around
       before, so I just assumed you were a new student."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: And judging by your reaction, I guess I was right.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: "The drama club is completely friendly to first-years too, by the way.
       It\u2019s a great way to get involved with others on campus early in your college
       career. "
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
   - nextDialogue: {fileID: 11400000, guid: bcad845b4e541544e877d928bcf45cde, type: 2}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: Take it from someone who joined as a first-year herself!
+    abilityToLearn: {fileID: 11400000, guid: 4f5be25d0a07d1c4895e5b4ded2b0f22, type: 2}
+    isAttack: 1
+    isSkill: 0
