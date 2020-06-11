@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         movePoint.parent = null;
+        DontDestroyOnLoad(movePoint);
     }
     private void Update()
     {

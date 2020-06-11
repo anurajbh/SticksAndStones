@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 92f80da6347cee947aa14e03c054d4eb
   - enabled: 1
-    path: Assets/Scenes/Floor2.unity
+    path: Assets/Scenes/Levels/Main Building - Floor 2.unity
     guid: 3f26fa87d59454c4e8ace76653bf7df1
   - enabled: 1
     path: Assets/Scenes/Floor1.unity
