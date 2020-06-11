@@ -24,6 +24,9 @@ public class UnityEventHandler : MonoBehaviour
         if (dialogue != null)
         {
             DialogueManager.instance.AddDialogue(dialogue);
+        } else if (DialogueManager.instance.abilityLearned == true) 
+        {
+            DialogueManager.instance.LearnAbilities();
         }
     }
 }

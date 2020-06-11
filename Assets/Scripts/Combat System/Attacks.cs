@@ -26,9 +26,10 @@ public class Attacks : Action
 
     public override (int, int, int) Use(string moveName)
     {
-        SMPlayerStats.Instance.adjustAnxiety(attacks[moveName].Item1);
-        if (SMPlayerStats.Instance.adjustWill(attacks[moveName].Item2) < 0)
-        {
+        PlayerStats.Instance.adjustAnxiety(attacks[moveName].Item1);
+        PlayerStats.Instance.adjustWill(attacks[moveName].Item2);
+        if (PlayerStats.Instance.totalWill < 0)
+        { 
             string[] msg = new string[] { "You don't have enough Will!" };
             //error.TriggerDialogue(new Dialogue("", msg));
             //player.switchState(Transitions.Command.waitForPlayer);// should be in combat system
@@ -42,5 +43,8 @@ public class Attacks : Action
     {
         return attacks.Count;
     }
-
+    //Checks for skill in dictionary
+    public bool Contains(string attackName) {
+        return attacks.ContainsKey(attackName);
+    }
 }

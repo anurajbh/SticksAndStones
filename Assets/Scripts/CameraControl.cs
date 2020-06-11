@@ -19,7 +19,7 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
-        target = GameObject.FindGameObjectWithTag("PlayerBody").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         isCamOnPlayer = true;
         camLerpSpeed = camLerpSpeedOnTransition;
     }

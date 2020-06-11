@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnxietyStats : MonoBehaviour
+public class AnxietySprites : MonoBehaviour
 {
     public Sprite Anxiety1;
     public Sprite Anxiety2;
@@ -16,17 +16,15 @@ public class AnxietyStats : MonoBehaviour
     public Sprite Anxiety9;
     public Sprite Anxiety10;
 
-    //public PlayerStats playerStats;
 
     public float anxietyLevel;
     // Update is called once per frame
     private void Awake()
     {
-        //playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
     }
     private void Update()
     {
-    	/* anxietyLevel = playerStats.anxiety;
+    	anxietyLevel = PlayerStats.Instance.anxiety;
         if (anxietyLevel == 1) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety1;
         }   
@@ -56,7 +54,7 @@ public class AnxietyStats : MonoBehaviour
         } 
         else if (anxietyLevel == 10) {
         	this.gameObject.GetComponent<Image>().sprite = Anxiety10;
-        } */
+        }
     }
     
     

@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     public static bool triggered;
     public DialogueBase next;
+    public DialogueBase learningDialogue;
 
     private bool typing;
     private string completeText;
@@ -50,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] optionButtons;
     public GameObject dialogueUI;
     private bool buffer;
+    [HideInInspector] public bool abilityLearned = false;
 
     public void AddDialogue(DialogueBase db)
     {
@@ -96,6 +98,20 @@ public class DialogueManager : MonoBehaviour
         completeText = info.words;
         dialogueText.text = info.words;
         dialoguePortrait.sprite = info.portrait;
+
+        //Adds abilities to learning system
+        if (info.abilityToLearn != null) 
+        {
+            if (info.isAttack) 
+            {
+                LearningSystem.instance.AddAttack(info.abilityToLearn);
+            } else if (info.isSkill) 
+            {
+                LearningSystem.instance.AddSkill(info.abilityToLearn);
+            } else {
+                Debug.Log("Please set " + info.abilityToLearn.name + " to be a skill or attack!");
+            }
+        }
 
         if (info.charName == "")
         {
@@ -152,10 +168,19 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        OptionsLogic();
-        if (next != null)
+        if (!LearningSystem.instance.isAttacksEmpty()) 
         {
-            AddDialogue(next);
+            LearningSystem.instance.LearnAttacks();
+            abilityLearned = true;
+        } else if (!LearningSystem.instance.isSkillsEmpty()) 
+        {
+            LearningSystem.instance.LearnSkills();
+            abilityLearned = true;
+        }
+        OptionsLogic();
+        if (next != null)   
+        {
+            AddDialogue(next);  
             Debug.Log("triggered");
         }
     }
@@ -217,5 +242,13 @@ public class DialogueManager : MonoBehaviour
         {
             isDialogueOption = false;
         }
+    }
+
+    public void LearnAbilities() {
+        learningDialogue.dialogueInfo[0].words = "From this conversation you feel like you've learned:" + LearningSystem.instance.toString();
+        abilityLearned = false;
+        LearningSystem.instance.clearLists();
+        AddDialogue(learningDialogue);
+        Debug.Log("learning dialogue activated");
     }
 }

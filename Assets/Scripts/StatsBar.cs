@@ -15,6 +15,7 @@ public class StatsBar : MonoBehaviour
         //playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         //SetWillBar(playerStats.will);
         //SetAnxietyBar(playerStats.anxiety);
+        WillSlider = GetComponent<Slider>();
     }
     private void Update()
     {

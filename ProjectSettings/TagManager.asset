@@ -16,6 +16,8 @@ TagManager:
   - Lamp
   - Time
   - nameTag
+  - Effect
+  - Blackout
   layers:
   - Default
   - TransparentFX

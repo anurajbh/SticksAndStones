@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class PlayerEffects : MonoBehaviour
 {
     public static PlayerEffects Instance { get; private set; }//this class is singleton because it is only relevant to the player
-    public GameObject textObject;
+    public Text blackoutText;
     public float fadeFactor = 0.2f;
     public CanvasGroup canvasGroup;
     void Awake()
     {
         canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
+        blackoutText = GameObject.Find("BlackoutText").GetComponent<Text>();
         //textObject = GameObject.Find("BlackoutText");
         if (Instance == null)
         {
@@ -55,12 +56,12 @@ public class PlayerEffects : MonoBehaviour
     }
     IEnumerator DisplayBlackoutText()
     {
-        textObject.SetActive(true);
+        blackoutText.enabled = true;
         yield return null;
     }
     IEnumerator EndFade()
     {
-        textObject.SetActive(false);
+        blackoutText.enabled = false;
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime;
