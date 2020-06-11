@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6924980572455517128}
   - component: {fileID: 5200720823003099720}
   - component: {fileID: 7359227852442944095}
+  - component: {fileID: 6837288019740908770}
   m_Layer: 5
   m_Name: Elle
   m_TagString: Player
@@ -131,6 +132,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cfa0b5312eebe64a90ab9cc2ba768ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6837288019740908770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097357916279234140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6b626692d136e41b38b013557014e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9097357916920060795
