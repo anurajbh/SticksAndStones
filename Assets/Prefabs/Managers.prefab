@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3796991410977312311}
   - component: {fileID: 3796991410977312310}
   - component: {fileID: 3796991410977312297}
+  - component: {fileID: 1641499745976881864}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next: {fileID: 0}
+  learningDialogue: {fileID: 11400000, guid: 554d57bbd1aed6147b2eefa564a7abcf, type: 2}
   display: {fileID: 1643058538770334573}
   dialogueName: {fileID: 1643058539654604686}
   nameTag: {fileID: 1643058539992795156}
@@ -59,6 +61,7 @@ MonoBehaviour:
   - {fileID: 1643058538254716273}
   - {fileID: 1643058539598971373}
   dialogueUI: {fileID: 1643058539526640526}
+  abilityLearned: 0
 --- !u!114 &3796991410977312297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +75,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!114 &1641499745976881864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796991410977312296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65c858978c03e447b72c6cd0b8c3acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  attacks: []
 --- !u!1001 &3796991410537960932
 PrefabInstance:
   m_ObjectHideFlags: 0
