@@ -7,8 +7,8 @@ public class TimeProgression : MonoBehaviour
 {
     public DayNight dayNight;
     public static TimeProgression Instance;
-    public float currentTime = 0f;
-    public int daysElapsed;
+    //public float currentTime = 0f;
+    public int daysElapsed = 0;
     public enum Cycle
     {
         dawn, noon, dusk, night
@@ -28,9 +28,10 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        InvokeRepeating("TrackTime", 1f, 1f);
+        CheckForTimeChange();
+        //InvokeRepeating("TrackTime", 1f, 1f);
     }
-    public void TrackTime()//to be invoked every 1 sec
+    /*public void TrackTime()//to be invoked every 1 sec
     {
         currentTime += 5f;
         if (currentTime <= 216f)
@@ -60,20 +61,39 @@ public class TimeProgression : MonoBehaviour
         }
 
         //accomodate for weekends??
-    }
-    private void Update()
+    }*/
+    /*private void Update()
     {
+        //CheckForTimeChange();
+    }*/
+    //TODO- method to force time change
+    public void ChangeTime()
+    {
+        myCycle = nextTime;
+        if(myCycle == Cycle.dawn)
+        {
+            daysElapsed++;
+        }
         CheckForTimeChange();
-    }
 
-    private void CheckForTimeChange()
+    }
+    /*private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            ChangeTime();
+        }
+    }*/
+    public void CheckForTimeChange()
     {
         if (myCycle == Cycle.dawn)
         {
+            nextTime = Cycle.noon;
             dayNight.DawnTime();
         }
         else if(myCycle == Cycle.noon)
         {
+            nextTime = Cycle.dusk;
             dayNight.DayTime();
         }
         else if (myCycle == Cycle.dusk)

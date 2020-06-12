@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayNight: {fileID: 0}
+  daysElapsed: 0
   myCycle: 0
+  nextTime: 1
