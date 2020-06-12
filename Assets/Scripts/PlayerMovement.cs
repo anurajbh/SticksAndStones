@@ -38,9 +38,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (CheckFreeze()) { return; }
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
-        CheckForMovementInput();
-        CheckForPlayerDirection();
+        if (!teleporting) {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            CheckForMovementInput();
+            CheckForPlayerDirection();
+        } else {
+            transform.position = movePoint.position;
+        }
     }
 
     private void CheckForPlayerDirection()

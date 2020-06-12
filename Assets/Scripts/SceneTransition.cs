@@ -19,7 +19,7 @@ public class SceneTransition : PlayerTransition
         yield return StartCoroutine("DoFade");
         SceneManager.LoadScene(sceneName);
         yield return StartCoroutine("MovePlayer");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         Reload();
         yield return new WaitForSeconds(3f);
         Destroy(canvasGroup.transform.parent.gameObject);
