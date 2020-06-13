@@ -7,10 +7,10 @@ public class Trigger : Interactable
     //literally just triggers dialogue
     //notice it derives from interactable
 
-    public DialogueBase dialogue;
+    public static DialogueBase dialogue;
 
     //a separate method in case we need to call it separate to the interactable stuff
-    public void TriggerDialogue()
+    public static void TriggerDialogue()
     {
         DialogueManager.instance.AddDialogue(dialogue);
     }

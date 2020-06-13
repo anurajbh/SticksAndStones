@@ -8,25 +8,26 @@ public class PlayerStats : MonoBehaviour
     //basically figure out how to die
 
     public int anxiety;
-    public int maxAnx;
+    public readonly int maxAnx = 10;
 
     //public int anxDamage;
     //public int willCost;
 
     public int totalWill;
     public int ambWill;
-    public int maxAmb;
+    public readonly int maxAmb = 5;
     public int intWill;
-    public int maxInt;
+    public readonly int maxInt = 15;
     bool overloaded;
 
     public static PlayerStats Instance;
 
-    public Attacks attacks;//object that contains a dictionary of attacks
-    public Skills skills;//object that contains a dictionary of skills
+    public static Attacks attacks;//object that contains a dictionary of attacks
+    public static Skills skills;//object that contains a dictionary of skills
 
     private void Awake()
     {
+        totalWill = ambWill + intWill;
         attacks = GetComponent<Attacks>();
         skills = GetComponent<Skills>();
         if (Instance == null)
@@ -49,6 +50,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (amount + anxiety > maxAnx)
         {
+            anxiety = maxAnx;
             //panic = true;
             //PanicAttack();
         }
@@ -67,14 +69,17 @@ public class PlayerStats : MonoBehaviour
     {
         if (amount < 0)
         {
-            if (intWill == 0)
+            if (ambWill < (amount * -1))
             {
-                return true;    //sets BattleSystem's isDead var to true, ends battle
-            }
-            else if (ambWill < amount * -1)
-            {
-                //THIS NEEDS DOUBLE CHECKING
                 amount += ambWill;
+                intWill += amount;
+            }
+            else if (ambWill > (amount * -1))
+            {
+                ambWill += amount;
+            }
+            else
+            {
                 intWill += amount;
             }
         }
@@ -105,7 +110,10 @@ public class PlayerStats : MonoBehaviour
                 }
             }
         }
-
+        if (totalWill <= 0)
+        {
+            return true;    //sets BattleSystem's isDead var to true, ends battle
+        }
         return false;   //sets BattleSystem's isDead var to false, battle continues
     }
 

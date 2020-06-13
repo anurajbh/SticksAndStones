@@ -10,8 +10,8 @@ public class LearningSystem : MonoBehaviour
     //Used to learn skills
     public void LearnSkills() {
         for (int i = 0; i < skills.Count; i++) {
-            if ( !PlayerStats.Instance.skills.Contains(skills[i].name)) {
-                PlayerStats.Instance.skills.Learn(skills[i].name, skills[i].anxietyEffect, skills[i].willEffect, skills[i].enemyDamage);
+            if ( !PlayerStats.skills.Contains(skills[i].name)) {
+                PlayerStats.skills.Learn(skills[i].name, skills[i].anxietyEffect, skills[i].willEffect, skills[i].enemyDamage);
                 Debug.Log(skills[i].name + " has been learned!");
             } else {
                 Debug.Log(skills[i].name + " has already been learned!");
@@ -22,8 +22,8 @@ public class LearningSystem : MonoBehaviour
     //Used to learn attacks
     public void LearnAttacks() {
         for(int i = 0; i < attacks.Count; i++) {
-            if (PlayerStats.Instance.skills == null || !PlayerStats.Instance.attacks.Contains(attacks[i].name)) {
-                PlayerStats.Instance.attacks.Learn(attacks[i].name, attacks[i].anxietyEffect, attacks[i].willEffect, attacks[i].enemyDamage);
+            if (PlayerStats.skills == null || !PlayerStats.attacks.Contains(attacks[i].name)) {
+                PlayerStats.attacks.Learn(attacks[i].name, attacks[i].anxietyEffect, attacks[i].willEffect, attacks[i].enemyDamage);
                 Debug.Log(attacks[i].name + " has been learned!");
             } else {
                 Debug.Log(attacks[i].name + " has already been learned!");
