@@ -17,6 +17,10 @@ public class DialogueBase : ScriptableObject
         public PlayerAbility abilityToLearn;
         public bool isAttack; //Check this if it is an attack
         public bool isSkill; //Check this if it is a skill
+        public bool affectsWill;
+        public bool affectsAnxiety;
+        public int willChangeAmount;
+        public int anxietyChangeAmount;
     }
 
     [Header("Insert dialogue info below")]
