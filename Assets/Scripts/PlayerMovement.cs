@@ -33,13 +33,18 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         movePoint.parent = null;
+        DontDestroyOnLoad(movePoint);
     }
     private void Update()
     {
         if (CheckFreeze()) { return; }
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
-        CheckForMovementInput();
-        CheckForPlayerDirection();
+        if (!teleporting) {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            CheckForMovementInput();
+            CheckForPlayerDirection();
+        } else {
+            transform.position = movePoint.position;
+        }
     }
 
     private void CheckForPlayerDirection()
