@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 	public static bool teleporting = false;
 
+    public Rigidbody2D rb2D;
     public bool CheckFreeze()
     {
         bool b;
@@ -32,18 +33,20 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
         DontDestroyOnLoad(movePoint);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }
         if (!teleporting) {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            var position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            rb2D.MovePosition((Vector2)position);
             CheckForMovementInput();
             CheckForPlayerDirection();
         } else {
-            transform.position = movePoint.position;
+            rb2D.position = movePoint.position;
         }
     }
 
