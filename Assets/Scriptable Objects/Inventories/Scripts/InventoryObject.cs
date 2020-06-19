@@ -8,7 +8,7 @@ public class InventoryObject : ScriptableObject
     public List<InventorySlot> Container = new List<InventorySlot>();
     public int maxInventorySize = 20;
 
-    public bool AddItem(ItemObject item)
+    public bool AddItem(ItemObject item, GameObject itemObject)
     {
         if (Container.Count < maxInventorySize) {
             int slotIndex = -1;
@@ -19,7 +19,7 @@ public class InventoryObject : ScriptableObject
                 }
             }
             if (slotIndex == -1) {
-                Container.Add(new InventorySlot(item));
+                Container.Add(new InventorySlot(item, itemObject));
                 return true;
             } else {
                 InventorySlot inventorySlot = Container[slotIndex];
@@ -61,11 +61,13 @@ public class InventorySlot
 {
     public ItemObject item;
     public int quantity;
+    public GameObject itemObject;
 
-    public InventorySlot(ItemObject item) 
+    public InventorySlot(ItemObject item, GameObject itemObject) 
     {
         this.item = item;
         this.quantity = 1;
+        this.itemObject = itemObject;
     }
 
     public void increaseQuantity(int n) {
