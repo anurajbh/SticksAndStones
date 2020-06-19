@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    //made to act as a super class for any interactable objects (including NPCs with dialogue and stuff)
+    //works off of range and distance between the sprites of two bodies instead of collisions :')
     public float interactRange = 2;
 
     void Update()
