@@ -96,21 +96,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f && !inMenu)
         {
-            if (Math.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 1f && Math.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 0f)
+            if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f), 0f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
+				}
             }
-            else if (Math.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 1f && Math.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 0f)
+            else if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
-                }
+				} 
             }
         }
+
     }
 }
    

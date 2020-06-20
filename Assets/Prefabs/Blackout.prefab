@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2866398917898300560}
   - component: {fileID: 2866398917898300567}
   - component: {fileID: 2866398917898300566}
+  - component: {fileID: 4257691494708537502}
   m_Layer: 5
   m_Name: Blackout
   m_TagString: Effect
@@ -180,6 +181,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4257691494708537502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866398917898300564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa6af35a2fe42e4db45efd8c7739061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2866398918809578615
 GameObject:
   m_ObjectHideFlags: 0
