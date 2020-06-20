@@ -7,8 +7,10 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;  //to make the class Singleton
     public static bool triggered;
-    public DialogueBase next;
+
+    public DialogueBase next; //this should be set when returning to base dialogue after completing an option branch
     public DialogueBase learningDialogue;
+
 
     private bool typing;
     private string completeText;
@@ -128,6 +130,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Anxiety was changed!");
         }
 
+        //setting UI elements
         if (info.charName == "")
         {
             dialogueName.text = "";
@@ -188,6 +191,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+
         if (!LearningSystem.instance.isAttacksEmpty()) 
         {
             LearningSystem.instance.LearnAttacks();
@@ -199,6 +203,7 @@ public class DialogueManager : MonoBehaviour
         }
         OptionsLogic();
         if (next != null)   
+
         {
             AddDialogue(next);  
             Debug.Log("triggered");

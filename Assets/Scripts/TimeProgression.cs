@@ -7,11 +7,15 @@ public class TimeProgression : MonoBehaviour
 {
     public DayNight dayNight;
     public static TimeProgression Instance;
-    public enum cycle
+    //public float currentTime = 0f;
+    public int daysElapsed = 0;
+    public enum Cycle
     {
         dawn, noon, dusk, night
     };
-    public cycle myCycle;
+    public Cycle myCycle;
+    public Cycle nextTime;//to keep track of next time of day
+
     private void Awake()
     {
         dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();
@@ -24,34 +28,88 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void Update()
-    {
         CheckForTimeChange();
+        //InvokeRepeating("TrackTime", 1f, 1f);
     }
-
-    private void CheckForTimeChange()
+    /*public void TrackTime()//to be invoked every 1 sec
     {
-        if (myCycle == cycle.dawn)
+        currentTime += 5f;
+        if (currentTime <= 216f)
         {
+            myCycle = Cycle.dawn;
+            nextTime = Cycle.noon;
+        }
+        else if(currentTime > 216f && currentTime <= 432f)
+        {
+            myCycle = Cycle.noon;
+            nextTime = Cycle.dusk;
+        }
+        else if (currentTime > 432f && currentTime <= 648f)
+        {
+            myCycle = Cycle.dusk;
+            nextTime = Cycle.night;
+        }
+        else if (currentTime > 648f && currentTime <= 864f)
+        {
+            myCycle = Cycle.night;
+            nextTime = Cycle.dawn;
+        }
+        else if(currentTime>865f)
+        {
+            daysElapsed++;
+            currentTime = 0f;
+        }
+
+        //accomodate for weekends??
+    }*/
+    /*private void Update()
+    {
+        //CheckForTimeChange();
+    }*/
+    //TODO- method to force time change
+    public void ChangeTime()
+    {
+        myCycle = nextTime;
+        if(myCycle == Cycle.dawn)
+        {
+            daysElapsed++;
+        }
+        CheckForTimeChange();
+
+    }
+    /*private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            ChangeTime();
+        }
+    }*/
+    public void CheckForTimeChange()
+    {
+        if (myCycle == Cycle.dawn)
+        {
+            nextTime = Cycle.noon;
             dayNight.DawnTime();
         }
-        else if(myCycle == cycle.noon)
+        else if(myCycle == Cycle.noon)
         {
+            nextTime = Cycle.dusk;
             dayNight.DayTime();
         }
-        else if (myCycle == cycle.dusk)
+        else if (myCycle == Cycle.dusk)
         {
+            nextTime = Cycle.night;
             dayNight.DuskTime();
         }
-        else if(myCycle == cycle.night)
+        else if(myCycle == Cycle.night)
         {
+            nextTime = Cycle.dawn;
             dayNight.NightTime();
         }
     }
     public void TransitionToNight()
     {
-        myCycle = cycle.night;
+        myCycle = Cycle.night;
         PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
     }
 }

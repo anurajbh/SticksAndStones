@@ -8,8 +8,6 @@ public class NPCInContact : MonoBehaviour
 {
     SMPlayerStats player;
     public bool CanBeSpokenTo = false;
-    TimeProgression.cycle time;
-    TimeProgression Time;
     static int eventCounter = 1;
     string interaction = "event" + eventCounter;
     //Charlotte npc;
@@ -49,7 +47,7 @@ public class NPCInContact : MonoBehaviour
 
     private void SpeakToNPC()
     {
-        if (TimeProgression.Instance.myCycle == TimeProgression.cycle.dawn || TimeProgression.Instance.myCycle == TimeProgression.cycle.noon)
+        if (TimeProgression.Instance.myCycle == TimeProgression.Cycle.dawn || TimeProgression.Instance.myCycle == TimeProgression.Cycle.noon)
         {
             //npc.Converse();
         }

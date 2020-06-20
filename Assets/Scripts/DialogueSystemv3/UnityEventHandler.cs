@@ -23,10 +23,12 @@ public class UnityEventHandler : MonoBehaviour
 
         if (dialogue != null)
         {
-            DialogueManager.instance.AddDialogue(dialogue);
-        } else if (DialogueManager.instance.abilityLearned == true) 
+            DialogueManager.instance.AddDialogue(dialogue); //queues up option branch dialogue if available
+        } 
+        else if (DialogueManager.instance.abilityLearned == true) 
         {
             DialogueManager.instance.LearnAbilities();
+
         }
     }
 }
