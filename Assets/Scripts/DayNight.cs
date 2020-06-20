@@ -9,7 +9,8 @@ public class DayNight : MonoBehaviour
     public Vector3 dayRotation, dawnRotation, duskRotation, nightRotation;
     public List<GameObject> lamps = new List<GameObject>();//List of lamps
     public float dayLamp, dawnLamp, duskLamp, nightLamp;//Point light intensities
-    private void Awake()
+    
+	private void Awake()
     {
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Lamp")) { //Takes in all the lamps at start of scene
             lamps.Add(obj);
