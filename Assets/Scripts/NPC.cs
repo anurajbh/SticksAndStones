@@ -1,16 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//[CreateAssetMenu(fileName = "NPC", menuName = "NPC")]
-public class NPC : MonoBehaviour //ScriptableObject
+public class NPC : MonoBehaviour
 {
-    //TO DO: replace all commented lines with the correct code for this to function
-
-    //protected PlayerStats player;
-    //protected NPCEntity enemy;
-
+    public string enemyName;
     public int maxHealth;
     public int currentHealth;
 
@@ -79,4 +75,5 @@ public class NPCAbility
     public int willEffect;//effect on player will
     public int npcEffect;//effect on self
     // public Sprite abilityImage; // UI image for the ability 
+
 }

@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Trigger : Interactable
 {
-    public DialogueBase dialogue;
+    //literally just triggers dialogue
+    //notice it derives from interactable
 
     public GameObject npcObject;
 
@@ -16,7 +17,10 @@ public class Trigger : Interactable
 
     Scene combat;
 
-    public void TriggerDialogue()
+    public static DialogueBase dialogue;
+
+    //a separate method in case we need to call it separate to the interactable stuff
+    public static void TriggerDialogue()
     {
         DialogueManager.instance.AddDialogue(dialogue);
     }
@@ -33,10 +37,6 @@ public class Trigger : Interactable
         
     }
 
-    private void Awake()
-    {
-        //currentScene = SceneManager.GetActiveScene();
-    }
     private void TriggerCombat()
     {
         StartCoroutine("LoadCombat");
@@ -78,13 +78,4 @@ public class Trigger : Interactable
         SceneManager.UnloadSceneAsync(currentScene);
         int prevScene = currentScene.buildIndex;
     }
-
-    /*private void Update()
-    {
-        //start interaction collisions should be done through here
-        if (!Manager.triggered && Input.GetKeyDown(KeyCode.Z))
-        {
-            TriggerDialogue();
-        }
-    }*/
 }
