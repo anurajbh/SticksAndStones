@@ -183,6 +183,7 @@ public class DialogueManager : MonoBehaviour
             AddDialogue(next);  
             Debug.Log("triggered");
         }
+        TimeProgression.Instance.ChangeTime();
     }
 
     private void OptionsLogic()

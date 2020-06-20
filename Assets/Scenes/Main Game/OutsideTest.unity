@@ -346,7 +346,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2071219554}
+      objectReference: {fileID: 1067640127}
     - target: {fileID: 3796991410977312310, guid: 95c3aae322adb2c40a10cd83aeb129a0,
         type: 3}
       propertyPath: learningDialogue
@@ -9998,6 +9998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 1.58
   dialogue: {fileID: 11400000, guid: 23ba672e782759f4098c50dc799dbeaf, type: 2}
+  npcObject: {fileID: 784298597}
+  combatIndex: 7
 --- !u!1 &810557013
 GameObject:
   m_ObjectHideFlags: 0
@@ -11249,6 +11251,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1067640127 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9097357916279234142, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1989302416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1072481768
 GameObject:
   m_ObjectHideFlags: 0
@@ -13430,8 +13438,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3288262537818848075, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: textObject
       value: 
       objectReference: {fileID: 1626378874}
@@ -13838,12 +13845,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &2071219554 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9097357916920060799, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1989302416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2073889722
 GameObject:
   m_ObjectHideFlags: 0

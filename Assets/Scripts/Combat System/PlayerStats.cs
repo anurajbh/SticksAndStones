@@ -41,6 +41,7 @@ public class PlayerStats : MonoBehaviour
         else
         {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Anxiety, amount = 1 });
         //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Will, amount = 1 });
