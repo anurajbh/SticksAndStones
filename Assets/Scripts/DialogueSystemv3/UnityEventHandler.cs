@@ -16,10 +16,10 @@ public class UnityEventHandler : MonoBehaviour
 
     IEnumerator InDialogueBuffer()
     {
-        yield return new WaitForSeconds(0.01f);
-        eventHandler.Invoke();
-        DialogueManager.instance.CloseOptions();
-        DialogueManager.triggered = false;
+        yield return new WaitForSeconds(0.01f); //needed for controlling execution flow
+        eventHandler.Invoke(); //triggers the button's event
+        DialogueManager.instance.CloseOptions(); //makes sure options are closed post dialogue if not handled already
+        DialogueManager.triggered = false; //makes sure different dialogues don't overlap
 
         if (dialogue != null)
         {

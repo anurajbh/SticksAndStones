@@ -21,8 +21,28 @@ public class DialogueBase : ScriptableObject
         public bool affectsAnxiety;
         public int willChangeAmount;
         public int anxietyChangeAmount;
+
+        public Info(string msg)
+        {
+            nextDialogue = null;
+            charName = "";
+            Sprite portrait = null;
+            words = msg;
+        }
     }
 
     [Header("Insert dialogue info below")]
     public Info[] dialogueInfo;
+
+    public void init(string msg)
+    {
+        new Info(msg);
+    }
+
+    //DialogueBase newDialogue = ScriptableObject.CreateInstance(typeof(DialogueBase)) as DialogueBase;
+
+    /*public DialogueBase(string msg)
+    {
+        new Info(msg);
+    }*/
 }

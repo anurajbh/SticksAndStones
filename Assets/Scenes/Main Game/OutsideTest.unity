@@ -332,11 +332,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1643058538757697476, guid: 95c3aae322adb2c40a10cd83aeb129a0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3796991410977312296, guid: 95c3aae322adb2c40a10cd83aeb129a0,
         type: 3}
       propertyPath: m_Name
@@ -9997,7 +9992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 1.58
-  dialogue: {fileID: 11400000, guid: 23ba672e782759f4098c50dc799dbeaf, type: 2}
 --- !u!1 &810557013
 GameObject:
   m_ObjectHideFlags: 0
