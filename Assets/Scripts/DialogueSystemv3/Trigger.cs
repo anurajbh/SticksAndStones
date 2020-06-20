@@ -17,10 +17,10 @@ public class Trigger : Interactable
 
     Scene combat;
 
-    public static DialogueBase dialogue;
+    public DialogueBase dialogue;
 
     //a separate method in case we need to call it separate to the interactable stuff
-    public static void TriggerDialogue()
+    public void TriggerDialogue()
     {
         DialogueManager.instance.AddDialogue(dialogue);
     }

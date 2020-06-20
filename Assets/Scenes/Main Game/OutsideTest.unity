@@ -9999,6 +9999,7 @@ MonoBehaviour:
   interactRange: 1.58
   npcObject: {fileID: 784298597}
   combatIndex: 7
+  dialogue: {fileID: 11400000, guid: 23ba672e782759f4098c50dc799dbeaf, type: 2}
 --- !u!1 &810557013
 GameObject:
   m_ObjectHideFlags: 0
