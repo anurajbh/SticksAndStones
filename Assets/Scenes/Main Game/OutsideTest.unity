@@ -342,6 +342,12 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2071219554}
+    - target: {fileID: 3796991410977312310, guid: 95c3aae322adb2c40a10cd83aeb129a0,
+        type: 3}
+      propertyPath: learningDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 554d57bbd1aed6147b2eefa564a7abcf,
+        type: 2}
     - target: {fileID: 3796991410977312311, guid: 95c3aae322adb2c40a10cd83aeb129a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9113,6 +9119,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2148168789476642294, guid: 91a61ab9514f72d499e136f5319b1e4f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148168789476642294, guid: 91a61ab9514f72d499e136f5319b1e4f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7663904980786336171, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9221,7 +9237,7 @@ PrefabInstance:
     - target: {fileID: 7663904980786336175, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
       propertyPath: m_Name
-      value: InventoryMenuCanvas
+      value: SharedCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7663904980840571720, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
@@ -9256,7 +9272,7 @@ PrefabInstance:
     - target: {fileID: 7663904981132713717, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -249.99998
+      value: -201.16997
       objectReference: {fileID: 0}
     - target: {fileID: 7663904981197006925, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
@@ -11098,6 +11114,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1048924901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3796991410977312296, guid: 95c3aae322adb2c40a10cd83aeb129a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 157147209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1048924905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048924901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65c858978c03e447b72c6cd0b8c3acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  attacks: []
 --- !u!1 &1067378073
 GameObject:
   m_ObjectHideFlags: 0

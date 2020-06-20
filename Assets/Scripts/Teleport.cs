@@ -5,7 +5,7 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     private GameObject playerController;
-    public Vector2 teleportPoint;
+    public Vector2 teleportingPoint;
 	private AudioSource openDoor;
     
 	private void Awake()
@@ -16,18 +16,18 @@ public class Teleport : MonoBehaviour
 
 	IEnumerator Teleportation()
 	{
+		playerController.transform.position = new Vector2(teleportingPoint.x, teleportingPoint.y);
 		yield return new WaitForSeconds(2);
 		PlayerMovement.teleporting = false;
 	}
     
 	private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PlayerBody") && PlayerMovement.teleporting == false)
+        if(other.CompareTag("Player") && PlayerMovement.teleporting == false)
         {
 			openDoor.Play();
 			PlayerMovement.teleporting = true;
-			print("Hello there");
-            playerController.transform.position = new Vector2(teleportPoint.x, teleportPoint.y);
+			print("teleporting");
 			StartCoroutine(Teleportation());
         }
     }

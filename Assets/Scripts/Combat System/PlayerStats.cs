@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     public readonly int maxInt = 15;
     bool overloaded;
 
-    public static PlayerStats Instance;
+    private static PlayerStats _instance;
 
     public static Attacks attacks;//object that contains a dictionary of attacks
     public static Skills skills;//object that contains a dictionary of skills
@@ -30,15 +30,17 @@ public class PlayerStats : MonoBehaviour
         totalWill = ambWill + intWill;
         attacks = GetComponent<Attacks>();
         skills = GetComponent<Skills>();
-        if (Instance == null)
+        //inventory2D = GetComponent<Inventory2D>();
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            _instance = this;
         }
+        //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Anxiety, amount = 1 });
+        //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Will, amount = 1 });
     }
 
     private void Update()
@@ -128,16 +130,6 @@ public class PlayerStats : MonoBehaviour
         //trigger blackout if ambWill <= 0 during the day
         //seal skills
     }*/
-
-    void Blackout()
-    {
-        //this is supposed to have the whole screen fade to black and display
-        //a text box that says "I-I couldn't breathe.
-        //My vision went dark. The rest of the day went by in a blur."
-        //and move straight to the night cycle
-
-        //use 2D canvas for making the screen turn black, change alpha of the canvas group
-    }
 
     void Overload()
     {

@@ -3,9 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 public class LearningSystem : MonoBehaviour
 {
-
+    public static LearningSystem instance;
     public List<PlayerAbility> skills; //use this to add skills
     public List<PlayerAbility> attacks; //use this to add attacks
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("fix this: " + gameObject.name);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     //Used to learn skills
     public void LearnSkills() {
@@ -17,7 +29,7 @@ public class LearningSystem : MonoBehaviour
                 Debug.Log(skills[i].name + " has already been learned!");
             }
         }
-        skills.Clear();
+        //skills.Clear();
     }
     //Used to learn attacks
     public void LearnAttacks() {
@@ -29,7 +41,7 @@ public class LearningSystem : MonoBehaviour
                 Debug.Log(attacks[i].name + " has already been learned!");
             }
         }
-        attacks.Clear();
+        //attacks.Clear();
     }
     //Use this if you need to learn both skills and attacks
     public void LearnBoth() {
@@ -43,5 +55,29 @@ public class LearningSystem : MonoBehaviour
     }
     public void AddAttack(PlayerAbility attack) {
         attacks.Add(attack);
+    }
+
+    public bool isAttacksEmpty() {
+        return attacks == null || attacks.Count == 0; 
+    }
+
+    public bool isSkillsEmpty() {
+        return skills == null || skills.Count == 0;
+    }
+    
+    public void clearLists() {
+        attacks.Clear();
+        skills.Clear();
+    }
+
+    public string toString() {
+        string message = "";
+        for (int i = 0; i < attacks.Count; i++) {
+            message = message + " [" + attacks[i].name + "]";
+        } 
+        for (int i = 0; i < skills.Count; i++) {
+                message = message + " [" + skills[i].name + "]";
+        }
+        return message;
     }
 }

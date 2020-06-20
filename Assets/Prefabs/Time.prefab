@@ -139,18 +139,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myDirLight: {fileID: 1213920200364810872}
   dayColor: {r: 1, g: 0.9640401, b: 0.78039217, a: 0}
-  dawnColor: {r: 1, g: 0.71830237, b: 0.4292453, a: 0}
+  dawnColor: {r: 0.8457191, g: 0.91814256, b: 0.990566, a: 0}
   duskColor: {r: 1, g: 0.76847506, b: 0.4575472, a: 0}
-  nightColor: {r: 0.759434, g: 0.8998688, b: 1, a: 0}
+  nightColor: {r: 0.80655855, g: 0.627451, b: 0.9811321, a: 0}
   dayRotation: {x: 0, y: 0, z: 0}
   dawnRotation: {x: 0, y: 20, z: 0}
   duskRotation: {x: 0, y: 30, z: 0}
   nightRotation: {x: 0, y: 60, z: 0}
   lamps: []
   dayLamp: 0
-  dawnLamp: 1
-  duskLamp: 1
-  nightLamp: 2
+  dawnLamp: 0.5
+  duskLamp: 0.5
+  nightLamp: 0.8
 --- !u!114 &7013964507116029958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayNight: {fileID: 0}
+  daysElapsed: 0
   myCycle: 0
+  nextTime: 1
