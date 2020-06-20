@@ -7,7 +7,7 @@ public class SceneTransition : PlayerTransition
 {
     public string sceneName;
 
-    public override void Awake()
+    public void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(transform.parent.gameObject);
@@ -29,13 +29,13 @@ public class SceneTransition : PlayerTransition
 		}
     }
 
-	public override void OnTriggerEnter2D(Collider2D other)
+	public void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log("switching locations");
 		StartCoroutine(Blackout());
 	}
 
-	public override void Update() {
+	public void Update() {
 		
 	}
 }
