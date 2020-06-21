@@ -28,7 +28,7 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        CheckForTimeChange();
+        //CheckForTimeChange();
         //InvokeRepeating("TrackTime", 1f, 1f);
     }
     /*public void TrackTime()//to be invoked every 1 sec
@@ -74,16 +74,17 @@ public class TimeProgression : MonoBehaviour
         {
             daysElapsed++;
         }
-        CheckForTimeChange();
+        //CheckForTimeChange();
 
     }
-    /*private void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        /*if(Input.GetKeyDown(KeyCode.Z))
         {
             ChangeTime();
-        }
-    }*/
+        }*/
+        CheckForTimeChange();
+    }
     public void CheckForTimeChange()
     {
         if (myCycle == Cycle.dawn)
@@ -104,6 +105,7 @@ public class TimeProgression : MonoBehaviour
         else if(myCycle == Cycle.night)
         {
             nextTime = Cycle.dawn;
+            TransitionToNight();
             dayNight.NightTime();
         }
     }
