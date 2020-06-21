@@ -31,13 +31,13 @@ public class SceneTransition : PlayerTransition
 		}
     }
 
-	public void OnTriggerEnter2D(Collider2D other)
+	public override void OnTriggerEnter2D(Collider2D other) // overridden so that transition occurs without needing key press
 	{
 		Debug.Log("switching locations");
 		StartCoroutine(Blackout());
 	}
 
-	public void Update() {
+	public override void Update() { // overridden so that transition occurs without needing key press
 		
 	}
 }

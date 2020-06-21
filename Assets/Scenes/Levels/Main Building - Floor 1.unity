@@ -1102,6 +1102,16 @@ PrefabInstance:
       propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 1558362984}
+    - target: {fileID: 8570476944222150501, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: attacks
+      value: 
+      objectReference: {fileID: 241571551}
+    - target: {fileID: 8570476944222150501, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: skills
+      value: 
+      objectReference: {fileID: 241571552}
     - target: {fileID: 9097357915722814341, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1179,6 +1189,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8496c66596c7f5c4699cfca4ebaa5b8c, type: 3}
+--- !u!114 &241571551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5200720823003099720, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 241571550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473307987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfa0b5312eebe64a90ab9cc2ba768ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &241571552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6924980572455517128, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 241571550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473307987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720bcc9aa01e2eb43bc7acb0facc2eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &244098344
 PrefabInstance:
   m_ObjectHideFlags: 0
