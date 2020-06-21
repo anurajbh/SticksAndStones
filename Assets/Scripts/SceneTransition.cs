@@ -7,7 +7,7 @@ public class SceneTransition : PlayerTransition
 {
     public string sceneName;
 
-    public override void Awake()
+    public void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(transform.parent.gameObject);

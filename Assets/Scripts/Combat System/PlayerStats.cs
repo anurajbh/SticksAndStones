@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     public readonly int maxInt = 15;
     bool overloaded;
 
-    private static PlayerStats _instance;
+    public static PlayerStats Instance;
 
     public static Attacks attacks;//object that contains a dictionary of attacks
     public static Skills skills;//object that contains a dictionary of skills
@@ -31,13 +31,14 @@ public class PlayerStats : MonoBehaviour
         attacks = GetComponent<Attacks>();
         skills = GetComponent<Skills>();
         //inventory2D = GetComponent<Inventory2D>();
-        if (_instance != null && _instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            _instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Anxiety, amount = 1 });
         //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Will, amount = 1 });
