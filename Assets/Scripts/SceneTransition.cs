@@ -7,7 +7,7 @@ public class SceneTransition : PlayerTransition
 {
     public string sceneName;
 
-    public override void Awake()
+    public void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(transform.parent.gameObject);
@@ -20,9 +20,22 @@ public class SceneTransition : PlayerTransition
         SceneManager.LoadScene(sceneName);
         yield return StartCoroutine("MovePlayer");
         yield return new WaitForSeconds(0.5f);
-        Reload();
-        yield return new WaitForSeconds(3f);
-        Destroy(canvasGroup.transform.parent.gameObject);
+		yield return StartCoroutine("EndFade");
+        //yield return new WaitForSeconds(1f);
         Destroy(transform.parent.gameObject);
+		TimeProgression.Instance.dayNight.lamps = new List<GameObject>(); //List of lamps
+		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Lamp")) { //Takes in all the lamps at start of scene
+			TimeProgression.Instance.dayNight.lamps.Add(obj);
+		}
     }
+
+	public void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("switching locations");
+		StartCoroutine(Blackout());
+	}
+
+	public void Update() {
+		
+	}
 }

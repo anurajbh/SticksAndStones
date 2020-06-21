@@ -5,7 +5,7 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     private GameObject playerController;
-    public Vector2 teleportPoint;
+    public Vector2 teleportingPoint;
 	private AudioSource openDoor;
     
 	private void Awake()
@@ -16,6 +16,7 @@ public class Teleport : MonoBehaviour
 
 	IEnumerator Teleportation()
 	{
+		playerController.transform.position = new Vector2(teleportingPoint.x, teleportingPoint.y);
 		yield return new WaitForSeconds(2);
 		PlayerMovement.teleporting = false;
 	}
@@ -26,8 +27,7 @@ public class Teleport : MonoBehaviour
         {
 			openDoor.Play();
 			PlayerMovement.teleporting = true;
-			print("Hello there");
-            playerController.transform.position = new Vector2(teleportPoint.x, teleportPoint.y);
+			print("teleporting");
 			StartCoroutine(Teleportation());
         }
     }

@@ -21,6 +21,12 @@ public class DialogueBase : ScriptableObject
             Sprite portrait = null;
             words = msg;
         }
+
+        //public Action toLearn;    need to double check how to do these
+        public PlayerAbility abilityToLearn;
+        public bool isAttack; //Check this if it is an attack
+        public bool isSkill; //Check this if it is a skill
+
     }
 
     [Header("Insert dialogue info below")]

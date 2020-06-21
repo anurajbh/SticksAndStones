@@ -30,14 +30,16 @@ public class PlayerStats : MonoBehaviour
         totalWill = ambWill + intWill;
         attacks = GetComponent<Attacks>();
         skills = GetComponent<Skills>();
-        if (Instance == null)
+        //inventory2D = GetComponent<Inventory2D>();
+        if (Instance != null && Instance != this)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 

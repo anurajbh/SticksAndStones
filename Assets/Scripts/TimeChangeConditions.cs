@@ -32,16 +32,16 @@ public class TimeChangeConditions : MonoBehaviour
             switch (ctr)
             {
                 case 0:
-                    timeProgression.myCycle = TimeProgression.cycle.dawn;
+                    timeProgression.myCycle = TimeProgression.Cycle.dawn;
                     break;
                 case 1:
-                    timeProgression.myCycle = TimeProgression.cycle.noon;
+                    timeProgression.myCycle = TimeProgression.Cycle.noon;
                     break;
                 case 2:
-                    timeProgression.myCycle = TimeProgression.cycle.dusk;
+                    timeProgression.myCycle = TimeProgression.Cycle.dusk;
                     break;
                 case 3:
-                    timeProgression.myCycle = TimeProgression.cycle.night;
+                    timeProgression.myCycle = TimeProgression.Cycle.night;
                     break;
                 default:
                     ctr = 0;
