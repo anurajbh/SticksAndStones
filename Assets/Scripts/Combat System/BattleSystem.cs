@@ -119,8 +119,11 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were never strong enough.";
-            PlayerStats.Instance.adjustWill(prevWill);
+            PlayerStats.Instance.adjustWill(prevWill-1);
         }
+
+        TimeProgression.Instance.ChangeTime();
+
         StartCoroutine(Buffer());
         StartCoroutine(Buffer());
 
