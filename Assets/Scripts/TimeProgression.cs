@@ -29,8 +29,12 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        CheckForTimeChange();
+        
         //InvokeRepeating("TrackTime", 1f, 1f);
+    }
+
+    void Start() {
+        CheckForTimeChange();
     }
     /*public void TrackTime()//to be invoked every 1 sec
     {
