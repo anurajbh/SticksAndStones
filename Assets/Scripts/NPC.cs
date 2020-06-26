@@ -1,23 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-//[CreateAssetMenu(fileName = "NPC", menuName = "NPC")]
-public class NPC : MonoBehaviour //ScriptableObject
+public class NPC : MonoBehaviour
 {
-    //TO DO: replace all commented lines with the correct code for this to function
-
-    //protected PlayerStats player;
-    //protected NPCEntity enemy;
-
+    public string enemyName;
     public int maxHealth;
     public int currentHealth;
-    
+
+    public List<NPCAbility> AttackAbilities;//add attack abilities to this NPC in Editor
+
+    public List<NPCAbility> SkillAbilities;//add skill abilities to this NPC in Editor
+
+    public Attacks attacks;//class that holds dictionary of attacks
+
+    public Skills skills;//class that holds dictionary of skills
+
+    //public bool isNight = false;
+
     //public string[][] interaction;
 
     //public abstract (int, int) Use(string moveName);
 
     //public abstract void Converse();
+
+    public void Awake()
+    {
+        attacks = GetComponent<Attacks>();
+        skills = GetComponent<Skills>();
+        UpdateNPCSkills();
+    }
 
     public bool adjustHealth(int amount)
     {
@@ -37,12 +51,29 @@ public class NPC : MonoBehaviour //ScriptableObject
 
         return false;   //sets BattleSystem's isDead var to false so continues the battle
     }
+    private void UpdateNPCSkills()//teach NPC each Skill and Ability that the Designer has added via Editor
+    {
+        int i = 0;
+        while (i < AttackAbilities.Count)
+        {
+            attacks.Learn(AttackAbilities[i].name, AttackAbilities[i].anxietyEffect, AttackAbilities[i].willEffect, AttackAbilities[i].npcEffect);//add attack to dictonary
+            i++;
+        }
+        i = 0;
+        while (i < SkillAbilities.Count)
+        {
+            skills.Learn(SkillAbilities[i].name, SkillAbilities[i].anxietyEffect, SkillAbilities[i].willEffect, SkillAbilities[i].npcEffect);//add skill to dictionary
+            i++;
+        }
+    }
+}
+[System.Serializable]
+public class NPCAbility
+{
+    public string name;
+    public int anxietyEffect;//effect on player anxiety
+    public int willEffect;//effect on player will
+    public int npcEffect;//effect on self
+    // public Sprite abilityImage; // UI image for the ability 
 
-    //associate with character specific attacks and skills
-    //either add a dictionary per npc in here
-    //OR somehow create an object (like a scriptable object or smth) that can be reused for each npc whil customizing the data
-
-    //have a list of attacks associated with npc (keep empty)
-    //have a way to add elements from the list to the dictionary
-    //should be done on awake
 }

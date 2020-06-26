@@ -1,115 +1,145 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
     //TO DO: have a way to remember the state of the scene you came from so you can go back to it after you're done
-    //TO DO: implement run function
+    //TO DO: implement Item use with inventory
+    //TO DO: implement checking which day it is for running + stat buffs
+    //TO DO: add something to show that you did damage to the enemy
+
     public BattleState state;
-
-    public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public BattleHUD enemyHUD;
+    public BattleHUD playerHUD;
 
-    PlayerStats player;
+    //PlayerStats player = PlayerStats.Instance;
     NPC enemy;
+    NPCAI enemyAI;
+
+    List<string> playerOptions = new List<string>(new string[] {"Attacc", "Protecc", "Snacc", "RUN AWAY!!"});
+    int move = 0; //this is to indicate whether the player is in the main menu or a submenu
+    //0 = main menu, 1 = attack menu, 2 = skill menu, 3 = inventory, 4 = run, 5 = enemy
 
     public Text dialogueText;
+    public Image dialogueBox;
+    public GameObject[] optionButtons;
+
+    public int prevWill;
 
     // Battle will take place in a separate scene, the code below
     // will cause the player to be in battle upon scene entry
     void Start()
     {
         state = BattleState.START;
+
+        prevWill = PlayerStats.Instance.totalWill;
+        //these are temporary so the player has some moves to look through
+        PlayerStats.attacks.Learn("stick", 1, -2, -3);
+        PlayerStats.attacks.Learn("stone", 2, -3, -4);
+        PlayerStats.skills.Learn("cry", 1, -3, 0);
+        PlayerStats.skills.Learn("yell", -3, -1, 0);
+        PlayerStats.skills.Learn("aa", 2, 3, 2);
+        PlayerStats.skills.Learn("h", 0, 0, 0);
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab);
-        player = playerGO.GetComponent<PlayerStats>();
-
         GameObject enemyGO = Instantiate(enemyPrefab);
         enemy = enemyGO.GetComponent<NPC>();
+        enemyAI = enemyGO.GetComponent<NPCAI>();
 
+        dialogueBox.gameObject.SetActive(true);
         dialogueText.text = "A monster approaches.";
 
-        //initialize HUD
-        //enemy hp bar should be similar to player's will bar
+        enemyHUD.SetEnemyHUD(enemy);
+        playerHUD.SetPlayerHUD(); 
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
+        dialogueText.text = "What will you do?";
+
+        yield return new WaitForSeconds(1f);
+
+        dialogueBox.gameObject.SetActive(false);
         state = BattleState.PLAYERTURN;
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack()
-    {
-        //bool isDead = enemy.TakeDamage(damage)      this needs to find the appropriate damage from the used move
-        //edit enemy HUD
-        dialogueText.text = "You used";
-
-        yield return new WaitForSeconds(2f);
-
-        /* if (isDead) {
-            state = BattleState.WON;
-            EndBattle();
-        } else {
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
-        } */
-    }
-
     IEnumerator EnemyTurn()
     {
-        //call NPCAI for enemy turn
-
-        yield return new WaitForSeconds(2f);
-
-        //bool isDead = make the player take damage
-        //update HUD
+        Action.whosAttacking = 1;
+        (int, int, int) stats = enemyAI.EnemyAttack();
+        dialogueBox.gameObject.SetActive(true);
+        dialogueText.text = enemy.enemyName + " attacked! ";
 
         yield return new WaitForSeconds(1f);
 
-        /* if (isDead) {
-         *  state = BattleState.LOST;
-         *  EndBattle();
-         *  } else {
-         state = BattleState.PLAYERTURN;
-         PlayerTurn();
-         */
+        bool isDead = PlayerStats.Instance.adjustWill(stats.Item2);
+        enemy.adjustHealth(stats.Item3);
+
+        enemyHUD.SetEnemyHUD(enemy);
+        playerHUD.SetPlayerHUD();
+        
+        Action.whosAttacking = 0;
+
+        yield return new WaitForSeconds(1f);
+        dialogueBox.gameObject.SetActive(false);
+
+        if (isDead)
+        {
+            state = BattleState.LOST;
+            EndBattle();
+        }
+        else
+        {
+            move = 0;
+            state = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
     }
 
     void EndBattle()
     {
+        dialogueBox.gameObject.SetActive(true);
+        
         if (state == BattleState.WON)
         {
             dialogueText.text = "You've defeated this monster... for now...";
+            PlayerStats.Instance.adjustWill(prevWill+1);
         }
         else if (state == BattleState.LOST)
         {
-            dialogueText.text = "You were never strong enough";
+            dialogueText.text = "You were never strong enough.";
+            PlayerStats.Instance.adjustWill(prevWill-1);
         }
+
+        TimeProgression.Instance.ChangeTime();
+
+        StartCoroutine(Buffer());
+        StartCoroutine(Buffer());
+
+        //transition back to game
+        SceneManager.LoadScene("Overworld");
     }
 
     void PlayerTurn()
     {
-        dialogueText.text = "What will you do?";
+        ParseOptions();
     }
 
-    /* IEnumerator PlayerHeal()
+    IEnumerator Buffer()
     {
-        //heal player
-        //update HUD
-        //some descriptive dialogue text
-        yield return new WaitForSeconds(2f);
-
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-    } */
+        yield return new WaitForSeconds(1f);
+    }
 
     public void OnAttackButton()
     {
@@ -117,5 +147,198 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
+        move = 1;
+        ParseOptions();
+    }
+
+    string moveName;
+
+    public void OnAttackSelect()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        
+        if (PlayerStats.attacks.Check(moveName))
+        {
+            (int, int, int) stats = PlayerStats.attacks.Use(moveName);
+            //have the enemy shake or something to show that you did damage too
+            //display hit message?
+
+            StartCoroutine(Buffer());
+
+            bool isDead = enemy.adjustHealth(stats.Item3);
+            enemyHUD.SetEnemyHUD(enemy);
+
+            StartCoroutine(Buffer());
+
+            if (isDead) {
+                state = BattleState.WON;
+                EndBattle();
+            } /*else {
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn());
+            } */
+        }
+        else
+        {
+            dialogueBox.gameObject.SetActive(true);
+            dialogueText.text = "You can't bring yourself to do it, your willpower is low.";
+        }
+        dialogueBox.gameObject.SetActive(false);
+        playerHUD.SetPlayerHUD();
+        StartCoroutine(Buffer());
+        move = 5;
+        ParseOptions();
+    }
+
+    public void OnSkillButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        move = 2;
+        ParseOptions();
+    }
+
+    public void OnSkillSelect()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        if (PlayerStats.skills.Check(moveName))
+        {
+            (int, int, int) stats = PlayerStats.skills.Use(moveName);
+            //have the enemy shake or something to show that you did damage too
+            //display hit message?
+            //state = BattleState.ENEMYTURN;
+        }
+        else
+        {
+            dialogueBox.gameObject.SetActive(true);
+            dialogueText.text = "You can't bring yourself to do it, your willpower is low.";
+        }
+        dialogueBox.gameObject.SetActive(false);
+        playerHUD.SetPlayerHUD();
+        StartCoroutine(Buffer());
+        move = 5;
+        ParseOptions();
+
+    }
+
+    public void OnItemButton()
+    {
+       if (state != BattleState.PLAYERTURN)
+       {
+            return;
+       }
+
+        move = 3;
+        ParseOptions();
+        //open inventory submenu
+        //use item (can be based on inventory system)
+    }
+
+    public void OnRunButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        //if specific day, not allowed to run
+
+        move = 4;
+        ParseOptions();
+    }
+
+    public void OnRunConfirm()
+    {
+        state = BattleState.LOST;
+        EndBattle();
+    }
+
+    public void OnStayConfirm()
+    {
+        move = 0;
+        ParseOptions();
+    }
+
+
+    private void ParseOptions()
+    {
+        int numOptions = 4;
+        List<string> buttonNames = playerOptions;
+        List<UnityAction> buttonFunctions = new List<UnityAction>();
+
+        switch (move) {
+            case 0:
+                numOptions = 4;
+                List<UnityAction> mainActions = new List<UnityAction>(new UnityAction[] { OnAttackButton, OnSkillButton, OnItemButton, OnRunButton });
+                buttonFunctions = mainActions;
+                break;
+            case 1:
+                numOptions = PlayerStats.attacks.GetSize();
+                buttonNames = new List<string>();
+                foreach (string key in PlayerStats.attacks.attacks.Keys)
+                {
+                    buttonNames.Add(key);
+                }
+                for (int i = 0; i <= 4; i++)
+                {
+                    buttonFunctions.Add(OnAttackSelect);
+                }
+                break;
+            case 2:
+                numOptions = PlayerStats.skills.GetSize();
+                buttonNames = new List<string>();
+                foreach (string key in PlayerStats.skills.skills.Keys)
+                {
+                    buttonNames.Add(key);
+                }
+                for (int i = 0; i <= 4; i++)
+                {
+                    buttonFunctions.Add(OnSkillSelect);
+                }
+                break;
+            case 3:
+                //GET INVENTORY COUNT AND NAMES 
+                break;
+            case 4:
+                numOptions = 2;
+                buttonNames = new List<string>(new string[] { "Run", "Stay" });
+                buttonFunctions.Add(OnRunConfirm);
+                buttonFunctions.Add(OnStayConfirm);
+                break;
+            case 5:
+                numOptions = 0;
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn());
+                break;
+        }
+        
+
+        optionButtons[0].GetComponent<Button>().Select(); //has the first button automatically selected (won't be highlighted until you move the cursor)
+
+        for (int i = 0; i < optionButtons.Length; i++)
+        {
+            optionButtons[i].SetActive(false); //makes sure no buttons are showing
+        }
+
+        for (int i = 0; i < numOptions; i++) 
+        {
+            optionButtons[i].GetComponent<Button>().onClick.RemoveAllListeners();
+            optionButtons[i].SetActive(true); //activates only the required number of options
+            optionButtons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = buttonNames[i]; //sets button names
+            optionButtons[i].GetComponent<Button>().name = buttonNames[i];
+            optionButtons[i].GetComponent<Button>().onClick.AddListener(buttonFunctions[i]); //changes button functions
+        }
+
+        moveName = EventSystem.current.currentSelectedGameObject.name;
     }
 }

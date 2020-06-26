@@ -11,7 +11,7 @@ public class DialogueOptions : DialogueBase
     {
         public DialogueBase nextDialogue;
         public string buttonName;
-        public UnityEvent myEvent;
+        public UnityEvent myEvent; //variable that allows access to button events and triggers (as done in DialogueManager)
     }
 
     public Options[] optionInfo;

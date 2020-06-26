@@ -28,7 +28,7 @@ TagManager:
   - 
   - 
   - Colliders
-  - 
+  - DialogueOverlay
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 111461849
+    locked: 0
+  - name: DialogueOverlay
+    uniqueID: 225647603
     locked: 0

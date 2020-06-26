@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 	public static bool teleporting = false;
 
+    public Rigidbody2D rb2D;
     public bool CheckFreeze()
     {
         bool b;
@@ -31,19 +32,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
-        movePoint.parent = null;
-        DontDestroyOnLoad(movePoint);
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
+            GameObject.Destroy(gameObject);
+        } else {
+            animator = gameObject.GetComponent<Animator>();
+            rb2D = GetComponent<Rigidbody2D>();
+            movePoint.parent = null;
+            DontDestroyOnLoad(movePoint);
+        }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }
         if (!teleporting) {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            var position = Vector3.MoveTowards(transform.position, movePoint.position, walkSpeed * Time.deltaTime);
+            rb2D.MovePosition((Vector2)position);
             CheckForMovementInput();
             CheckForPlayerDirection();
         } else {
-            transform.position = movePoint.position;
+            rb2D.position = movePoint.position;
         }
     }
 
@@ -96,21 +103,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f && !inMenu)
         {
-            if (Math.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 1f && Math.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 0f)
+            if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f), 0f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
+				}
             }
-            else if (Math.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 1f && Math.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 0f)
+            else if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
-                }
+				} 
             }
         }
+
     }
 }
    

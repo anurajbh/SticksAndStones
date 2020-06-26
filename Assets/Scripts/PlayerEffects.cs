@@ -22,7 +22,7 @@ public class PlayerEffects : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Destroy(GetComponent<PlayerMovement>().movePoint.gameObject);
+            // Destroy(GetComponent<PlayerMovement>().movePoint.gameObject);
         }
     }
 
@@ -42,7 +42,6 @@ public class PlayerEffects : MonoBehaviour
 
     void Reload()
     {
-
         TimeProgression.Instance.TransitionToNight();
         StartCoroutine(EndFade());
     }
@@ -75,9 +74,9 @@ public class PlayerEffects : MonoBehaviour
         {
             StartCoroutine(Blackout());
         }
-        else if (Input.GetKeyDown(KeyCode.U))//testing for night effect on stats
+        /*else if (Input.GetKeyDown(KeyCode.U))//testing for night effect on stats
         {
             TimeProgression.Instance.TransitionToNight();
-        }
+        }*/
     }
 }
