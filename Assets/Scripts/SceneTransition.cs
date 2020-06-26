@@ -7,6 +7,8 @@ public class SceneTransition : PlayerTransition
 {
     public string sceneName;
 
+    public bool incrementTime;
+
     public void Awake()
     {
         base.Awake();

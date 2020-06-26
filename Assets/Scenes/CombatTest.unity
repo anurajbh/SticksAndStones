@@ -1139,8 +1139,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb7ce85477479f45a5e10bb5745879b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyName: Charlotte
   maxHealth: 100
   currentHealth: 100
+  attacks: {fileID: 581829213}
+  skills: {fileID: 581829212}
+  AttackAbilities:
+  - name: Screeching Whatever
+    anxietyEffect: 5
+    willEffect: -5
+    npcEffect: 0
+  SkillAbilities:
+  - name: aaaaaa
+    anxietyEffect: 10
+    willEffect: -5
+    npcEffect: 5
 --- !u!114 &581829212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,14 +1301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anxiety: 2
-  maxAnx: 0
   totalWill: 0
   ambWill: 5
-  maxAmb: 0
   intWill: 15
-  maxInt: 0
-  attacks: {fileID: 798678494}
-  skills: {fileID: 798678493}
 --- !u!114 &798678493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,9 +2796,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  playerPrefab: {fileID: 798678490}
   enemyPrefab: {fileID: 581829206}
+  enemyHUD: {fileID: 1892535132}
+  playerHUD: {fileID: 813607600}
   dialogueText: {fileID: 466770069}
+  dialogueBox: {fileID: 1860269907}
+  optionButtons:
+  - {fileID: 1712908881}
+  - {fileID: 1136960923}
+  - {fileID: 260502600}
+  - {fileID: 1416962575}
 --- !u!1 &2123550013
 GameObject:
   m_ObjectHideFlags: 0
