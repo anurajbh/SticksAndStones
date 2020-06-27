@@ -159,7 +159,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        
+        moveName = EventSystem.current.currentSelectedGameObject.name;
         if (PlayerStats.attacks.Check(moveName))
         {
             (int, int, int) stats = PlayerStats.attacks.Use(moveName);
@@ -210,7 +210,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-
+        moveName = EventSystem.current.currentSelectedGameObject.name;
         if (PlayerStats.skills.Check(moveName))
         {
             (int, int, int) stats = PlayerStats.skills.Use(moveName);
@@ -338,7 +338,6 @@ public class BattleSystem : MonoBehaviour
             optionButtons[i].GetComponent<Button>().name = buttonNames[i];
             optionButtons[i].GetComponent<Button>().onClick.AddListener(buttonFunctions[i]); //changes button functions
         }
-
         moveName = EventSystem.current.currentSelectedGameObject.name;
     }
 }
