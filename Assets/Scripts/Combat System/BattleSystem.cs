@@ -50,8 +50,8 @@ public class BattleSystem : MonoBehaviour
         PlayerStats.skills.Learn("yell", -3, -1, 0);
         PlayerStats.skills.Learn("aa", 2, 3, 2);
         PlayerStats.skills.Learn("h", 0, 0, 0);
-        //Finds the inventory in the scene, CHANGE IT ONCE PLAYER INSTANCE IS BASED ON PREFAB
-        player = GameObject.Find("Player");
+        //Finds the inventory in the scene
+        player = GameObject.FindWithTag("Player");
         InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
         inventory = inventoryManager.inventory;
         if (inventory != null) {
