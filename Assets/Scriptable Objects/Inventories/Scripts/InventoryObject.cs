@@ -54,6 +54,15 @@ public class InventoryObject : ScriptableObject
             stats.adjustAnxiety((int)anxietyChange);
         }
     }
+
+    public InventorySlot findItemWithName(string name) {
+        foreach(InventorySlot invSlot in Container) {
+            if (invSlot.item.itemName == name) {
+                return invSlot;
+            }
+        }
+        return null;
+    }
 }
 
 [System.Serializable]
