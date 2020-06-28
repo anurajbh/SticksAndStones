@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatStopsYou;
     public Animator animator;
 	public static bool teleporting = false;
+	public static PlayerMovement Instance;
 
     public Rigidbody2D rb2D;
     public bool CheckFreeze()
@@ -35,7 +36,16 @@ public class PlayerMovement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-        DontDestroyOnLoad(movePoint);
+        //DontDestroyOnLoad(movePoint);
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
     }
     private void FixedUpdate()
     {
