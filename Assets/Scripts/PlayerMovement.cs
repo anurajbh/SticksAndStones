@@ -32,10 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
-        rb2D = GetComponent<Rigidbody2D>();
-        movePoint.parent = null;
-        DontDestroyOnLoad(movePoint);
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
+            GameObject.Destroy(gameObject);
+        } else {
+            animator = gameObject.GetComponent<Animator>();
+            rb2D = GetComponent<Rigidbody2D>();
+            movePoint.parent = null;
+            DontDestroyOnLoad(movePoint);
+        }
     }
     private void FixedUpdate()
     {

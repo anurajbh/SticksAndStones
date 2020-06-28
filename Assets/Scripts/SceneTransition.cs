@@ -7,7 +7,9 @@ public class SceneTransition : PlayerTransition
 {
     public string sceneName;
 
-    public override void Awake()
+    public bool incrementTime;
+
+    public void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(transform.parent.gameObject);
@@ -29,13 +31,13 @@ public class SceneTransition : PlayerTransition
 		}
     }
 
-	public override void OnTriggerEnter2D(Collider2D other)
+	public override void OnTriggerEnter2D(Collider2D other) // overridden so that transition occurs without needing key press
 	{
 		Debug.Log("switching locations");
 		StartCoroutine(Blackout());
 	}
 
-	public override void Update() {
+	public override void Update() { // overridden so that transition occurs without needing key press
 		
 	}
 }

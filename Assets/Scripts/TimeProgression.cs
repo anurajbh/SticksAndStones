@@ -28,8 +28,12 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        CheckForTimeChange();
+        
         //InvokeRepeating("TrackTime", 1f, 1f);
+    }
+
+    void Start() {
+        CheckForTimeChange();
     }
     /*public void TrackTime()//to be invoked every 1 sec
     {
@@ -62,11 +66,6 @@ public class TimeProgression : MonoBehaviour
 
         //accomodate for weekends??
     }*/
-    /*private void Update()
-    {
-        //CheckForTimeChange();
-    }*/
-    //TODO- method to force time change
     public void ChangeTime()
     {
         myCycle = nextTime;
@@ -77,13 +76,6 @@ public class TimeProgression : MonoBehaviour
         CheckForTimeChange();
 
     }
-    /*private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            ChangeTime();
-        }
-    }*/
     public void CheckForTimeChange()
     {
         if (myCycle == Cycle.dawn)
@@ -93,6 +85,7 @@ public class TimeProgression : MonoBehaviour
         }
         else if(myCycle == Cycle.noon)
         {
+            //isNight = false;
             nextTime = Cycle.dusk;
             dayNight.DayTime();
         }
@@ -103,6 +96,7 @@ public class TimeProgression : MonoBehaviour
         }
         else if(myCycle == Cycle.night)
         {
+            TransitionToNight();
             nextTime = Cycle.dawn;
             dayNight.NightTime();
         }

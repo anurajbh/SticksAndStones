@@ -208,6 +208,7 @@ public class DialogueManager : MonoBehaviour
             AddDialogue(next);  
             Debug.Log("triggered");
         }
+        TimeProgression.Instance.ChangeTime();
     }
 
     //displays options if available or closes dialogue (latter doesn't matter if next dialogue is queued up)
