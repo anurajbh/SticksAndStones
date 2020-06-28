@@ -37,16 +37,17 @@ public class PlayerMovement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
         //DontDestroyOnLoad(movePoint);
-		if (Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
+        if (Instance == null)
+        {
+           Instance = this;
+           DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+          Destroy(gameObject);
+        }
     }
+    
     private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }

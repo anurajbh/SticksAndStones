@@ -16,6 +16,7 @@ public class TimeProgression : MonoBehaviour
     public Cycle myCycle;
     public Cycle nextTime;//to keep track of next time of day
 
+
     private void Awake()
     {
         dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();
@@ -28,8 +29,12 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //CheckForTimeChange();
+        
         //InvokeRepeating("TrackTime", 1f, 1f);
+    }
+
+    void Start() {
+        CheckForTimeChange();
     }
     /*public void TrackTime()//to be invoked every 1 sec
     {
@@ -62,11 +67,6 @@ public class TimeProgression : MonoBehaviour
 
         //accomodate for weekends??
     }*/
-    /*private void Update()
-    {
-        //CheckForTimeChange();
-    }*/
-    //TODO- method to force time change
     public void ChangeTime()
     {
         myCycle = nextTime;
@@ -74,16 +74,8 @@ public class TimeProgression : MonoBehaviour
         {
             daysElapsed++;
         }
-        //CheckForTimeChange();
-
-    }
-    private void Update()
-    {
-        /*if(Input.GetKeyDown(KeyCode.Z))
-        {
-            ChangeTime();
-        }*/
         CheckForTimeChange();
+
     }
     public void CheckForTimeChange()
     {
@@ -94,6 +86,7 @@ public class TimeProgression : MonoBehaviour
         }
         else if(myCycle == Cycle.noon)
         {
+            //isNight = false;
             nextTime = Cycle.dusk;
             dayNight.DayTime();
         }
@@ -104,8 +97,8 @@ public class TimeProgression : MonoBehaviour
         }
         else if(myCycle == Cycle.night)
         {
-            nextTime = Cycle.dawn;
             TransitionToNight();
+            nextTime = Cycle.dawn;
             dayNight.NightTime();
         }
     }
