@@ -16,7 +16,6 @@ public class TimeProgression : MonoBehaviour
     public Cycle myCycle;
     public Cycle nextTime;//to keep track of next time of day
 
-
     private void Awake()
     {
         dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();

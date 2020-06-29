@@ -117,6 +117,19 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        //Checks and changes will related stuff
+        if (info.affectsWill) 
+        {
+            PlayerStats.Instance.adjustWill(info.willChangeAmount);
+            Debug.Log("Will was changed!");
+        }
+        //Checks and changes anxiety related stuff
+        if (info.affectsAnxiety)
+        {
+            PlayerStats.Instance.adjustAnxiety(info.anxietyChangeAmount);
+            Debug.Log("Anxiety was changed!");
+        }
+
         //setting UI elements
         if (info.charName == "")
         {
