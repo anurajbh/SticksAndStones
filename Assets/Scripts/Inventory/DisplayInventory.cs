@@ -287,6 +287,18 @@ public class DisplayInventory : MonoBehaviour
         if (isUseMode && playerController != null) {
             ItemObject itemToUse = inventory.Container[itemCursorIndex].item;
             inventory.UseItem(itemToUse, playerController);
+            GameObject prefabToDestroy = inventory.Container[itemCursorIndex].itemObject;
+            Destroy(prefabToDestroy);
+        }
+        if (isDropMode && playerController != null) {
+            ItemObject itemToUse = inventory.Container[itemCursorIndex].item;
+            GameObject itemObjectDropped = inventory.Container[itemCursorIndex].itemObject;
+            if (itemObjectDropped != null) {
+                Vector3 pos = playerController.transform.position + new Vector3(1,1,0);
+                itemObjectDropped.transform.position = pos;
+                itemObjectDropped.SetActive(true);
+                Debug.Log("Item dropped");
+            }
         }
         bool didRemoveItemCompletely = inventory.RemoveItem(itemCursorIndex);
         if (didRemoveItemCompletely) {
