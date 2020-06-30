@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: 11f8690d34c34544c931ee8b33fe7c34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -462135572497836764
+    second: elle_nighttime_spriteSheet_0
+  - first:
+      213: 66278649874007953
+    second: elle_nighttime_spriteSheet_1
+  - first:
+      213: -5406010623920881781
+    second: elle_nighttime_spriteSheet_2
+  - first:
+      213: 2017094442240171424
+    second: elle_nighttime_spriteSheet_3
+  - first:
+      213: 8564697015807420879
+    second: elle_nighttime_spriteSheet_4
+  - first:
+      213: 5588493209210333088
+    second: elle_nighttime_spriteSheet_5
+  - first:
+      213: 1024856139505262582
+    second: elle_nighttime_spriteSheet_6
+  - first:
+      213: -6412642765096478037
+    second: elle_nighttime_spriteSheet_7
+  - first:
+      213: -828207396128548010
+    second: elle_nighttime_spriteSheet_8
+  - first:
+      213: 7632756264470531213
+    second: elle_nighttime_spriteSheet_9
+  - first:
+      213: -1306974035690579258
+    second: elle_nighttime_spriteSheet_10
+  - first:
+      213: -3413855355422543003
+    second: elle_nighttime_spriteSheet_11
+  - first:
+      213: -200204248859386187
+    second: elle_nighttime_spriteSheet_12
+  - first:
+      213: 7765070031020249670
+    second: elle_nighttime_spriteSheet_13
+  - first:
+      213: -8849722967252159368
+    second: elle_nighttime_spriteSheet_14
+  - first:
+      213: -1840555002134857695
+    second: elle_nighttime_spriteSheet_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 106
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425d133352a2699f0800000000000000
+      internalID: -462135572497836764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 106
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197cee5b4187be000800000000000000
+      internalID: 66278649874007953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 106
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f3535dafdf9f4b0800000000000000
+      internalID: -5406010623920881781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 106
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0add32c45b82efb10800000000000000
+      internalID: 2017094442240171424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9ac04ee8aebd670800000000000000
+      internalID: 8564697015807420879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 70
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a72aa4f6f05e8d40800000000000000
+      internalID: 5588493209210333088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 70
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffd61d9a35093e00800000000000000
+      internalID: 1024856139505262582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 70
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa12fa7167b107a0800000000000000
+      internalID: -6412642765096478037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 35
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b1861e2cd9184f0800000000000000
+      internalID: -828207396128548010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 35
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c47e8e16ffce960800000000000000
+      internalID: 7632756264470531213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 35
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca11080a02bcdde0800000000000000
+      internalID: -1306974035690579258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 35
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563797144ac8f90d0800000000000000
+      internalID: -3413855355422543003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be5630eb4bb83df0800000000000000
+      internalID: -200204248859386187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6425ef65d0213cb60800000000000000
+      internalID: 7765070031020249670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874b15069d77f2580800000000000000
+      internalID: -8849722967252159368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elle_nighttime_spriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128fe2c2af80576e0800000000000000
+      internalID: -1840555002134857695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

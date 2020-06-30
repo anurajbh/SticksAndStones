@@ -22,7 +22,7 @@ public class PlayerEffects : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Destroy(GetComponent<PlayerMovement>().movePoint.gameObject);
+            //Destroy(GetComponent<PlayerMovement>().movePoint.gameObject);
         }
     }
 

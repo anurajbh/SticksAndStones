@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-        //DontDestroyOnLoad(movePoint);
 		if (Instance == null)
 		{
 			Instance = this;
