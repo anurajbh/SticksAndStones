@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -31,11 +32,15 @@ public class BattleSystem : MonoBehaviour
     public Image dialogueBox;
     public GameObject[] optionButtons;
 
+    public int prevWill;
+
     // Battle will take place in a separate scene, the code below
     // will cause the player to be in battle upon scene entry
     void Start()
     {
         state = BattleState.START;
+
+        prevWill = PlayerStats.Instance.totalWill;
         //these are temporary so the player has some moves to look through
         PlayerStats.attacks.Learn("stick", 1, -2, -3);
         PlayerStats.attacks.Learn("stone", 2, -3, -4);
@@ -109,15 +114,21 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You've defeated this monster... for now...";
+            PlayerStats.Instance.adjustWill(prevWill+1);
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were never strong enough.";
+            PlayerStats.Instance.adjustWill(prevWill-1);
         }
+
+        TimeProgression.Instance.ChangeTime();
+
         StartCoroutine(Buffer());
         StartCoroutine(Buffer());
 
         //transition back to game
+        SceneManager.LoadScene("Overworld");
     }
 
     void PlayerTurn()

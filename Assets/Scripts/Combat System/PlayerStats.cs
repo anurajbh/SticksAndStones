@@ -33,15 +33,14 @@ public class PlayerStats : MonoBehaviour
         //inventory2D = GetComponent<Inventory2D>();
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Anxiety, amount = 1 });
-        //inventory2D.Add2DItem(new Item2D { item2DType = Item2D.Item2DType.Will, amount = 1 });
     }
 
     private void Update()
@@ -131,6 +130,16 @@ public class PlayerStats : MonoBehaviour
         //trigger blackout if ambWill <= 0 during the day
         //seal skills
     }*/
+
+    void Blackout()
+    {
+        //this is supposed to have the whole screen fade to black and display
+        //a text box that says "I-I couldn't breathe.
+        //My vision went dark. The rest of the day went by in a blur."
+        //and move straight to the night cycle
+
+        //use 2D canvas for making the screen turn black, change alpha of the canvas group
+    }
 
     void Overload()
     {

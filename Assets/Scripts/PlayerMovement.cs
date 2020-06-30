@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 			Destroy(gameObject);
 		}
     }
+
     private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }
@@ -120,10 +121,9 @@ public class PlayerMovement : MonoBehaviour
 				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
-				} 
+				}
             }
         }
 
     }
 }
-   
