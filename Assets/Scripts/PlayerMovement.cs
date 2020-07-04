@@ -36,18 +36,17 @@ public class PlayerMovement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-        //DontDestroyOnLoad(movePoint);
-        if (Instance == null)
-        {
-           Instance = this;
-           DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-          Destroy(gameObject);
-        }
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
     }
-    
+
     private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }
@@ -122,10 +121,9 @@ public class PlayerMovement : MonoBehaviour
 				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
-				} 
+				}
             }
         }
 
     }
 }
-   

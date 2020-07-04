@@ -12,9 +12,9 @@ public class DontDestroyPlayer : MonoBehaviour
         if (objs.Length > 1)
         {
             Destroy(this.gameObject);
-        }
+		} 
 
-        DontDestroyOnLoad(this.gameObject);
+		DontDestroyOnLoad(this.gameObject);
     }
 
 }
