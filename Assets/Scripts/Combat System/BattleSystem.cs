@@ -376,7 +376,6 @@ public class BattleSystem : MonoBehaviour
             optionButtons[i].GetComponent<Button>().name = buttonNames[i];
             optionButtons[i].GetComponent<Button>().onClick.AddListener(buttonFunctions[i]); //changes button functions
         }
-
         moveName = EventSystem.current.currentSelectedGameObject.name;
     }
 }
