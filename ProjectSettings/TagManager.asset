@@ -18,6 +18,7 @@ TagManager:
   - nameTag
   - Effect
   - Blackout
+  - MovePoint
   layers:
   - Default
   - TransparentFX

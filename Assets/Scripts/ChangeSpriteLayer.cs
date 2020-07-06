@@ -17,7 +17,7 @@ public class ChangeSpriteLayer : MonoBehaviour
 		sprite.sortingOrder = sortingOrder;
 		sprite.sortingLayerName = INITIAL_LAYER_NAME;
 		yvalue = GetComponent<Transform>().position.y;
-		player = GameObject.Find("Elle");
+		player = GameObject.FindWithTag("Player");
     }
 		
     void Update()

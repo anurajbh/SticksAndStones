@@ -167,3 +167,7 @@ MonoBehaviour:
   daysElapsed: 0
   myCycle: 0
   nextTime: 1
+  canvasGroup: {fileID: 0}
+  fadeFactor: 0.02
+  duskText: {fileID: 0}
+  triggerDuskTransition: 0
