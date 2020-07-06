@@ -307,8 +307,15 @@ public class BattleSystem : MonoBehaviour
 
         switch (move) {
             case 0:
+                List<UnityAction> mainActions;
+                if (TimeProgression.Instance.daysElapsed == 6) {
+                    numOptions = 3;
+                    mainActions = new List<UnityAction>(new UnityAction[] { OnAttackButton, OnSkillButton, OnItemButton });
+                    buttonFunctions = mainActions;
+                    break;
+                }
                 numOptions = 4;
-                List<UnityAction> mainActions = new List<UnityAction>(new UnityAction[] { OnAttackButton, OnSkillButton, OnItemButton, OnRunButton });
+                mainActions = new List<UnityAction>(new UnityAction[] { OnAttackButton, OnSkillButton, OnItemButton, OnRunButton });
                 buttonFunctions = mainActions;
                 break;
             case 1:
