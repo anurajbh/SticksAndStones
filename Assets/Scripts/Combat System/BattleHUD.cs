@@ -21,7 +21,7 @@ public class BattleHUD : MonoBehaviour
         int maxWill = PlayerStats.Instance.maxAmb + PlayerStats.Instance.maxInt;
         willSlider.maxValue = maxWill;
         willSlider.value = PlayerStats.Instance.totalWill;
-        Debug.Log(PlayerStats.Instance.totalWill);
-        Debug.Log(willSlider.maxValue);
+        //Debug.Log(PlayerStats.Instance.totalWill);
+        //Debug.Log(willSlider.maxValue);
     }
 }
