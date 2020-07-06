@@ -10,8 +10,7 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
-    //TO DO: have a way to remember the state of the scene you came from so you can go back to it after you're done
-    //TO DO: implement Item use with inventory
+    //TO DO: when loading new scene, make elly be standing next to her bed like she just woke up
     //TO DO: implement checking which day it is for running + stat buffs
     //TO DO: add something to show that you did damage to the enemy
 
@@ -20,13 +19,12 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
     public BattleHUD playerHUD;
 
-    //PlayerStats player = PlayerStats.Instance;
     InventoryObject inventory;
     GameObject player;
     NPC enemy;
     NPCAI enemyAI;
 
-    List<string> playerOptions = new List<string>(new string[] {"Attacc", "Protecc", "Snacc", "RUN AWAY!!"});
+    List<string> playerOptions = new List<string>(new string[] { "Attacc", "Protecc", "Snacc", "RUN AWAY!!" });
     int move = 0; //this is to indicate whether the player is in the main menu or a submenu
     //0 = main menu, 1 = attack menu, 2 = skill menu, 3 = inventory, 4 = run, 5 = enemy
 
@@ -43,6 +41,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
 
         prevWill = PlayerStats.Instance.totalWill;
+
         //these are temporary so the player has some moves to look through
         PlayerStats.attacks.Learn("stick", 1, -2, -3);
         PlayerStats.attacks.Learn("stone", 2, -3, -4);
@@ -50,6 +49,7 @@ public class BattleSystem : MonoBehaviour
         PlayerStats.skills.Learn("yell", -3, -1, 0);
         PlayerStats.skills.Learn("aa", 2, 3, 2);
         PlayerStats.skills.Learn("h", 0, 0, 0);
+
         //Finds the inventory in the scene
         player = GameObject.FindWithTag("Player");
         InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
@@ -62,47 +62,51 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
+        //set up enemy and enemy AI
         GameObject enemyGO = Instantiate(enemyPrefab);
         enemy = enemyGO.GetComponent<NPC>();
         enemyAI = enemyGO.GetComponent<NPCAI>();
 
+        //display starting message
         dialogueBox.gameObject.SetActive(true);
         dialogueText.text = "A monster approaches.";
 
+        //set HUDs
         enemyHUD.SetEnemyHUD(enemy);
-        playerHUD.SetPlayerHUD(); 
+        playerHUD.SetPlayerHUD();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         dialogueText.text = "What will you do?";
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         dialogueBox.gameObject.SetActive(false);
+
+        //start the battle, move to player turn
         state = BattleState.PLAYERTURN;
         PlayerTurn();
     }
 
     IEnumerator EnemyTurn()
     {
-        Action.whosAttacking = 1;
-        (int, int, int) stats = enemyAI.EnemyAttack();
-        dialogueBox.gameObject.SetActive(true);
-        dialogueText.text = enemy.enemyName + " attacked! ";
+        Action.whosAttacking = 1; // for Action to know how to deal with will checks for abilities
+        (int, int, int) stats = enemyAI.EnemyAttack(); // saving stats like this can be used to make the dialogue more specific when the enemy attacks
+       yield return StartCoroutine(DisplayMessage(enemy.enemyName + " attacked! ")); //attack message
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = PlayerStats.Instance.adjustWill(stats.Item2);
-        enemy.adjustHealth(stats.Item3);
+        bool isDead = PlayerStats.Instance.adjustWill(stats.Item2); //checks if player is dead post-damage
+        enemy.adjustHealth(stats.Item3); //in case it's a self harming move
 
         enemyHUD.SetEnemyHUD(enemy);
         playerHUD.SetPlayerHUD();
-        
-        Action.whosAttacking = 0;
+
+        Action.whosAttacking = 0; //go back to player input for Action
 
         yield return new WaitForSeconds(1f);
-        dialogueBox.gameObject.SetActive(false);
 
+        //check whether the player won or lost
         if (isDead)
         {
             state = BattleState.LOST;
@@ -119,22 +123,23 @@ public class BattleSystem : MonoBehaviour
     void EndBattle()
     {
         dialogueBox.gameObject.SetActive(true);
-        
         if (state == BattleState.WON)
         {
             dialogueText.text = "You've defeated this monster... for now...";
-            PlayerStats.Instance.adjustWill(prevWill+1);
+            PlayerStats.Instance.adjustWill(prevWill + 1);
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were never strong enough.";
-            PlayerStats.Instance.adjustWill(prevWill-1);
+            PlayerStats.Instance.adjustWill(prevWill - 1);
         }
 
+        StartCoroutine(Buffer());
+        dialogueBox.gameObject.SetActive(false);
+        StartCoroutine(Buffer());
+        StartCoroutine(Buffer());
+        //need to wait for input here
         TimeProgression.Instance.ChangeTime();
-
-        StartCoroutine(Buffer());
-        StartCoroutine(Buffer());
 
         //transition back to game
         SceneManager.LoadScene("Overworld");
@@ -145,12 +150,20 @@ public class BattleSystem : MonoBehaviour
         ParseOptions();
     }
 
+    /*
+    void EndTurn()
+    {
+        StartCoroutine(Buffer());
+        move = 5;
+        ParseOptions();
+    } */
+
     IEnumerator Buffer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
     }
 
-    public void OnAttackButton()
+    public void OnAttackButton() // opens attack submenu
     {
         if (state != BattleState.PLAYERTURN)
         {
@@ -168,41 +181,45 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        moveName = EventSystem.current.currentSelectedGameObject.name;
-        if (PlayerStats.attacks.Check(moveName))
+
+        moveName = EventSystem.current.currentSelectedGameObject.name; //gets currently selected button for move name
+
+        if (PlayerStats.attacks.Check(moveName)) //if enough will
         {
-            (int, int, int) stats = PlayerStats.attacks.Use(moveName);
-            //have the enemy shake or something to show that you did damage too
-            //display hit message?
+            //do attack
+            (int, int, int) stats = PlayerStats.attacks.Use(moveName); //can be used for more specific attack message
 
-            StartCoroutine(Buffer());
-
+            StartCoroutine(DisplayMessage("You hit it with a " + moveName));
             bool isDead = enemy.adjustHealth(stats.Item3);
             enemyHUD.SetEnemyHUD(enemy);
 
+            //DAMAGE SHAKE STILL NOT WORKING
+            StartCoroutine(onDamageShake());
             StartCoroutine(Buffer());
 
-            if (isDead) {
+            if (isDead)
+            {
                 state = BattleState.WON;
                 EndBattle();
-            } /*else {
-                state = BattleState.ENEMYTURN;
-                StartCoroutine(EnemyTurn());
-            } */
+            }
         }
         else
         {
-            dialogueBox.gameObject.SetActive(true);
-            dialogueText.text = "You can't bring yourself to do it, your willpower is low.";
+           //not enough will message
+           StartCoroutine(DisplayMessage("You can't bring yourself to do it, you can't gather the Will"));
         }
-        dialogueBox.gameObject.SetActive(false);
+
+        //update playerHUD and move back to enemy turn
         playerHUD.SetPlayerHUD();
         StartCoroutine(Buffer());
-        move = 5;
+        StartCoroutine(Buffer());
+        //EndTurn();
+        //move = 5; //enemy turn for button choice
         ParseOptions();
     }
 
-    public void OnSkillButton()
+
+        public void OnSkillButton()
     {
         if (state != BattleState.PLAYERTURN)
         {
@@ -223,16 +240,30 @@ public class BattleSystem : MonoBehaviour
         if (PlayerStats.skills.Check(moveName))
         {
             (int, int, int) stats = PlayerStats.skills.Use(moveName);
-            //have the enemy shake or something to show that you did damage too
-            //display hit message?
-            //state = BattleState.ENEMYTURN;
+
+            StartCoroutine(Buffer());
+
+            DisplayMessage("You used" + moveName);
+
+            StartCoroutine(Buffer());
+
+            bool isDead = enemy.adjustHealth(stats.Item3);
+            enemyHUD.SetEnemyHUD(enemy);
+            StopAllCoroutines();
+            //onDamageShake still not working
+            StartCoroutine(onDamageShake());
+            StartCoroutine(Buffer());
+
+            if (isDead)
+            {
+                state = BattleState.WON;
+                EndBattle();
+            }
         }
         else
         {
-            dialogueBox.gameObject.SetActive(true);
-            dialogueText.text = "You can't bring yourself to do it, your willpower is low.";
+            DisplayMessage("You can't bring yourself to do it, your willpower is low.");
         }
-        dialogueBox.gameObject.SetActive(false);
         playerHUD.SetPlayerHUD();
         StartCoroutine(Buffer());
         move = 5;
@@ -261,12 +292,10 @@ public class BattleSystem : MonoBehaviour
        inventory.UseItem(itemSlotToUse.item,player);
        inventory.RemoveItem(inventory.Container.IndexOf(itemSlotToUse));
 
-       dialogueBox.gameObject.SetActive(true);
-       dialogueText.text = "You used " + itemSlotToUse.item.name + "!";
+       DisplayMessage("You used " + itemSlotToUse.item.name + "!");
 
        Debug.Log("used item" + itemSlotToUse.item.name);
 
-       dialogueBox.gameObject.SetActive(false);
        playerHUD.SetPlayerHUD();
        StartCoroutine(Buffer());
        move = 5;
@@ -343,7 +372,6 @@ public class BattleSystem : MonoBehaviour
                 }
                 break;
             case 3:
-                //GET INVENTORY COUNT AND NAMES 
                 numOptions = inventory.Container.Count - 1 + 1;
                 buttonNames = new List<string>();
                 for (int i = 0; i < inventory.Container.Count; i++) {
@@ -384,5 +412,30 @@ public class BattleSystem : MonoBehaviour
             optionButtons[i].GetComponent<Button>().onClick.AddListener(buttonFunctions[i]); //changes button functions
         }
         moveName = EventSystem.current.currentSelectedGameObject.name;
+    }
+
+    IEnumerator onDamageShake()
+    {
+        Vector2 initialPosition = enemy.transform.position; //save originial position
+
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i <= 4; i++) //get random position and move to it 4 times
+        {
+            Vector2 newPosition = Random.insideUnitCircle * 2;
+            enemy.transform.Translate(newPosition);
+            yield return new WaitForSeconds(.1f);
+        }
+
+        enemy.transform.Translate(initialPosition); //restore original position
+    }
+
+    IEnumerator DisplayMessage(string msg) 
+    {
+        dialogueBox.gameObject.SetActive(true);
+        dialogueText.text = msg; 
+        yield return new WaitForSeconds(2f);
+        dialogueBox.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
     }
 }
