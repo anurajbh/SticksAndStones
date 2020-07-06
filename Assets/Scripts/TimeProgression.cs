@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TimeProgression : MonoBehaviour
 {
@@ -16,6 +18,21 @@ public class TimeProgression : MonoBehaviour
     public Cycle myCycle;
     public Cycle nextTime;//to keep track of next time of day
 
+    //public GameObject playerController;
+
+    public CanvasGroup canvasGroup;
+
+    public float fadeFactor = 0.2f;
+
+    public Text duskText;
+
+    public Text sleepText;
+
+    public bool triggerDuskTransition = false;//for testing
+
+    public bool triggerNightTransition = false;//for testing, potentially use TimeProgression.Instance.triggerNightTransition in the bed to trigger night time?
+
+    public IEnumerator coroutine;
     private void Awake()
     {
         dayNight = GameObject.FindWithTag("Time").GetComponent<DayNight>();
@@ -28,7 +45,10 @@ public class TimeProgression : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        //playerController = GameObject.Find("MovePoint");
+        canvasGroup = GameObject.Find("BlackoutImage").GetComponent<CanvasGroup>();
+        duskText = GameObject.Find("DuskText").GetComponent<Text>();
+        sleepText = GameObject.Find("NightText").GetComponent<Text>();
         //InvokeRepeating("TrackTime", 1f, 1f);
     }
 
@@ -66,6 +86,27 @@ public class TimeProgression : MonoBehaviour
 
         //accomodate for weekends??
     }*/
+    private void Update()
+    {
+        if(triggerDuskTransition)
+        {
+            StartCoroutine("TransitionToDusk");
+            //isDusk = false;
+        }
+        if (triggerNightTransition)
+        {
+            StartCoroutine("TransitionToNight");
+            //isDusk = false;
+        }
+        if(myCycle!=Cycle.night)
+        {
+            nextTime = myCycle + 1;
+        }
+        else if(myCycle == Cycle.night)
+        {
+            nextTime = Cycle.dawn;
+        }
+    }
     public void ChangeTime()
     {
         myCycle = nextTime;
@@ -80,30 +121,87 @@ public class TimeProgression : MonoBehaviour
     {
         if (myCycle == Cycle.dawn)
         {
-            nextTime = Cycle.noon;
             dayNight.DawnTime();
         }
         else if(myCycle == Cycle.noon)
         {
             //isNight = false;
-            nextTime = Cycle.dusk;
             dayNight.DayTime();
         }
         else if (myCycle == Cycle.dusk)
         {
-            nextTime = Cycle.night;
-            dayNight.DuskTime();
+            StartCoroutine("TransitionTODusk");
+            //nextTime = Cycle.night;
+            //dayNight.DuskTime();
         }
         else if(myCycle == Cycle.night)
         {
-            TransitionToNight();
-            nextTime = Cycle.dawn;
+            StartCoroutine("TransitionToNight");
             dayNight.NightTime();
         }
     }
-    public void TransitionToNight()
+    public IEnumerator TransitionToDusk()
     {
-        myCycle = Cycle.night;
-        PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
+        triggerDuskTransition = false;
+        myCycle = Cycle.dusk;
+        dayNight.DuskTime();
+        yield return StartCoroutine("DuskTransition");
     }
+    public IEnumerator DuskTransition()
+    {
+        yield return StartCoroutine("DoFade");
+        LoadStartingScene();
+        coroutine = DisplayBlackoutText(duskText);
+        yield return StartCoroutine(coroutine);
+        yield return new WaitForSeconds(3f);
+        StartCoroutine("EndFade");
+        //isDusk = false;
+    }
+
+    public IEnumerator TransitionToNight()
+    {
+        triggerNightTransition = false;
+        myCycle = Cycle.night;
+        dayNight.NightTime();
+        PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
+        yield return StartCoroutine("NightTransition");
+    }
+    public IEnumerator NightTransition()
+    {
+        yield return StartCoroutine("DoFade");
+        coroutine = DisplayBlackoutText(sleepText);
+        yield return StartCoroutine(coroutine);
+        yield return new WaitForSeconds(3f);
+        StartCoroutine("EndFade");
+        //isDusk = false;
+    }
+
+    private void LoadStartingScene()
+    {
+        SceneManager.LoadScene("Overworld (Night)");
+    }
+    IEnumerator DoFade()
+    {
+        while (canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha += Time.deltaTime;
+            yield return new WaitForSeconds(fadeFactor);//pauses to run coroutine again next Frame
+        }
+    }
+    IEnumerator DisplayBlackoutText(Text text)
+    {
+        text.enabled = true;
+        yield return null;
+    }
+    IEnumerator EndFade()
+    {
+        duskText.enabled = false;
+        sleepText.enabled = false;
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= Time.deltaTime;
+            yield return new WaitForSeconds(fadeFactor);//pauses to run coroutine again next Frame
+        }
+    }
+
 }
