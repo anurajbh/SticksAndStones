@@ -36,15 +36,16 @@ public class PlayerMovement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movePoint.parent = null;
-		if (Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
+        if (Instance == null)
+        {
+           Instance = this;
+           DontDestroyOnLoad(gameObject);
+           DontDestroyOnLoad(movePoint);
+        }
+        else
+        {
+          Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()

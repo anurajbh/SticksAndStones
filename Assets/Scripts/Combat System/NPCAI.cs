@@ -52,10 +52,17 @@ public class NPCAI : MonoBehaviour
             stats = npc.attacks.Use(attackList[whatItChooses - 1]); //uses move based on random number
         }
         
+        // Check for attack buffs
+        foreach (Buff b in npc.buffs) {
+            if (TimeProgression.Instance.daysElapsed == b.activeDay) {
+                stats.Item2 -= b.attackBoost;
+            }
+        }
         
         //set and display status message
         string msg = "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!";
+        Debug.Log(msg);
         //DialogueBase statMsg = ScriptableObject.CreateInstance(typeof(DialogueBase)) as DialogueBase;
         //statMsg.init(msg);
         //Trigger.dialogue = statMsg;
