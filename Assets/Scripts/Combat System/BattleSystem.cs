@@ -34,6 +34,8 @@ public class BattleSystem : MonoBehaviour
 
     public int prevWill;
 
+    public bool dialogueFlag = false;
+
     // Battle will take place in a separate scene, the code below
     // will cause the player to be in battle upon scene entry
     void Start()
@@ -92,8 +94,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         Action.whosAttacking = 1; // for Action to know how to deal with will checks for abilities
-        (int, int, int) stats = enemyAI.EnemyAttack(); // saving stats like this can be used to make the dialogue more specific when the enemy attacks
        yield return StartCoroutine(DisplayMessage(enemy.enemyName + " attacked! ")); //attack message
+        (int, int, int) stats = enemyAI.EnemyAttack(); // saving stats like this can be used to make the dialogue more specific when the enemy attacks
 
         yield return new WaitForSeconds(1f);
 
@@ -215,7 +217,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(Buffer());
         StartCoroutine(Buffer());
         //EndTurn();
-        //move = 5; //enemy turn for button choice
+        move = 5; //enemy turn for button choice
         ParseOptions();
     }
 
@@ -434,10 +436,15 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator DisplayMessage(string msg) 
     {
+        while (dialogueFlag) {
+            yield return new WaitForSeconds(0.1f);
+        }
+        dialogueFlag = true;
         dialogueBox.gameObject.SetActive(true);
         dialogueText.text = msg; 
         yield return new WaitForSeconds(2f);
         dialogueBox.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        dialogueFlag = false;
     }
 }
