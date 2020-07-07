@@ -63,7 +63,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator SetupBattle()
     {
         //set up enemy and enemy AI
-        GameObject enemyGO = Instantiate(enemyPrefab);
+        // GameObject enemyGO = Instantiate(enemyPrefab);
+        GameObject enemyGO = enemyPrefab;
         enemy = enemyGO.GetComponent<NPC>();
         enemyAI = enemyGO.GetComponent<NPCAI>();
 
@@ -389,6 +390,7 @@ public class BattleSystem : MonoBehaviour
                 buttonFunctions.Add(OnStayConfirm);
                 break;
             case 5:
+                Debug.Log("Here");
                 numOptions = 0;
                 state = BattleState.ENEMYTURN;
                 StartCoroutine(EnemyTurn());
