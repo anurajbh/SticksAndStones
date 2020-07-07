@@ -429,7 +429,7 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
 
-        enemy.transform.Translate(initialPosition); //restore original position
+        enemy.transform.position = initialPosition; //restore original position
     }
 
     IEnumerator DisplayMessage(string msg) 
