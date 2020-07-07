@@ -41,4 +41,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Daytime/Main Building - Floor 1.unity
     guid: b2a8953f6f94ccf498460e931ddd8f62
-    m_configObjects: {}
+  m_configObjects: {}

@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        player = GameObject.FindGameObjectWithTag("player").transform;
     }
 
     public Transform player;
