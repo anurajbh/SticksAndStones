@@ -19,6 +19,7 @@ TagManager:
   - Effect
   - Blackout
   - MovePoint
+  - Bed
   layers:
   - Default
   - TransparentFX
