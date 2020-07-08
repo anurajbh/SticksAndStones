@@ -204,4 +204,8 @@ public class TimeProgression : MonoBehaviour
         }
     }
 
+    public bool isDusk() {
+        return myCycle == Cycle.dusk;
+    }
+
 }
