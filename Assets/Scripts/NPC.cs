@@ -14,6 +14,8 @@ public class NPC : MonoBehaviour
 
     public List<NPCAbility> SkillAbilities;//add skill abilities to this NPC in Editor
 
+    public Buff[] buffs;
+
     public Attacks attacks;//class that holds dictionary of attacks
 
     public Skills skills;//class that holds dictionary of skills
@@ -35,6 +37,18 @@ public class NPC : MonoBehaviour
 
     public bool adjustHealth(int amount)
     {
+        // If taking damage, check for defense buffs
+        if (amount < 0) {
+            foreach (Buff b in buffs) {
+                if (TimeProgression.Instance.daysElapsed == b.activeDay) {  //Check day dependency
+                    amount += b.defenseBoost;
+                    if (amount > 0) {   // Prevent healing due to defense buffs
+                        amount = 0;
+                    }
+                }
+            }
+        }
+        
         if (currentHealth + amount <= 0)
         {
             currentHealth = 0;

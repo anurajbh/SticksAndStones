@@ -10,7 +10,7 @@ public class NPCAI : MonoBehaviour
     List<string> skillList = new List<string>();
     //public NPCAI instance; //singleton
 
-    void Awake()
+    void Start()
     {
         //set singleton class
         /*if (instance != null)
@@ -49,13 +49,20 @@ public class NPCAI : MonoBehaviour
         else
         {
             whatItChooses = Random.Range(1, skillList.Count + 1);    //randomly picks a number within range of the attackList length
-            stats = npc.attacks.Use(attackList[whatItChooses - 1]); //uses move based on random number
+            stats = npc.skills.Use(skillList[whatItChooses - 1]); //uses move based on random number
         }
         
+        // Check for attack buffs
+        foreach (Buff b in npc.buffs) {
+            if (TimeProgression.Instance.daysElapsed == b.activeDay) {
+                stats.Item2 -= b.attackBoost;
+            }
+        }
         
         //set and display status message
         string msg = "Your anixety changed by " + stats.Item1 +
                 "!\nYour will changed by " + stats.Item2 + "!";
+        Debug.Log(msg);
         //DialogueBase statMsg = ScriptableObject.CreateInstance(typeof(DialogueBase)) as DialogueBase;
         //statMsg.init(msg);
         //Trigger.dialogue = statMsg;
