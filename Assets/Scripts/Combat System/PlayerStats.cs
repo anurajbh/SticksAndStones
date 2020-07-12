@@ -25,6 +25,8 @@ public class PlayerStats : MonoBehaviour
     public static Attacks attacks;//object that contains a dictionary of attacks
     public static Skills skills;//object that contains a dictionary of skills
 
+    public AnxietyMeter anxietyMeter;
+
     private void Awake()
     {
         totalWill = ambWill + intWill;
@@ -63,6 +65,9 @@ public class PlayerStats : MonoBehaviour
         else
         {
             anxiety += amount;
+        }
+        if (anxietyMeter != null) {
+            anxietyMeter.updateSprite();
         }
         return anxiety;
     }

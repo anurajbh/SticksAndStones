@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatStopsYou;
     public Animator animator;
 	public static bool teleporting = false;
+	public static PlayerMovement Instance;
 
     public Rigidbody2D rb2D;
     public bool CheckFreeze()
@@ -32,15 +33,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (GameObject.FindGameObjectsWithTag("Player").Length > 1) {
-            GameObject.Destroy(gameObject);
-        } else {
-            animator = gameObject.GetComponent<Animator>();
-            rb2D = GetComponent<Rigidbody2D>();
-            movePoint.parent = null;
-            DontDestroyOnLoad(movePoint);
+        animator = gameObject.GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
+        movePoint.parent = null;
+        if (Instance == null)
+        {
+           Instance = this;
+           DontDestroyOnLoad(gameObject);
+           DontDestroyOnLoad(movePoint);
+        }
+        else
+        {
+          Destroy(gameObject);
         }
     }
+
     private void FixedUpdate()
     {
         if (CheckFreeze()) { return; }
@@ -115,10 +122,9 @@ public class PlayerMovement : MonoBehaviour
 				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
                     movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
-				} 
+				}
             }
         }
 
     }
 }
-   

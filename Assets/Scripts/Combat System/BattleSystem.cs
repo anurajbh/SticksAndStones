@@ -21,6 +21,8 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
 
     //PlayerStats player = PlayerStats.Instance;
+    InventoryObject inventory;
+    GameObject player;
     NPC enemy;
     NPCAI enemyAI;
 
@@ -48,6 +50,13 @@ public class BattleSystem : MonoBehaviour
         PlayerStats.skills.Learn("yell", -3, -1, 0);
         PlayerStats.skills.Learn("aa", 2, 3, 2);
         PlayerStats.skills.Learn("h", 0, 0, 0);
+        //Finds the inventory in the scene
+        player = GameObject.FindWithTag("Player");
+        InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
+        inventory = inventoryManager.inventory;
+        if (inventory != null) {
+            Debug.Log("Inventory get");
+        }
         StartCoroutine(SetupBattle());
     }
 
@@ -159,7 +168,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        
+        moveName = EventSystem.current.currentSelectedGameObject.name;
         if (PlayerStats.attacks.Check(moveName))
         {
             (int, int, int) stats = PlayerStats.attacks.Use(moveName);
@@ -210,7 +219,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-
+        moveName = EventSystem.current.currentSelectedGameObject.name;
         if (PlayerStats.skills.Check(moveName))
         {
             (int, int, int) stats = PlayerStats.skills.Use(moveName);
@@ -237,11 +246,31 @@ public class BattleSystem : MonoBehaviour
        {
             return;
        }
-
         move = 3;
         ParseOptions();
-        //open inventory submenu
-        //use item (can be based on inventory system)
+    }
+
+    public void OnItemSelect() 
+    {
+        if (state != BattleState.PLAYERTURN)
+       {
+            return;
+       }
+       moveName = EventSystem.current.currentSelectedGameObject.name;
+       InventorySlot itemSlotToUse = inventory.findItemWithName(moveName);
+       inventory.UseItem(itemSlotToUse.item,player);
+       inventory.RemoveItem(inventory.Container.IndexOf(itemSlotToUse));
+
+       dialogueBox.gameObject.SetActive(true);
+       dialogueText.text = "You used " + itemSlotToUse.item.name + "!";
+
+       Debug.Log("used item" + itemSlotToUse.item.name);
+
+       dialogueBox.gameObject.SetActive(false);
+       playerHUD.SetPlayerHUD();
+       StartCoroutine(Buffer());
+       move = 5;
+       ParseOptions();
     }
 
     public void OnRunButton()
@@ -308,6 +337,15 @@ public class BattleSystem : MonoBehaviour
                 break;
             case 3:
                 //GET INVENTORY COUNT AND NAMES 
+                numOptions = inventory.Container.Count - 1 + 1;
+                buttonNames = new List<string>();
+                for (int i = 0; i < inventory.Container.Count; i++) {
+                    buttonNames.Add(inventory.Container[i].item.itemName);
+                }
+                for (int i = 0; i <= 4; i++)
+                {
+                    buttonFunctions.Add(OnItemSelect);
+                }
                 break;
             case 4:
                 numOptions = 2;
@@ -338,7 +376,6 @@ public class BattleSystem : MonoBehaviour
             optionButtons[i].GetComponent<Button>().name = buttonNames[i];
             optionButtons[i].GetComponent<Button>().onClick.AddListener(buttonFunctions[i]); //changes button functions
         }
-
         moveName = EventSystem.current.currentSelectedGameObject.name;
     }
 }

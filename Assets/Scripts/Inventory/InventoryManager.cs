@@ -28,9 +28,9 @@ public class InventoryManager : MonoBehaviour
     {
         if (item)
         {
-            if (inventory.AddItem(item.item))
+            if (inventory.AddItem(item.item, item.gameObject))
             {
-                Destroy(item.gameObject);
+                item.gameObject.SetActive(false);
             }
         }
     }
