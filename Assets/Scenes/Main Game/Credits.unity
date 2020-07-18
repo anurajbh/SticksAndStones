@@ -395,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: 4}
-  m_SizeDelta: {x: 200, y: 600}
+  m_AnchoredPosition: {x: -102, y: -144}
+  m_SizeDelta: {x: 218, y: 896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761054611
 MonoBehaviour:
@@ -454,7 +454,11 @@ MonoBehaviour:
     Programmers
 
 
-    QA
+
+
+
+
+
 
 
     Writers
@@ -643,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102, y: 4}
-  m_SizeDelta: {x: 200, y: 600}
+  m_AnchoredPosition: {x: 121, y: -144}
+  m_SizeDelta: {x: 218, y: 896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888419089
 MonoBehaviour:
@@ -677,10 +681,47 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
+  m_Text: 'Noura Beiruti
 
 
-'
+    Sara Inani
+
+    Lenno Liu
+
+    Yoon Lee
+
+    Anuraj
+    Bhatnagar
+
+
+    A
+
+
+    D
+
+
+    M
+
+
+    Amrithesh Paravath
+
+    Anuraj Bhatnagar
+
+    Austin
+    Passmore
+
+    Julia Zhu
+
+    Lily Zhu
+
+    Noura Beiruti
+
+    Soham Kar
+
+    Yoon
+    Lee
+
+    Zachary Goodard'
 --- !u!222 &1888419090
 CanvasRenderer:
   m_ObjectHideFlags: 0
