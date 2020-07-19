@@ -251,12 +251,13 @@ RectTransform:
   m_Children:
   - {fileID: 761054610}
   - {fileID: 1888419088}
+  - {fileID: 1212317736}
   m_Father: {fileID: 243958733}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -587}
+  m_AnchoredPosition: {x: 0, y: -621}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &315689450
@@ -395,8 +396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: -144}
-  m_SizeDelta: {x: 218, y: 896}
+  m_AnchoredPosition: {x: -121, y: -209.32}
+  m_SizeDelta: {x: 256, y: 990.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761054611
 MonoBehaviour:
@@ -429,7 +430,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Project Manager
+  m_Text: 'Project Lead
 
 
     Art Lead
@@ -442,16 +443,27 @@ MonoBehaviour:
     Lead
 
 
-    Artists
+    Art
 
 
-    Designers
+
+
+
+
+
+
+    Design and Story
+
+
+
+
 
 
     Music
 
 
-    Programmers
+
+    Programming
 
 
 
@@ -459,9 +471,6 @@ MonoBehaviour:
 
 
 
-
-
-    Writers
 
 
     Special
@@ -613,6 +622,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985171251}
   m_CullTransparentMesh: 0
+--- !u!1 &1212317735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212317736}
+  - component: {fileID: 1212317738}
+  - component: {fileID: 1212317737}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1212317736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212317735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 315689449}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9.5, y: 326}
+  m_SizeDelta: {x: 570, y: 36.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1212317737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212317735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Credits(alphabetical in each section)
+--- !u!222 &1212317738
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212317735}
+  m_CullTransparentMesh: 0
 --- !u!1 &1888419087
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 121, y: -144}
-  m_SizeDelta: {x: 218, y: 896}
+  m_AnchoredPosition: {x: 140, y: -209.4}
+  m_SizeDelta: {x: 256, y: 990.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888419089
 MonoBehaviour:
@@ -694,23 +780,48 @@ MonoBehaviour:
     Bhatnagar
 
 
-    A
+    Ethan Yu
+
+    Jacqueline Chambers
+
+    Julia Zhu
+
+    Lily Zhu
+
+    Noura
+    Beiruti
+
+    Sara Inani
+
+    Zachary Goodard
 
 
-    D
+    Amrithesh Paravath
+
+    Julia
+    Zhu
+
+    Noura Beiruti
+
+    Soham Kar
+
+    Yoon Lee
 
 
-    M
+    Lenno Liu
+
+    Noura
+    Beiruti
 
 
     Amrithesh Paravath
 
     Anuraj Bhatnagar
 
-    Austin
-    Passmore
+    Austin Passmore
 
-    Julia Zhu
+    Julia
+    Zhu
 
     Lily Zhu
 
@@ -718,10 +829,13 @@ MonoBehaviour:
 
     Soham Kar
 
-    Yoon
-    Lee
+    Zachary Goodard
 
-    Zachary Goodard'
+
+    Stephanie
+    Luo
+
+    Will Cooper'
 --- !u!222 &1888419090
 CanvasRenderer:
   m_ObjectHideFlags: 0
