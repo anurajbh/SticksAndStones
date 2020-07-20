@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event3_6b
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'No...this is her business. It would be wrong for me to pry, regardless
+      of how curious I am\u2026'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 1
+    affectsAnxiety: 1
+    willChangeAmount: -2
+    anxietyChangeAmount: -1
+  - nextDialogue: {fileID: 11400000, guid: 4d91b59ea1ed4404f836ebeb8c093120, type: 2}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "It\u2019s okay...mistakes happen, I guess."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0

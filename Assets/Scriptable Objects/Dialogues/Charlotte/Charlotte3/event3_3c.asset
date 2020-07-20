@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event3_3c
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: I think I get everything, but...why a castle courtyard as the setting
+      though?
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: 
+    portrait: {fileID: 21300000, guid: 914126dd0f79f304db0e6aec63daebf2, type: 3}
+    words: Charlotte emits a low groan and facepalms.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "I have no idea...I guess it\u2019s because there\u2019s Victorian architecture
+      everywhere on campus? And that I\u2019m a sucker for medieval settings? I dunno,
+      Elly!\r"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 11400000, guid: 6c096ecee7d7e504d918334330248128, type: 2}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'Yikes...that seems to have riled her up even more. Maybe not the best
+      thing to have asked...\r'\n"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 1
+    affectsAnxiety: 1
+    willChangeAmount: -1
+    anxietyChangeAmount: 1

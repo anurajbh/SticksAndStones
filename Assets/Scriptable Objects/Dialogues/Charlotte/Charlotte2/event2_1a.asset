@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event2_1a
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'This is such a clich\xE9d question...but it\u2019s also the safest.'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: So, are you excited for college to start next week?
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: 
+    portrait: {fileID: 21300000, guid: 914126dd0f79f304db0e6aec63daebf2, type: 3}
+    words: Charlotte stares at you with pinched lips, desperately trying not to burst
+      out with laughter.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: Snrk...hahahaha!
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "W-What?\r"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'Damn it, I just made things even more awkward, didn\u2019t I\u2026'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 1
+    willChangeAmount: 0
+    anxietyChangeAmount: 1
+  - nextDialogue: {fileID: 0}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "Sorry, I was just laughing because I remember when literally everyone
+      asked me that exact same question before my first year of college. \r"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 11400000, guid: 5b633646af6cacf4b972f6aeffb1485e, type: 2}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "But to answer your question: yes, I am. I finished up a lot of my required
+      courses during my first year, so I\u2019ve had the liberty of taking a few
+      classes that I think I would enjoy this semester."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0

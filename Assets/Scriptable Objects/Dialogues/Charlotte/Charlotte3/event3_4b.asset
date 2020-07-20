@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event3_4b
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly (inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'No...this isn\u2019t the right time. I wouldn\u2019t feel comfortable
+      doing something that personal on a whim like this\u2026\r'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'There\u2019s always time to do this later, right? It\u2019s not like
+      today\u2019s the last day I\u2019ll ever see her or anything\u2026\r'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "Relax, Elena...you need to make sure you don\u2019t wander too far out
+      of your own comfort zone, either\u2026"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 1
+    affectsAnxiety: 1
+    willChangeAmount: -3
+    anxietyChangeAmount: -2
+  - nextDialogue: {fileID: 0}
+    charName: 
+    portrait: {fileID: 21300000, guid: 914126dd0f79f304db0e6aec63daebf2, type: 3}
+    words: You let out a sigh.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: No problem, Charlotte. Thanks for trusting me enough to tell me.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "I think it\u2019s really cool that you do something like that...and I
+      have no doubt you\u2019ll get better the more you work on it.\r"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: Haha...thanks, Elly. That means a lot.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 11400000, guid: 172789726012f534188b75eed345e1b1, type: 2}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "Mhm\u2026"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0

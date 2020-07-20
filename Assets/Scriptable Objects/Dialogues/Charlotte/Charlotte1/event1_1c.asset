@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event1_1c
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'I feel like I\u2019ll get a better response if I seem enthusiastic about
+      it...\r'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "Hey, Charlotte! It\u2019s Elly. Thanks for taking the time to tell me
+      about the drama club yesterday, it was very informative!"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Charlotte
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "No problem Elly! I\u2019m glad it was helpful, and thanks for showing
+      interest. You're awesome!"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 11400000, guid: d5ba1a13a2b5e0a46b141984670bd9ce, type: 2}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'I-I\u2019m...awesome? Woah...\r'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 1
+    willChangeAmount: 0
+    anxietyChangeAmount: -2

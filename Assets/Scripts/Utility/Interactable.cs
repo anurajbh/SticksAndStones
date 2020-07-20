@@ -15,7 +15,7 @@ public class Interactable : MonoBehaviour
         if(Vector2.Distance(gameObject.transform.position, GameManager.instance.player.position) < interactRange)
         {
             //have a "Press Button to Interact" appear
-            if(Input.GetKeyDown(KeyCode.Z)) //replace with CrossPlatformInput stuff
+            if(Input.GetKeyDown(KeyCode.Z) && !DialogueManager.spokenTo) //replace with CrossPlatformInput stuff
             {
                 Interact();
             }
