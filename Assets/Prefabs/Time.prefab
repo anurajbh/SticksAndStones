@@ -170,4 +170,8 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   fadeFactor: 0.02
   duskText: {fileID: 0}
+  sleepText: {fileID: 0}
   triggerDuskTransition: 0
+  triggerNightTransition: 0
+  charlotte: {fileID: 2128920261548773177, guid: 8c06a0808b5851f47b9d495ff5bd813d,
+    type: 3}

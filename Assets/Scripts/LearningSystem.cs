@@ -12,6 +12,7 @@ public class LearningSystem : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("fix this: " + gameObject.name);
+            instance = this;
         }
         else
         {
