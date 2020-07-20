@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e7c385f14206b044a12361bd44d46fc, type: 3}
-  m_Name: Option 2
+  m_Name: event0_2
   m_EditorClassIdentifier: 
   dialogueInfo:
   - nextDialogue: {fileID: 0}
@@ -20,23 +20,35 @@ MonoBehaviour:
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
     words: Our goal is to help you learn more about the different aspects of theater,
-      which includes learning stage terminology, developing your acting skills, what
-      goes behind set building, yadda-yadda.
+      such as learning stage terminology, developing your acting skills, set building.
+      and more.
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
-    words: 'We meet Thursdays at 6 p.m. in one of the classrooms on the second floor
-      of the main building. '
+    words: We meet Thursdays at 6 p.m. in one of the classrooms on the second floor
+      of the main building.
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
@@ -46,6 +58,10 @@ MonoBehaviour:
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
@@ -54,13 +70,21 @@ MonoBehaviour:
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: 
-    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    portrait: {fileID: 21300000, guid: 914126dd0f79f304db0e6aec63daebf2, type: 3}
     words: "The drama club recruiter\u2019s eyes grow wide."
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
     charName: Cheery-Looking Girl
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
@@ -69,25 +93,33 @@ MonoBehaviour:
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   - nextDialogue: {fileID: 0}
-    charName: Cheery-Looking Girl
+    charName: Charlotte
     portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
-    words: "I\u2019m Charlotte, and I\u2019m the secretary of the drama club!"
-    abilityToLearn: {fileID: 11400000, guid: 4f5be25d0a07d1c4895e5b4ded2b0f22, type: 2}
-    isAttack: 1
+    words: "I\u2019m Charlotte, and I\u2019m the secretary of the drama club!\r"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
     isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
   optionInfo:
-  - nextDialogue: {fileID: 0}
+  - nextDialogue: {fileID: 11400000, guid: 32e2e06dc1f7a7c4d8fe0b7bd998878c, type: 2}
     buttonName: "\u201CMy name\u2019s Elena, but I go by Elly.\u201D"
     myEvent:
       m_PersistentCalls:
         m_Calls: []
-  - nextDialogue: {fileID: 0}
+  - nextDialogue: {fileID: 11400000, guid: 3b6a962e78028fd4cb320db8f8245749, type: 2}
     buttonName: "\u201CI\u2019m Elly, president of the boring club.\u201D"
     myEvent:
       m_PersistentCalls:
         m_Calls: []
-  - nextDialogue: {fileID: 0}
+  - nextDialogue: {fileID: 11400000, guid: b18dc97949c5fed4d803ab29b53754a9, type: 2}
     buttonName: "\u201CNice to meet you, Charlotte.\u201D"
     myEvent:
       m_PersistentCalls:
