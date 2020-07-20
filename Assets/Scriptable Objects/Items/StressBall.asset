@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 240e0027208dc8c46aea43d0b3b51b6c, type: 3}
-  m_Name: TestAnxietyItem
+  m_Name: StressBall
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  itemName: Test Anxiety Item
+  itemName: Stress Ball
   type: 2
-  description: This item will affect your anxiety.
-  useDescription: Anxiety increased by 10.
-  anxietyChange: 10
+  description: Squeeze to release
+  useDescription: You give the ball a few squeezes to ease the stress. Your anixety
+    lowers by 1!
+  anxietyChange: -1
