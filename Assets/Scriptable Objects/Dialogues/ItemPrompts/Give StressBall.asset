@@ -24,7 +24,7 @@ MonoBehaviour:
     affectsAnxiety: 0
     willChangeAmount: 0
     anxietyChangeAmount: 0
-    givesItems: 0
+    givesItems: 1
     itemGiven: {fileID: 8561283238598087797, guid: 761b3b8ea1764b64a93ad74e6e31a824,
       type: 3}
     itemNumGiven: 5

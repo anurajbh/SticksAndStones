@@ -38,8 +38,3 @@ MonoBehaviour:
     myEvent:
       m_PersistentCalls:
         m_Calls: []
-  - nextDialogue: {fileID: 0}
-    buttonName: Pass
-    myEvent:
-      m_PersistentCalls:
-        m_Calls: []
