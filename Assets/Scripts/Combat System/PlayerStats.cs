@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public int intWill;
     public readonly int maxInt = 15;
     bool overloaded;
+    bool panic;
 
     public static PlayerStats Instance;
 
@@ -26,6 +27,8 @@ public class PlayerStats : MonoBehaviour
     public static Skills skills;//object that contains a dictionary of skills
 
     public AnxietyMeter anxietyMeter;
+
+    public PanicAttack panicAttack;
 
     private void Awake()
     {
@@ -55,8 +58,8 @@ public class PlayerStats : MonoBehaviour
         if (amount + anxiety > maxAnx)
         {
             anxiety = maxAnx;
-            //panic = true;
-            //PanicAttack();
+            panic = true;
+            PanicAttack.Instance.EnablePanicAttack();
         }
         else if (amount + anxiety <= 0)
         {
@@ -123,18 +126,30 @@ public class PlayerStats : MonoBehaviour
         }
         return false;   //sets BattleSystem's isDead var to false, battle continues
     }
+    //WaitForSeconds waitForSeconds = new WaitForSeconds(2.0f);
 
-    /*IEnumerator PanicAttack()
-    {
-        if (overloaded)
-        {
-            overloaded = false;
-            return but for IEnumerator;
-        }
-        //decrease ambient will to 0, should do this every 2 secs or so
-        //trigger blackout if ambWill <= 0 during the day
-        //seal skills
-    }*/
+    // void PanicAttack()
+    // {
+    //     // if (overloaded)
+    //     // {
+    //     //     overloaded = false;
+    //     //     return but for IEnumerator;
+    //     // }
+    //     // while (ambWill > 0 ) 
+    //     // {
+    //     //     if (overloaded)
+    //     //     {
+    //     //         overloaded = false;
+    //     //     }
+    //     //     ambWill--;
+    //     //     yield return waitForSeconds;
+    //     // }
+
+    //     //decrease ambient will to 0, should do this every 2 secs or so
+    //     //trigger blackout if ambWill <= 0 during the day
+    //     //seal skills
+    
+    // }
 
     void Blackout()
     {
