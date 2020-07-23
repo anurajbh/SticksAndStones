@@ -8084,7 +8084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cc0420be1a68a4c9f144189517f248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportPoint: {x: 32.2, y: 0.1}
+  teleportPoint: {x: 32, y: 0.1}
   playerController: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
@@ -11624,12 +11624,12 @@ PrefabInstance:
     - target: {fileID: 6224505276567671372, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.4
+      value: 12.2
       objectReference: {fileID: 0}
     - target: {fileID: 6224505276567671372, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.51
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 6224505276567671372, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
