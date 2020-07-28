@@ -11616,6 +11616,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -32442197658690459, guid: 6c5626bfb3547db48ab7521b22148d8e,
         type: 3}
+    - target: {fileID: 896323754635052422, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: nightLighting
+      value: 
+      objectReference: {fileID: 2100000, guid: a5f277cf283e1f440822f0d58f92fa81, type: 2}
+    - target: {fileID: 896323754635052422, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: nightAnimator
+      value: 
+      objectReference: {fileID: 9100000, guid: 20ae6c4e91bd29d468e163a3a02ecd9a, type: 2}
+    - target: {fileID: 896323754635052422, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
+        type: 3}
+      propertyPath: nightAnimatorReal
+      value: 
+      objectReference: {fileID: 9100000, guid: be735b1b8e858b148b49052258180378, type: 2}
     - target: {fileID: 5995578622670891429, guid: 8496c66596c7f5c4699cfca4ebaa5b8c,
         type: 3}
       propertyPath: m_Name
