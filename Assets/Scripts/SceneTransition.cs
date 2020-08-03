@@ -9,15 +9,16 @@ public class SceneTransition : PlayerTransition
 
     public bool incrementTime;
 
-    public void Awake()
-    {
-        base.Awake();
-        DontDestroyOnLoad(transform.parent.gameObject);
-        DontDestroyOnLoad(canvasGroup.transform.parent.gameObject);
-    }
+    // public void Awake()
+    // {
+    //     base.Awake();
+    //     DontDestroyOnLoad(transform.parent.gameObject);
+    //     DontDestroyOnLoad(canvasGroup.transform.parent.gameObject);
+    // }
 
     public override IEnumerator Blackout()
     {
+        DontDestroyOnLoad(transform.parent.gameObject);
         yield return StartCoroutine("DoFade");
         SceneManager.LoadScene(sceneName);
         yield return StartCoroutine("MovePlayer");
