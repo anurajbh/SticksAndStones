@@ -306,4 +306,6 @@ MonoBehaviour:
     type: 3}
   dayAnimator: {fileID: 9100000, guid: 19cbcb327559979498e8f71c866703bb, type: 2}
   nightAnimator: {fileID: 9100000, guid: 20ae6c4e91bd29d468e163a3a02ecd9a, type: 2}
+  nightAnimatorReal: {fileID: 9100000, guid: f1e971770b9a37c4eb4a1a95eac53bf1, type: 2}
   playerCharacter: {fileID: 5995578622670891429}
+  nightLighting: {fileID: 2100000, guid: a5f277cf283e1f440822f0d58f92fa81, type: 2}
