@@ -10,7 +10,7 @@ public class NPCAI : MonoBehaviour
     List<string> skillList = new List<string>();
     //public NPCAI instance; //singleton
 
-    void Awake()
+    void Start()
     {
         //set singleton class
         /*if (instance != null)
@@ -49,7 +49,7 @@ public class NPCAI : MonoBehaviour
         else
         {
             whatItChooses = Random.Range(1, skillList.Count + 1);    //randomly picks a number within range of the attackList length
-            stats = npc.attacks.Use(attackList[whatItChooses - 1]); //uses move based on random number
+            stats = npc.skills.Use(skillList[whatItChooses - 1]); //uses move based on random number
         }
         
         // Check for attack buffs

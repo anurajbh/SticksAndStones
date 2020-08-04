@@ -28,6 +28,7 @@ public class Trigger : Interactable
     {
         if(TimeProgression.Instance.myCycle!=TimeProgression.Cycle.night)
         {
+            Debug.Log("talking to NPC");
             TriggerDialogue();
         }
         else

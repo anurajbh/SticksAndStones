@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;  //to make the class Singleton
     public static bool triggered;
+    public static bool spokenTo = false;
 
     public DialogueBase next; //this should be set when returning to base dialogue after completing an option branch
     public DialogueBase learningDialogue;
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("fix this: " + gameObject.name);
+            instance = this;
         }
         else
         {
@@ -70,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         display.SetActive(true);  //UI updates
         dialogueUI.SetActive(true);   //UI updates
 
-        ParseOptions(db); //done before enqueuing the dilaogue so the options actually display
+        ParseOptions(db); //done before enqueuing the dialogue so the options actually display
 
         foreach (DialogueBase.Info info in db.dialogueInfo)
         {
@@ -211,13 +213,15 @@ public class DialogueManager : MonoBehaviour
             abilityLearned = true;
         }
         OptionsLogic();
-        if (next != null)   
-
-        {
+        if (isDialogueOption || next != null) {
             AddDialogue(next);  
             Debug.Log("triggered");
+        } else {
+            spokenTo = true;
+            dialogueUI.SetActive(false);
+            triggered = false;
+            TimeProgression.Instance.ChangeTime();
         }
-        TimeProgression.Instance.ChangeTime();
     }
 
     //displays options if available or closes dialogue (latter doesn't matter if next dialogue is queued up)
@@ -227,7 +231,6 @@ public class DialogueManager : MonoBehaviour
         {
             optionUI.SetActive(true);
             dialogueUI.SetActive(false);
-            
         }
         else
         {
@@ -252,6 +255,7 @@ public class DialogueManager : MonoBehaviour
             numOptions = dialogueOptions.optionInfo.Length;
 
             optionButtons[0].GetComponent<Button>().Select(); //has the first button automatically selected (won't be highlighted until you move the cursor)
+
 
             for (int i = 0; i < optionButtons.Length; i++)
             {
