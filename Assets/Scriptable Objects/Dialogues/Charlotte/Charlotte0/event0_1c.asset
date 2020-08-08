@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
+  m_Name: event0_1c
+  m_EditorClassIdentifier: 
+  dialogueInfo:
+  - nextDialogue: {fileID: 0}
+    charName: Elly
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "Sorry, I wasn\u2019t planning on joining any clubs."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 1
+    affectsAnxiety: 0
+    willChangeAmount: 1
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: Aww, really? Are you sure about that?
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "I know this probably sounds clich\xE9, but, it\u2019s important to take
+      your mind off of school work every once in a while and do something that allows
+      you to express yourself."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "Being a college student can be stressful sometimes, and it\u2019s important
+      for our mental health that we let loose every once in a while. "
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "That being said, I strongly urge you to reconsider and join a club, even
+      if it doesn\u2019t end up being the drama club."
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: Cheery-Looking Girl
+    portrait: {fileID: 21300000, guid: 59b471505f67f42468866f44ba2192d0, type: 3}
+    words: "N-Not to say we wouldn\u2019t love to have you! Haha\u2026"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 0}
+    charName: 
+    portrait: {fileID: 21300000, guid: 914126dd0f79f304db0e6aec63daebf2, type: 3}
+    words: The drama club recruiter laughs nervously.
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 0
+    willChangeAmount: 0
+    anxietyChangeAmount: 0
+  - nextDialogue: {fileID: 11400000, guid: e5cc77f4110ba6f45ac7a8fec555c4eb, type: 2}
+    charName: Elly (Inner Thoughts)
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: "'Damn...I didn\u2019t think this would end up with me being lectured
+      like a toddler...\r'"
+    abilityToLearn: {fileID: 0}
+    isAttack: 0
+    isSkill: 0
+    affectsWill: 0
+    affectsAnxiety: 1
+    willChangeAmount: 0
+    anxietyChangeAmount: 2

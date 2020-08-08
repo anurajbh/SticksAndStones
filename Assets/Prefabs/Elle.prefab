@@ -59,10 +59,10 @@ GameObject:
   - component: {fileID: 3132900636615527528}
   - component: {fileID: 3399254022361958428}
   - component: {fileID: 2840322015153997852}
-  - component: {fileID: 1530300311807298514}
   - component: {fileID: 4871224553068426220}
   - component: {fileID: 4935911107728516865}
   - component: {fileID: 8418835710968707203}
+  - component: {fileID: 896323754635052422}
   m_Layer: 5
   m_Name: Elle
   m_TagString: Player
@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 5995578622670891429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.4, y: 4.51, z: -0.1}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 1}
   m_Children:
   - {fileID: 695071088118275877}
   m_Father: {fileID: 0}
@@ -125,6 +125,7 @@ MonoBehaviour:
   totalWill: 0
   ambWill: 0
   intWill: 15
+  anxietyMeter: {fileID: 0}
 --- !u!50 &6421382694104208232
 Rigidbody2D:
   serializedVersion: 4
@@ -241,19 +242,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1530300311807298514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5995578622670891429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a24ac94598dd0c4a80ad45ab8fa1b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanBeSpokenTo: 0
 --- !u!114 &4871224553068426220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +288,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6b626692d136e41b38b013557014e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &896323754635052422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995578622670891429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c2a85e897b7164b94dfd4134e30d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daytimeSprite: {fileID: -32442197658690459, guid: 6c5626bfb3547db48ab7521b22148d8e,
+    type: 3}
+  nighttimeSprite: {fileID: -462135572497836764, guid: 11f8690d34c34544c931ee8b33fe7c34,
+    type: 3}
+  dayAnimator: {fileID: 9100000, guid: 19cbcb327559979498e8f71c866703bb, type: 2}
+  nightAnimator: {fileID: 9100000, guid: 20ae6c4e91bd29d468e163a3a02ecd9a, type: 2}
+  nightAnimatorReal: {fileID: 9100000, guid: f1e971770b9a37c4eb4a1a95eac53bf1, type: 2}
+  playerCharacter: {fileID: 5995578622670891429}
+  nightLighting: {fileID: 2100000, guid: a5f277cf283e1f440822f0d58f92fa81, type: 2}

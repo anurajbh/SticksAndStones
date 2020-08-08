@@ -32,6 +32,11 @@ public class TimeProgression : MonoBehaviour
 
     public bool triggerNightTransition = false;//for testing, potentially use TimeProgression.Instance.triggerNightTransition in the bed to trigger night time?
 
+    public GameObject charlotte; // charlotte npc prefab to be instantiated in appropriate scenes
+    private static bool charlotteInitialized = false;
+
+    private static bool charlotteActivated = false;
+
     public IEnumerator coroutine;
     private void Awake()
     {
@@ -50,6 +55,11 @@ public class TimeProgression : MonoBehaviour
         duskText = GameObject.Find("DuskText").GetComponent<Text>();
         sleepText = GameObject.Find("NightText").GetComponent<Text>();
         //InvokeRepeating("TrackTime", 1f, 1f);
+        if (!charlotteInitialized) {
+            charlotte = GameObject.Find("Charlotte");
+            charlotte.SetActive(false);
+            charlotteInitialized = true;
+        }
     }
 
     void Start() {
@@ -104,8 +114,37 @@ public class TimeProgression : MonoBehaviour
         }
         else if(myCycle == Cycle.night)
         {
+            DialogueManager.spokenTo = false;
             nextTime = Cycle.dawn;
         }
+        if (daysElapsed == 1 && myCycle == Cycle.noon && !charlotteActivated) { // logic for charlotte npc visibility
+            charlotte.SetActive(true);
+            charlotteActivated = true;
+        }
+        if (daysElapsed == 2 && myCycle == Cycle.noon && !charlotteActivated) {
+            charlotte.SetActive(true);
+            charlotteActivated = true;
+        }
+        if (daysElapsed == 3 && charlotteActivated) {
+            charlotte.SetActive(false);
+            charlotteActivated = false;
+        }
+        if (daysElapsed == 4 && myCycle == Cycle.noon && !charlotteActivated) {
+            charlotte.SetActive(true);
+            charlotteActivated = true;
+        }
+        if (daysElapsed == 5 && charlotteActivated) {
+            charlotte.SetActive(false);
+            charlotteActivated = false;
+        }
+        if (daysElapsed == 6 && myCycle == Cycle.noon && !charlotteActivated) {
+            charlotte.SetActive(true);
+            charlotteActivated = true;
+        }
+        if (myCycle != Cycle.noon && charlotteActivated) {
+            charlotte.SetActive(false);
+            charlotteActivated = false;
+        } 
     }
     public void ChangeTime()
     {
@@ -115,7 +154,6 @@ public class TimeProgression : MonoBehaviour
             daysElapsed++;
         }
         CheckForTimeChange();
-
     }
     public void CheckForTimeChange()
     {
@@ -130,7 +168,7 @@ public class TimeProgression : MonoBehaviour
         }
         else if (myCycle == Cycle.dusk)
         {
-            StartCoroutine("TransitionTODusk");
+            StartCoroutine("TransitionToDusk");
             //nextTime = Cycle.night;
             //dayNight.DuskTime();
         }

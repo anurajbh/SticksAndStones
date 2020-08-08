@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DontDestroyMovePoint : MonoBehaviour
 {
-	// Start is called before the first frame update
 	void Awake()
 	{
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("MovePoint");
@@ -16,6 +15,5 @@ public class DontDestroyMovePoint : MonoBehaviour
 
 		DontDestroyOnLoad(this.gameObject);
 	}
-
 }
 
