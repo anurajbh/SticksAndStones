@@ -136,6 +136,7 @@ public class DialogueManager : MonoBehaviour
             Item item = info.itemGiven.GetComponent<Item>();
             for (int i = 0; i < info.itemNumGiven; i++) {
                 inventoryManager.inventory.AddItem(item.item, info.itemGiven);
+                DontDestroyOnLoad(info.itemGiven);
             } 
         }
 

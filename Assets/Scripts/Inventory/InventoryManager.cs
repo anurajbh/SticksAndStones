@@ -31,6 +31,7 @@ public class InventoryManager : MonoBehaviour
             if (inventory.AddItem(item.item, item.gameObject))
             {
                 item.gameObject.SetActive(false);
+                DontDestroyOnLoad(item.gameObject);
             }
         }
     }
