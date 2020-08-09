@@ -19,6 +19,8 @@ public class Trigger : Interactable
 
     public DialogueBase dialogue;
 
+    public int track = -1;
+
     //a separate method in case we need to call it separate to the interactable stuff
     public void TriggerDialogue()
     {
@@ -26,6 +28,7 @@ public class Trigger : Interactable
     }
     public override void Interact()
     {
+        AudioManager.instance.Play(track);
         if(TimeProgression.Instance.myCycle!=TimeProgression.Cycle.night)
         {
             Debug.Log("talking to NPC");

@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] tracks;
 
+    public int curTrack = 0;
+
     void Awake()
     {
         if (instance == null) {
@@ -29,8 +31,10 @@ public class AudioManager : MonoBehaviour
     }
 
     public void Play(int i) {
-        tracks[i].source.Play();
+        if (i != curTrack && i >=0 && i <= tracks.Length){
+            tracks[curTrack].source.Stop();
+            tracks[i].source.Play();
+            curTrack = i;
+        }
     }
-
-    
 }
