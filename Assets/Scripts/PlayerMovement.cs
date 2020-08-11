@@ -114,19 +114,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Horizontal")) == 1f)
             {
-				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal") * tileConstant, 0f, 0f), 0.5f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f), 0f, whatStopsYou))
                 {
-                    movePoint.position += new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f) * tileConstant;
+                    movePoint.position += new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0f, 0f);
 				}
             }
             else if (Mathf.Abs(CrossPlatformInputManager.GetAxisRaw("Vertical")) == 1f)
             {
-				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical") * tileConstant, 0f), 0.5f, whatStopsYou))
+				if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f), 0f, whatStopsYou))
                 {
-                    movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f) * tileConstant;
+                    movePoint.position += new Vector3(0f, CrossPlatformInputManager.GetAxisRaw("Vertical"), 0f);
 				} 
             }
         }
+        
 
     }
 }
