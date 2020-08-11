@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341fe033be1ac3d418e6837800e07c74, type: 3}
-  m_Name: TestItem2
+  m_Script: {fileID: 11500000, guid: 240e0027208dc8c46aea43d0b3b51b6c, type: 3}
+  m_Name: HerbalTea
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  itemName: Test Item 2
-  type: 0
-  description: Hey look, its a different test item. This is test item 2. Has Flash
-    and Trample.
-  useDescription: You used Test Item 2! Your Will increase by 0!
+  itemName: Herbal Tea
+  type: 2
+  description: Warm tea to soothe the nerves
+  useDescription: Drinking some hot tea relaxes you. Your anixety lowers by 2!
+  anxietyChange: -2

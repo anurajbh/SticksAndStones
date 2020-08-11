@@ -131,6 +131,15 @@ public class DialogueManager : MonoBehaviour
             PlayerStats.Instance.adjustAnxiety(info.anxietyChangeAmount);
             Debug.Log("Anxiety was changed!");
         }
+        //Checks to give items
+        if (info.givesItems) {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
+            Item item = info.itemGiven.GetComponent<Item>();
+            for (int i = 0; i < info.itemNumGiven; i++) {
+                inventoryManager.inventory.AddItem(item.item, info.itemGiven);
+            } 
+        }
 
         //setting UI elements
         if (info.charName == "")

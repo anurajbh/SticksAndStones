@@ -21,6 +21,9 @@ public class DialogueBase : ScriptableObject
         public bool affectsAnxiety;
         public int willChangeAmount;
         public int anxietyChangeAmount;
+        public bool givesItems = false;
+        public GameObject itemGiven;
+        public int itemNumGiven;
 
         public Info(string msg)
         {
