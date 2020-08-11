@@ -138,7 +138,11 @@ public class DialogueManager : MonoBehaviour
             Item item = info.itemGiven.GetComponent<Item>();
             for (int i = 0; i < info.itemNumGiven; i++) {
                 inventoryManager.inventory.AddItem(item.item, info.itemGiven);
-                DontDestroyOnLoad(info.itemGiven);
+                GameObject bruh = Instantiate(info.itemGiven);
+                Vector3 pos = player.transform.position + new Vector3(1,1,0);
+                bruh.transform.position = pos;
+                bruh.SetActive(false);
+                DontDestroyOnLoad(bruh);
             } 
         }
 
