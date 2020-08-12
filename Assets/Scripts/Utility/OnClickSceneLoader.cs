@@ -13,6 +13,7 @@ public class OnClickSceneLoader : MonoBehaviour
     }
     public void LoadScene(int index)
     {
+        AudioManager.instance.Play(3);
         SceneManager.LoadScene(index);
     }
 }

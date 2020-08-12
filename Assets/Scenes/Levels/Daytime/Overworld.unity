@@ -1875,7 +1875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 508737104}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283150297
 MonoBehaviour:
@@ -2046,7 +2046,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 508737104}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &288802532
 MonoBehaviour:
@@ -3212,6 +3212,8 @@ Transform:
   - {fileID: 17852717}
   - {fileID: 186653266}
   - {fileID: 1139278619}
+  - {fileID: 283150296}
+  - {fileID: 288802531}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8093,6 +8095,21 @@ PrefabInstance:
     - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
         type: 3}
       propertyPath: track
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
+        type: 3}
+      propertyPath: night_track
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
+        type: 3}
+      propertyPath: combatIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
+        type: 3}
+      propertyPath: day_track
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128920261548773172, guid: 8c06a0808b5851f47b9d495ff5bd813d,
