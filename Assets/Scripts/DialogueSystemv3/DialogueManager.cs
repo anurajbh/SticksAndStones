@@ -225,6 +225,7 @@ public class DialogueManager : MonoBehaviour
             AddDialogue(next);  
             Debug.Log("triggered");
         } else {
+            AudioManager.instance.Play(0);
             spokenTo = true;
             dialogueUI.SetActive(false);
             triggered = false;

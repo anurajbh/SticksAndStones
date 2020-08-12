@@ -41,7 +41,7 @@ public class PanicAttack : MonoBehaviour
     //coroutine to check for the time when the panic attack happened
     //blackout if night time
     //daytime? is not completed
-    IEnumerator checkTime()
+    /*IEnumerator checkTime()
     {
     	if (TimeProgression.Instance.myCycle != TimeProgression.Cycle.night)
     	{
@@ -54,7 +54,7 @@ public class PanicAttack : MonoBehaviour
     	// 	//seal all the skills
     	// 	//attack will be lowered
     	// }
-    }
+    }*/
 
     private void Update()
     {
