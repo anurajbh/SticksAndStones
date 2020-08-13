@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     //public Text pickUpText;
     public bool pickUpAllowed = false;
     Item item;
+    GameObject itemObject;
     private void Awake()
     {
         //pickUpText.gameObject.SetActive(false);
@@ -28,10 +29,10 @@ public class InventoryManager : MonoBehaviour
     {
         if (item)
         {
-            if (inventory.AddItem(item.item, item.gameObject))
+            if (inventory.AddItem(item.item, itemObject))
             {
-                item.gameObject.SetActive(false);
-                DontDestroyOnLoad(item.gameObject);
+                itemObject.SetActive(false);
+                DontDestroyOnLoad(itemObject);
             }
         }
     }
@@ -42,6 +43,7 @@ public class InventoryManager : MonoBehaviour
         {
             pickUpAllowed = true;
             item = other.GetComponent<Item>();
+            itemObject = other.gameObject;
             //pickUpText.gameObject.SetActive(true);
         }
     }

@@ -36,7 +36,7 @@ public class InventoryObject : ScriptableObject
     public bool RemoveItem(int index) {
         if (Container.Count > 0) {
             Container[index].quantity -= 1;
-            Container[index].itemObjects.RemoveAt(Container[index].itemObjects.Count);
+            Container[index].itemObjects.Pop();
             if (Container[index].quantity == 0) {
                 Container.RemoveAt(index);
                 return true;
@@ -71,18 +71,19 @@ public class InventorySlot
 {
     public ItemObject item;
     public int quantity;
-    public List<GameObject> itemObjects;
+    public Stack<GameObject> itemObjects = new Stack<GameObject>();
     public int instanceID;
 
     public InventorySlot(ItemObject item, GameObject itemObject) 
     {
         this.item = item;
         this.quantity = 1;
-        itemObjects.Add(itemObject);
+        itemObjects.Push(itemObject);
     }
 
     public void increaseQuantity(int n, GameObject itemObject) {
         quantity += n;
-        itemObjects.Add(itemObject);
+        itemObjects.Push(itemObject);
+        Debug.Log(itemObjects.Count);
     }
 }
