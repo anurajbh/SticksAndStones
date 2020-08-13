@@ -60,11 +60,18 @@ public class DialogueManager : MonoBehaviour
     private bool buffer;
     [HideInInspector] public bool abilityLearned = false;
 
+    public List<DialogueBase> previousDialogues;
+
     public void AddDialogue(DialogueBase db)
     {
         if (triggered)
         {
             return;
+        }
+        if (previousDialogues.Contains(db)) {
+            return;
+        } else {
+            previousDialogues.Add(db);
         }
 
         StartCoroutine(Buffer()); //required so that the first text to appear types instead of just appearing
@@ -226,13 +233,14 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("triggered");
         } else {
             AudioManager.instance.Play(0);
-            spokenTo = true;
             dialogueUI.SetActive(false);
             triggered = false;
             if (!isitemDialogue) {
                 TimeProgression.Instance.ChangeTime();
+                spokenTo = true;
             } else {
                 isitemDialogue = false;
+                spokenTo = false;
             }
         }
     }

@@ -153,6 +153,7 @@ public class TimeProgression : MonoBehaviour
         {
             daysElapsed++;
         }
+        DialogueManager.instance.previousDialogues.Clear();
         CheckForTimeChange();
     }
     public void CheckForTimeChange()
