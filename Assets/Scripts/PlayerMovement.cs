@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 	public static PlayerMovement Instance;
 
     public Rigidbody2D rb2D;
+
+    private float tileConstant = 32f/100f*6.5f;
     public bool CheckFreeze()
     {
         bool b;
@@ -125,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
 				} 
             }
         }
+        
 
     }
 }

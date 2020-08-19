@@ -10,7 +10,7 @@ public class PlayerLighting : MonoBehaviour
 
     void Awake()
     {
-		playerCharacter = GameObject.Find("Elle");
+		playerCharacter = GameObject.FindWithTag("Player");
     }
 
 	void OnTriggerEnter2D(Collider2D other) 

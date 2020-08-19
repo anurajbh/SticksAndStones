@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1400150454}
   - component: {fileID: 1782734359800022396}
   - component: {fileID: 4081944245948475167}
+  - component: {fileID: 7417631550934604651}
   m_Layer: 8
   m_Name: NPC
   m_TagString: NPC
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb7ce85477479f45a5e10bb5745879b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyName: 
   maxHealth: 0
   currentHealth: 0
   AttackAbilities:
@@ -159,5 +161,22 @@ MonoBehaviour:
     anxietyEffect: 1
     willEffect: 1
     npcEffect: 1
+  buffs: []
   attacks: {fileID: 0}
   skills: {fileID: 0}
+--- !u!114 &7417631550934604651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159990654320212800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e966316dcb75e04c8f620a456637dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 1.5
+  npcObject: {fileID: 0}
+  combatIndex: 7
+  dialogue: {fileID: 0}
