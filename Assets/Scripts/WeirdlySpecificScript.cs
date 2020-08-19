@@ -11,6 +11,7 @@ public class WeirdlySpecificScript : MonoBehaviour
     {
         if(Input.GetAxis("Cancel")!=0)
         {
+            AudioManager.instance.Play(0);
             SceneManager.LoadScene(buildIndex);
         }
     }
