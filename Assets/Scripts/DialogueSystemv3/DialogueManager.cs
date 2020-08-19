@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     private void Update()
