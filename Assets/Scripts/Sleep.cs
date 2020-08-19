@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Sleep : Interactable
 {
-    public GameObject bed;
     public override void Interact() {
         if(TimeProgression.Instance.isDusk()) {
-            TimeProgression.Instance.ChangeTime();
-            bed.SetActive(true);
+            TimeProgression.Instance.triggerNightTransition = true;
         }
     }
 }

@@ -24,7 +24,7 @@ public class InventoryObject : ScriptableObject
             } else {
                 InventorySlot inventorySlot = Container[slotIndex];
                 if (inventorySlot.quantity < 99) {
-                    inventorySlot.increaseQuantity(1);
+                    inventorySlot.increaseQuantity(1, itemObject);
                     return true;
                 }
                 return false;
@@ -36,6 +36,7 @@ public class InventoryObject : ScriptableObject
     public bool RemoveItem(int index) {
         if (Container.Count > 0) {
             Container[index].quantity -= 1;
+            Container[index].itemObjects.Pop();
             if (Container[index].quantity == 0) {
                 Container.RemoveAt(index);
                 return true;
@@ -70,16 +71,19 @@ public class InventorySlot
 {
     public ItemObject item;
     public int quantity;
-    public GameObject itemObject;
+    public Stack<GameObject> itemObjects = new Stack<GameObject>();
+    public int instanceID;
 
     public InventorySlot(ItemObject item, GameObject itemObject) 
     {
         this.item = item;
         this.quantity = 1;
-        this.itemObject = itemObject;
+        itemObjects.Push(itemObject);
     }
 
-    public void increaseQuantity(int n) {
+    public void increaseQuantity(int n, GameObject itemObject) {
         quantity += n;
+        itemObjects.Push(itemObject);
+        Debug.Log(itemObjects.Count);
     }
 }
