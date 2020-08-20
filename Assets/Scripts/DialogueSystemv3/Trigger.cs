@@ -46,7 +46,8 @@ public class Trigger : Interactable
 
     private void TriggerCombat()
     {
-        StartCoroutine("LoadCombat");
+        SceneManager.LoadScene(combatIndex);
+        // StartCoroutine("LoadCombat");
         //StartCoroutine("WaitForCombat");
     }
 
