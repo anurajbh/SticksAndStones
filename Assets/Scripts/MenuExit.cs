@@ -6,6 +6,7 @@ public class MenuExit : MonoBehaviour
 {
     public void doExitGame() 
     {
-    Application.Quit(); 
+        Debug.Log("quit");
+        Application.Quit(); 
     }
 }
