@@ -105,6 +105,7 @@ public class TimeProgression : MonoBehaviour
         }
         if (triggerNightTransition)
         {
+            triggerNightTransition = false;
             StartCoroutine("TransitionToNight");
             //isDusk = false;
         }
@@ -129,7 +130,7 @@ public class TimeProgression : MonoBehaviour
             charlotte.SetActive(false);
             charlotteActivated = false;
         }
-        if (daysElapsed == 4 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
+        if (daysElapsed == 3 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
@@ -137,7 +138,7 @@ public class TimeProgression : MonoBehaviour
             charlotte.SetActive(false);
             charlotteActivated = false;
         }
-        if (daysElapsed == 6 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
+        if (daysElapsed == 4 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
@@ -199,7 +200,7 @@ public class TimeProgression : MonoBehaviour
 
     public IEnumerator TransitionToNight()
     {
-        triggerNightTransition = false;
+        
         myCycle = Cycle.night;
         dayNight.NightTime();
         PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
@@ -210,6 +211,7 @@ public class TimeProgression : MonoBehaviour
         yield return StartCoroutine("DoFade");
         coroutine = DisplayBlackoutText(sleepText);
         yield return StartCoroutine(coroutine);
+        SceneManager.LoadScene("Overworld (Night)");
         yield return new WaitForSeconds(3f);
         StartCoroutine("EndFade");
         //isDusk = false;
@@ -217,7 +219,7 @@ public class TimeProgression : MonoBehaviour
 
     private void LoadStartingScene()
     {
-        SceneManager.LoadScene("Overworld (Night)");
+        SceneManager.LoadScene("Overworld");
     }
     IEnumerator DoFade()
     {
