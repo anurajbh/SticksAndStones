@@ -25,9 +25,16 @@ public class DisplayMenu : MonoBehaviour
 
     private int timeSinceInput;
     private int numCyclesBetweenInput = 35;
+    public static DisplayMenu Instance;
 
     // Start is called before the first frame update
     void Awake() {
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
         Resume();
         //itemEntries = inventoryUI.transform.GetChild(1).GetChild(0).gameObject;
         //scrollbar = inventoryUI.transform.GetChild(3).gameObject;
@@ -37,7 +44,7 @@ public class DisplayMenu : MonoBehaviour
         cursorIndex = 0;
         //ResetScrollbar();
         timeSinceInput = 0;
-        playerBody = GameObject.Find("Body");
+        playerBody = GameObject.Find("Body");        
     }
 
     // Update is called once per frame

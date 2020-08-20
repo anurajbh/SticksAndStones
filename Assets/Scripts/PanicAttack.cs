@@ -47,6 +47,7 @@ public class PanicAttack : MonoBehaviour
     	{
 
     	}
+        return null;
         //actions for day time
     	// else
     	// {

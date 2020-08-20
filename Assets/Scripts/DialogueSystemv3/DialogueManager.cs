@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     private bool typing;
     private string completeText;
 
+    private bool isitemDialogue = false;
+
     //This is just making sure this is the class being referenced by DialogueManager
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class DialogueManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     private void Update()
@@ -58,11 +61,18 @@ public class DialogueManager : MonoBehaviour
     private bool buffer;
     [HideInInspector] public bool abilityLearned = false;
 
+    public List<DialogueBase> previousDialogues;
+
     public void AddDialogue(DialogueBase db)
     {
         if (triggered)
         {
             return;
+        }
+        if (previousDialogues.Contains(db)) {
+            return;
+        } else {
+            previousDialogues.Add(db);
         }
 
         StartCoroutine(Buffer()); //required so that the first text to appear types instead of just appearing
@@ -133,11 +143,17 @@ public class DialogueManager : MonoBehaviour
         }
         //Checks to give items
         if (info.givesItems) {
+            isitemDialogue = true;
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
-            Item item = info.itemGiven.GetComponent<Item>();
             for (int i = 0; i < info.itemNumGiven; i++) {
-                inventoryManager.inventory.AddItem(item.item, info.itemGiven);
+                GameObject itemObject = Instantiate(info.itemGiven);
+                itemObject.name = itemObject.name + i;
+                inventoryManager.inventory.AddItem(itemObject.GetComponent<Item>().item, itemObject);
+                Vector3 pos = player.transform.position;
+                itemObject.transform.position = pos;
+                itemObject.SetActive(false);
+                DontDestroyOnLoad(itemObject);
             } 
         }
 
@@ -218,10 +234,15 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("triggered");
         } else {
             AudioManager.instance.Play(0);
-            spokenTo = true;
             dialogueUI.SetActive(false);
             triggered = false;
-            TimeProgression.Instance.ChangeTime();
+            if (!isitemDialogue) {
+                TimeProgression.Instance.ChangeTime();
+                spokenTo = true;
+            } else {
+                isitemDialogue = false;
+                spokenTo = false;
+            }
         }
     }
 

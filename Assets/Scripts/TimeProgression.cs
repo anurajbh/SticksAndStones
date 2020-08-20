@@ -117,11 +117,11 @@ public class TimeProgression : MonoBehaviour
             DialogueManager.spokenTo = false;
             nextTime = Cycle.dawn;
         }
-        if (daysElapsed == 1 && myCycle == Cycle.noon && !charlotteActivated) { // logic for charlotte npc visibility
+        if (daysElapsed == 1 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) { // logic for charlotte npc visibility
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
-        if (daysElapsed == 2 && myCycle == Cycle.noon && !charlotteActivated) {
+        if (daysElapsed == 2 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
@@ -129,7 +129,7 @@ public class TimeProgression : MonoBehaviour
             charlotte.SetActive(false);
             charlotteActivated = false;
         }
-        if (daysElapsed == 4 && myCycle == Cycle.noon && !charlotteActivated) {
+        if (daysElapsed == 4 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
@@ -137,11 +137,11 @@ public class TimeProgression : MonoBehaviour
             charlotte.SetActive(false);
             charlotteActivated = false;
         }
-        if (daysElapsed == 6 && myCycle == Cycle.noon && !charlotteActivated) {
+        if (daysElapsed == 6 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
-        if (myCycle != Cycle.noon && charlotteActivated) {
+        if (myCycle != Cycle.noon && myCycle != Cycle.night && charlotteActivated) {
             charlotte.SetActive(false);
             charlotteActivated = false;
         } 
@@ -153,6 +153,7 @@ public class TimeProgression : MonoBehaviour
         {
             daysElapsed++;
         }
+        DialogueManager.instance.previousDialogues.Clear();
         CheckForTimeChange();
     }
     public void CheckForTimeChange()

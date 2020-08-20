@@ -19,7 +19,8 @@ public class Trigger : Interactable
 
     public DialogueBase dialogue;
 
-    public int track = -1;
+    public int day_track = -1;
+    public int night_track = -1;
 
     //a separate method in case we need to call it separate to the interactable stuff
     public void TriggerDialogue()
@@ -28,14 +29,16 @@ public class Trigger : Interactable
     }
     public override void Interact()
     {
-        AudioManager.instance.Play(track);
+        
         if(TimeProgression.Instance.myCycle!=TimeProgression.Cycle.night)
         {
+            AudioManager.instance.Play(day_track);
             Debug.Log("talking to NPC");
             TriggerDialogue();
         }
         else
         {
+            AudioManager.instance.Play(night_track);
             TriggerCombat();
         }
         
