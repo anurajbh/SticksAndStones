@@ -194,6 +194,7 @@ public class TimeProgression : MonoBehaviour
         coroutine = DisplayBlackoutText(duskText);
         yield return StartCoroutine(coroutine);
         yield return new WaitForSeconds(3f);
+        PlayerMovement.teleporting = false;
         StartCoroutine("EndFade");
         //isDusk = false;
     }
@@ -220,6 +221,8 @@ public class TimeProgression : MonoBehaviour
     private void LoadStartingScene()
     {
         SceneManager.LoadScene("Overworld");
+        PlayerMovement.Instance.movePoint.position = new Vector3(12.2f, 5.2f, -.1f);
+        PlayerMovement.teleporting = true;
     }
     IEnumerator DoFade()
     {
