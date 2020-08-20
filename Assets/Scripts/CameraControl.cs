@@ -15,6 +15,12 @@ public class CameraControl : MonoBehaviour
     public float camLerpSpeedOnTransition = 0.02f;
     private bool isCamOnPlayer;
 
+    void Awake() {
+        if (GameObject.FindGameObjectsWithTag("MainCamera").Length > 1) {
+            GameObject.Destroy(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
