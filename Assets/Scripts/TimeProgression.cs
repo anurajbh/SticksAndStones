@@ -195,6 +195,7 @@ public class TimeProgression : MonoBehaviour
         yield return StartCoroutine(coroutine);
         yield return new WaitForSeconds(3f);
         PlayerMovement.teleporting = false;
+        DialogueManager.spokenTo = false;
         StartCoroutine("EndFade");
         //isDusk = false;
     }
