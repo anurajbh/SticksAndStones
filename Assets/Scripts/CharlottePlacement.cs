@@ -33,9 +33,9 @@ public class CharlottePlacement : MonoBehaviour
             this.transform.position = day2;
         } else if (time.daysElapsed == 2) {
             this.transform.position = day3;
-        } else if (time.daysElapsed == 4) {
+        } else if (time.daysElapsed == 3) {
             this.transform.position = day5;
-        } else if (time.daysElapsed == 6) {
+        } else if (time.daysElapsed == 4) {
             this.transform.position = day7;
         }
     }
@@ -59,17 +59,17 @@ public class CharlottePlacement : MonoBehaviour
                 this.transform.position = offScene;
             }
         } else if (time.daysElapsed == 3) {
-            this.transform.position = offScene;
-        } else if (time.daysElapsed == 4) {
+        //     this.transform.position = offScene;
+        // } else if (time.daysElapsed == 4) {
             trigger.dialogue = day5Dialogue;
             if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Overworld") || SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Overworld (Night)")) {
                 this.transform.position = day5;
             } else {
                 this.transform.position = offScene;
             }
-        } else if (time.daysElapsed == 5) {
-            this.transform.position = offScene;
-        } else if (time.daysElapsed == 6) {
+        } else if (time.daysElapsed == 4) {
+        //     this.transform.position = offScene;
+        // } else if (time.daysElapsed == 6) {
             trigger.dialogue = day7Dialogue;
             if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Main Building - Floor 2") || SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Main Building - Floor 2 (Night)")) {
                 this.transform.position = day7;

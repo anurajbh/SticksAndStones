@@ -204,8 +204,9 @@ MonoBehaviour:
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 0}
-  timeLocked: 0
-  timeUsable: 0
+  timeLocked: 1
+  progressTime: 0
+  timeUsable: 2
 --- !u!82 &17852720
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1039,6 +1040,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 0}
   timeLocked: 0
+  progressTime: 0
   timeUsable: 0
   sceneName: Main Building - Floor 1
   incrementTime: 0
@@ -1851,7 +1853,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteLighting: {fileID: 2100000, guid: 56b5872f1e9269844b75e9cd45a3904b, type: 2}
   playerCharacter: {fileID: 0}
-
 --- !u!1 &283150295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 508737104}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283150297
 MonoBehaviour:
@@ -1924,7 +1925,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
-
 --- !u!1001 &284733325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2024,7 +2024,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c5e36250c5b92048bc88c06989d3392, type: 3}
-
 --- !u!1 &288802530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 508737104}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &288802532
 MonoBehaviour:
@@ -2097,7 +2096,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.840992, y: 1.3168449}
   m_EdgeRadius: 0
-
 --- !u!4 &291308771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3003718617558400221, guid: f6b238effd123f9409b4de0bf9d39fdd,
@@ -3515,11 +3513,8 @@ Transform:
   - {fileID: 1363220219}
   - {fileID: 17852717}
   - {fileID: 186653266}
-
-  - {fileID: 1139278619}
   - {fileID: 283150296}
   - {fileID: 288802531}
-
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4659,6 +4654,11 @@ PrefabInstance:
     - target: {fileID: 7013964507116029958, guid: e8a37657661fe14408e3c3549c2bb642,
         type: 3}
       propertyPath: nextTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013964507116029958, guid: e8a37657661fe14408e3c3549c2bb642,
+        type: 3}
+      propertyPath: daysElapsed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8519,7 +8519,8 @@ MonoBehaviour:
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 0}
-  timeLocked: 0
+  timeLocked: 1
+  progressTime: 1
   timeUsable: 0
 --- !u!82 &1363220222
 AudioSource:
@@ -8935,11 +8936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55089f86cf8f5145aeb4e65fa5feaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  interactRange: 1
-
-  bed: {fileID: 1139278618}
-
+  interactRange: 2
 --- !u!1001 &1394134836
 PrefabInstance:
   m_ObjectHideFlags: 0
