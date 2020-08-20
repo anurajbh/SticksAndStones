@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("fix this: " + gameObject.name);
-            instance = this;
+            //instance = this;
         }
         else
         {
