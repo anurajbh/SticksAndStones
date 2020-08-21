@@ -19,6 +19,10 @@ public class AnxietySprites : MonoBehaviour
 
     public float anxietyLevel;
     // Update is called once per frame
+
+    public float getAnxietyLevel() {
+        return anxietyLevel;
+    }
     private void Awake()
     {
     }
