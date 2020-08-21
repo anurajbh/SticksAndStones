@@ -60,7 +60,7 @@ public class Pause : MonoBehaviour
     }
 
     private void setScribbles() {
-        int lvl = SMPlayerStats.Instance.anxiety;
+        int lvl = PlayerStats.Instance.anxiety;
 
         if (lvl < 3) {
             return;
@@ -142,7 +142,7 @@ public class Pause : MonoBehaviour
 
     public void LoadMainMenu() {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     /*public void LoadOptions() {
