@@ -126,18 +126,18 @@ public class TimeProgression : MonoBehaviour
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
-        if (daysElapsed == 3 && charlotteActivated) {
-            charlotte.SetActive(false);
-            charlotteActivated = false;
-        }
+        // if (daysElapsed == 3 && charlotteActivated) {
+        //     charlotte.SetActive(false);
+        //     charlotteActivated = false;
+        // }
         if (daysElapsed == 3 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;
         }
-        if (daysElapsed == 5 && charlotteActivated) {
-            charlotte.SetActive(false);
-            charlotteActivated = false;
-        }
+        // if (daysElapsed == 5 && charlotteActivated) {
+        //     charlotte.SetActive(false);
+        //     charlotteActivated = false;
+        // }
         if (daysElapsed == 4 && (myCycle == Cycle.noon || myCycle == Cycle.night) && !charlotteActivated) {
             charlotte.SetActive(true);
             charlotteActivated = true;

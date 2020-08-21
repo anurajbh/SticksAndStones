@@ -145,7 +145,16 @@ public class BattleSystem : MonoBehaviour
         TimeProgression.Instance.ChangeTime();
 
         //transition back to game
-        SceneManager.LoadScene("Overworld");
+        if (TimeProgression.Instance.daysElapsed < 5) {
+            AudioManager.instance.Play(0);
+            SceneManager.LoadScene("Overworld");
+        } else {
+            AudioManager.instance.Play(3);
+            SceneManager.LoadScene("Credits");
+        }
+        
+        PlayerMovement.Instance.movePoint.position = new Vector3(12.2f, 5.2f, -.1f);
+        player.transform.position = new Vector3(12.2f, 5.2f, -.1f);
     }
 
     void PlayerTurn()

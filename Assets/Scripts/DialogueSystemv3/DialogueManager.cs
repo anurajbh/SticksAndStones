@@ -23,8 +23,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("fix this: " + gameObject.name);
-            //instance = this;
+            Destroy(this);
         }
         else
         {
