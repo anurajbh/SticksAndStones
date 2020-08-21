@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogueInfo:
   - nextDialogue: {fileID: 0}
     charName: 
-    portrait: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 9b4ca39c549a02040bc02300e34e770b, type: 3}
     words: You give the ball a few squeezes, but you wish that it was more effective.
     abilityToLearn: {fileID: 0}
     isAttack: 0

@@ -33,7 +33,7 @@ MonoBehaviour:
     myEvent:
       m_PersistentCalls:
         m_Calls: []
-  - nextDialogue: {fileID: 0}
+  - nextDialogue: {fileID: 11400000, guid: 699f102d50ab4e54cbc6754bd12b41de, type: 2}
     buttonName: Nah, I'm feeling motivated just standing next to it
     myEvent:
       m_PersistentCalls:
