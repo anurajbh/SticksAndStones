@@ -143,6 +143,9 @@ public class DialogueManager : MonoBehaviour
         //Checks to give items
         if (info.givesItems) {
             isitemDialogue = true;
+            if(info.itemNumGiven == 0) {
+                previousDialogues.RemoveAt(previousDialogues.Count-1);
+            }
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
             for (int i = 0; i < info.itemNumGiven; i++) {

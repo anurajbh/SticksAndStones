@@ -30,34 +30,44 @@ public class AnxietySprites : MonoBehaviour
     {
     	anxietyLevel = PlayerStats.Instance.anxiety;
         if (anxietyLevel == 1) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety1;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety1;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety1;
         }   
         else if (anxietyLevel == 2) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety2;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety2;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety2;
         }
         else if (anxietyLevel == 3) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety3;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety3;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety3;
         }    
         else if (anxietyLevel == 4) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety4;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety4;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety4;
         } 
         else if (anxietyLevel == 5) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety5;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety5;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety5;
         } 
         else if (anxietyLevel == 6) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety6;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety6;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety6;
         } 
         else if (anxietyLevel == 7) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety7;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety7;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety7;
         } 
         else if (anxietyLevel == 8) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety8;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety8;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety8;
         } 
         else if (anxietyLevel == 9) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety9;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety9;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety9;
         } 
         else if (anxietyLevel == 10) {
-        	this.gameObject.GetComponent<Image>().sprite = Anxiety10;
+            this.gameObject.GetComponent<Image>().sprite = Anxiety10;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Anxiety10;
         }
     }
     
