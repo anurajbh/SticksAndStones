@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 4935911107728516865}
   - component: {fileID: 8418835710968707203}
   - component: {fileID: 896323754635052422}
+  - component: {fileID: 1216149118869936152}
   m_Layer: 5
   m_Name: Elle
   m_TagString: Player
@@ -126,6 +127,7 @@ MonoBehaviour:
   ambWill: 0
   intWill: 15
   anxietyMeter: {fileID: 0}
+  panicAttack: {fileID: 0}
 --- !u!50 &6421382694104208232
 Rigidbody2D:
   serializedVersion: 4
@@ -306,6 +308,17 @@ MonoBehaviour:
     type: 3}
   dayAnimator: {fileID: 9100000, guid: 19cbcb327559979498e8f71c866703bb, type: 2}
   nightAnimator: {fileID: 9100000, guid: 20ae6c4e91bd29d468e163a3a02ecd9a, type: 2}
-  nightAnimatorReal: {fileID: 9100000, guid: f1e971770b9a37c4eb4a1a95eac53bf1, type: 2}
   playerCharacter: {fileID: 5995578622670891429}
   nightLighting: {fileID: 2100000, guid: a5f277cf283e1f440822f0d58f92fa81, type: 2}
+--- !u!114 &1216149118869936152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995578622670891429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a77df5c0d784639aaca2223c47ed18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

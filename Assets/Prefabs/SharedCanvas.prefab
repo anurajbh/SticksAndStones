@@ -372,7 +372,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6876522423794853344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -381,8 +381,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.1099995, y: -0.26000023}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 14.061, y: 1.77}
+  m_SizeDelta: {x: 21.072, y: 17.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4832392542989096205
 CanvasRenderer:
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 7663904980786336165}
   - component: {fileID: 7663904980786336170}
   m_Layer: 5
-  m_Name: InventoryMenuCanvas
+  m_Name: SharedCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
