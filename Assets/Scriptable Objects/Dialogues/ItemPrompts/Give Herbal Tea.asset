@@ -15,8 +15,7 @@ MonoBehaviour:
   dialogueInfo:
   - nextDialogue: {fileID: 0}
     charName: 
-    portrait: {fileID: -4533086878082153781, guid: 0d3046507699c18469ac55c77d5e3f3c,
-      type: 3}
+    portrait: {fileID: 21300000, guid: aaeb1c2d0aa1f994091761530d631b2b, type: 3}
     words: You carefully prepare some warm refreshing tea.
     abilityToLearn: {fileID: 0}
     isAttack: 0

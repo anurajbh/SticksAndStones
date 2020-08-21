@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5fffab77de8b3140bc578f7d488f7d2, type: 3}
-  m_Name: Give Nutribar
+  m_Name: Empty
   m_EditorClassIdentifier: 
   dialogueInfo:
   - nextDialogue: {fileID: 0}
     charName: 
-    portrait: {fileID: 21300000, guid: 11c07ee8e95a08948a25b2033f1c1101, type: 3}
-    words: You snack on a nutribar and feel a little better
+    portrait: {fileID: 21300000, guid: c09a9a699f16c3c4ea02ce6212e8160b, type: 3}
+    words: Yeah no.
     abilityToLearn: {fileID: 0}
     isAttack: 0
     isSkill: 0
-    affectsWill: 1
+    affectsWill: 0
     affectsAnxiety: 0
-    willChangeAmount: 1
+    willChangeAmount: 0
     anxietyChangeAmount: 0
     givesItems: 1
-    itemGiven: {fileID: 8561283238598087797, guid: 40e333697e678ab478bc3f0ab7021b7d,
-      type: 3}
-    itemNumGiven: 3
+    itemGiven: {fileID: 0}
+    itemNumGiven: 0
