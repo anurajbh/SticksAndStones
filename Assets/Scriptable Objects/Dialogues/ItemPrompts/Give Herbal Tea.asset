@@ -28,3 +28,4 @@ MonoBehaviour:
     itemGiven: {fileID: 8561283238598087797, guid: e722442d2e0f1f2409de48a87856295d,
       type: 3}
     itemNumGiven: 3
+    oneTime: 1
