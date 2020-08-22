@@ -1706,7 +1706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288776215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.24, y: -9.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -1725,7 +1725,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.292923, y: -8.577627}
+  m_Offset: {x: -0.05886531, y: 0.87400675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1736,7 +1736,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.807064, y: 1.0559425}
+  m_Size: {x: 1.7065139, y: 1.2067614}
   m_EdgeRadius: 0
 --- !u!114 &288776218
 MonoBehaviour:
@@ -1747,10 +1747,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 288776215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!1 &309208301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,9 +2798,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {x: -27.52, y: 21.1}
   playerController: {fileID: 0}
+  time: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 434440029}
+  timeLocked: 0
+  progressTime: 0
+  timeUsable: 0
 --- !u!1 &438333579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,9 +3482,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {x: -17.69, y: 2.55}
   playerController: {fileID: 0}
+  time: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 583578071}
+  timeLocked: 0
+  progressTime: 0
+  timeUsable: 0
 --- !u!1 &588411554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,9 +4177,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {x: 12.7, y: 1.5}
   playerController: {fileID: 0}
+  time: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 0}
+  timeLocked: 0
+  progressTime: 0
+  timeUsable: 0
   sceneName: Main Building - Floor 1
   incrementTime: 0
 --- !u!82 &725431778
@@ -4938,7 +4951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038745265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.06, y: -9.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -4957,7 +4970,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1043205, y: -8.577627}
+  m_Offset: {x: 0.05233872, y: 0.8632684}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4968,7 +4981,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7270832, y: 1.0559425}
+  m_Size: {x: 1.7270873, y: 1.2119703}
   m_EdgeRadius: 0
 --- !u!114 &1038745268
 MonoBehaviour:
@@ -4979,10 +4992,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1038745265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!1001 &1043662843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5917,8 +5931,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1139008842}
-  - component: {fileID: 1139008844}
   - component: {fileID: 1139008843}
+  - component: {fileID: 1139008844}
   m_Layer: 0
   m_Name: Locked Door 6
   m_TagString: Untagged
@@ -5934,7 +5948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139008841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -26.97, y: 4.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -5949,10 +5963,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139008841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!61 &1139008844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5966,7 +5981,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -27.063389, y: 4.2289863}
+  m_Offset: {x: -0.08455372, y: -0.7750778}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5977,7 +5992,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7677021, y: 2.199893}
+  m_Size: {x: 1.7328014, y: 2.5501556}
   m_EdgeRadius: 0
 --- !u!1001 &1139427248
 PrefabInstance:
@@ -6152,9 +6167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {x: 5.44, y: 27}
   playerController: {fileID: 0}
+  time: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 1143108675}
+  timeLocked: 0
+  progressTime: 0
+  timeUsable: 0
 --- !u!82 &1143108675
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6277,7 +6296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148857710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.24, y: 8.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -6296,7 +6315,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.292923, y: 8.410276}
+  m_Offset: {x: -0.03278303, y: 0.32782888}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6307,7 +6326,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.807064, y: 2.2415695}
+  m_Size: {x: 1.8523531, y: 2.212964}
   m_EdgeRadius: 0
 --- !u!114 &1148857713
 MonoBehaviour:
@@ -6318,10 +6337,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148857710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!1001 &1183060369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7211,9 +7231,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPoint: {x: 3.1, y: 6.6}
   playerController: {fileID: 0}
+  time: {fileID: 0}
   fadeFactor: 0.001
   canvasGroup: {fileID: 0}
   openDoor: {fileID: 1403784165}
+  timeLocked: 0
+  progressTime: 0
+  timeUsable: 0
 --- !u!82 &1403784165
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7822,7 +7846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512568321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -17.68, y: -5.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -7841,7 +7865,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -17.661701, y: -4.445945}
+  m_Offset: {x: -0.01825428, y: 1.0873051}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7852,7 +7876,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6848354, y: 1.1618595}
+  m_Size: {x: 1.7544765, y: 1.2845459}
   m_EdgeRadius: 0
 --- !u!114 &1512568324
 MonoBehaviour:
@@ -7863,10 +7887,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512568321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!1 &1517442973
 GameObject:
   m_ObjectHideFlags: 0
@@ -9905,8 +9930,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1924265056}
-  - component: {fileID: 1924265058}
   - component: {fileID: 1924265057}
+  - component: {fileID: 1924265058}
   m_Layer: 0
   m_Name: Theater Room Locked Door
   m_TagString: Untagged
@@ -9922,7 +9947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924265055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -47.3, y: 24.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -9937,10 +9962,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924265055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 1.5
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!61 &1924265058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9954,7 +9980,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -46.969074, y: 24.50265}
+  m_Offset: {x: 0.38049316, y: -0.028183937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9965,7 +9991,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6688614, y: 2.5944405}
+  m_Size: {x: 0.7463379, y: 2.465601}
   m_EdgeRadius: 0
 --- !u!1 &1990869381
 GameObject:
@@ -10321,8 +10347,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059061539}
-  - component: {fileID: 2059061540}
   - component: {fileID: 2059061541}
+  - component: {fileID: 2059061540}
   m_Layer: 0
   m_Name: Locked Door 5
   m_TagString: Untagged
@@ -10338,7 +10364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059061538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -27.02, y: -5.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416615888}
@@ -10357,7 +10383,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -27.033731, y: -4.445945}
+  m_Offset: {x: -0.07046127, y: 1.0710154}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10368,7 +10394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7083855, y: 1.1618595}
+  m_Size: {x: 1.8173523, y: 1.2254772}
   m_EdgeRadius: 0
 --- !u!114 &2059061541
 MonoBehaviour:
@@ -10379,10 +10405,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2059061538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e53bdb279591441842df6edb36ced8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bf24862ebfd3ed4f9c1bf84f8bd70dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  interactRange: 2
+  lockedDoorPrompt: {fileID: 11400000, guid: 40bd872b7de1acf429102a53e89e7839, type: 2}
 --- !u!1 &2064154125
 GameObject:
   m_ObjectHideFlags: 0
