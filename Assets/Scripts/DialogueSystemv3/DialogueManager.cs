@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool isitemDialogue = false;
 
+    private bool isLockedDoorDialogue = false;
+
     //This is just making sure this is the class being referenced by DialogueManager
     private void Awake()
     {
@@ -64,10 +66,13 @@ public class DialogueManager : MonoBehaviour
 
     public void AddDialogue(DialogueBase db)
     {
+         DialogueBase.Info firstDialogue = db.dialogueInfo[0];
         if (triggered)
         {
             return;
         }
+
+
 
         StartCoroutine(Buffer()); //required so that the first text to appear types instead of just appearing
 
@@ -145,6 +150,13 @@ public class DialogueManager : MonoBehaviour
             PlayerStats.Instance.adjustAnxiety(info.anxietyChangeAmount);
             Debug.Log("Anxiety was changed!");
         }
+
+        // checks if locked door dialogue
+        if (info.lockedDoor) {
+            isLockedDoorDialogue = true;
+            previousDialogues.RemoveAt(previousDialogues.Count-1);
+        }
+
         //Checks to give items
         if (info.givesItems) {
             isitemDialogue = true;
@@ -222,7 +234,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-
         if (!LearningSystem.instance.isAttacksEmpty()) 
         {
             LearningSystem.instance.LearnAttacks();
@@ -237,15 +248,20 @@ public class DialogueManager : MonoBehaviour
             AddDialogue(next);  
             Debug.Log("triggered");
         } else {
-            AudioManager.instance.Play(0);
-            dialogueUI.SetActive(false);
-            triggered = false;
-            if (!isitemDialogue) {
-                TimeProgression.Instance.ChangeTime();
-                spokenTo = true;
+            if (isLockedDoorDialogue) {
+                dialogueUI.SetActive(false);
+                isLockedDoorDialogue = false;
             } else {
-                isitemDialogue = false;
-                spokenTo = false;
+                AudioManager.instance.Play(0);
+                dialogueUI.SetActive(false);
+                triggered = false;
+                if (!isitemDialogue) {
+                    TimeProgression.Instance.ChangeTime();
+                    spokenTo = true;
+                } else {
+                    isitemDialogue = false;
+                    spokenTo = false;
+                }
             }
         }
     }
