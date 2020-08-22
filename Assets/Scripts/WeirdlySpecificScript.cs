@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WeirdlySpecificScript : MonoBehaviour
 {
-    public int buildIndex;
+    public string sceneName;
     float timeElapsed;
     public int timer;
     [SerializeField] int seconds;
@@ -16,7 +16,7 @@ public class WeirdlySpecificScript : MonoBehaviour
     {
         if(Input.GetAxis("Cancel")!=0)
         {
-            SceneManager.LoadScene(buildIndex);
+            SceneManager.LoadScene(sceneName);
             AudioManager.instance.Play(menuThemeIndex);
         }
         timeElapsed += Time.deltaTime;
@@ -24,7 +24,7 @@ public class WeirdlySpecificScript : MonoBehaviour
         //force a scene load of main menu on end credits
         if(seconds >= timer)
         {
-            SceneManager.LoadScene(buildIndex);
+            SceneManager.LoadScene(sceneName);
             AudioManager.instance.Play(menuThemeIndex);
         }
     }

@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class OnClickSceneLoader : MonoBehaviour
 {
-    public int sceneIndex = 13;
+    public string sceneName;
     private void Awake()
     {
-        GetComponent<Button>().onClick.AddListener(delegate { LoadScene(sceneIndex); });
+        GetComponent<Button>().onClick.AddListener(delegate { LoadScene(sceneName); });
     }
-    public void LoadScene(int index)
+    public void LoadScene(string sceneName)
     {
         AudioManager.instance.Play(3);
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene(sceneName);
     }
 }

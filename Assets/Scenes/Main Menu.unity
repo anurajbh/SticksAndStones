@@ -3140,7 +3140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c702416b982654d9ad4a168125838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 13
+  sceneName: Credits
 --- !u!1 &1536748232
 GameObject:
   m_ObjectHideFlags: 0
