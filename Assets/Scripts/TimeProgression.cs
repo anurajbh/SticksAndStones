@@ -202,14 +202,15 @@ public class TimeProgression : MonoBehaviour
 
     public IEnumerator TransitionToNight()
     {
-        
         myCycle = Cycle.night;
         dayNight.NightTime();
         PlayerStats.Instance.adjustWill(-PlayerStats.Instance.anxiety / 2);
         yield return StartCoroutine("NightTransition");
+        PlayerMovement.Instance.enabled = true;
     }
     public IEnumerator NightTransition()
     {
+        PlayerMovement.Instance.enabled = false;
         yield return StartCoroutine("DoFade");
         coroutine = DisplayBlackoutText(sleepText);
         yield return StartCoroutine(coroutine);
