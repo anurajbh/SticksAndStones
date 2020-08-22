@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 2128920261548773177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 100, y: 100, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -216,6 +216,8 @@ MonoBehaviour:
   npcObject: {fileID: 2128920261548773177}
   combatIndex: 7
   dialogue: {fileID: 0}
+  day_track: -1
+  night_track: -1
 --- !u!114 &8137567372534855007
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
             {
                 NextLine();
             }
@@ -144,6 +144,7 @@ public class DialogueManager : MonoBehaviour
         if (info.givesItems) {
             isitemDialogue = true;
             if(info.itemNumGiven == 0) {
+                previousDialogues.RemoveAt(previousDialogues.Count-1);
                 previousDialogues.RemoveAt(previousDialogues.Count-1);
             }
             GameObject player = GameObject.FindGameObjectWithTag("Player");
