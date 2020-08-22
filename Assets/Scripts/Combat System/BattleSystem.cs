@@ -303,9 +303,15 @@ public class BattleSystem : MonoBehaviour
        InventorySlot itemSlotToUse = inventory.findItemWithName(moveName);
        inventory.UseItem(itemSlotToUse.item,player);
        inventory.RemoveItem(inventory.Container.IndexOf(itemSlotToUse));
+       if (itemSlotToUse.item.type == ItemType.Anxiety) {
+           AnxietyItem item = (AnxietyItem) itemSlotToUse.item;
+           PlayerStats.Instance.adjustAnxiety( (int) item.anxietyChange);
+       } else {
+           WillItem item = (WillItem) itemSlotToUse.item;
+           PlayerStats.Instance.adjustWill( (int) item.willChange);
+       }
 
-       DisplayMessage("You used " + itemSlotToUse.item.name + "!");
-
+       StartCoroutine(DisplayMessage("You used " + itemSlotToUse.item.name + "!"));
        Debug.Log("used item" + itemSlotToUse.item.name);
 
        playerHUD.SetPlayerHUD();
