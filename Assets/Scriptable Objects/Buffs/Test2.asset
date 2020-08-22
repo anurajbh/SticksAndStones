@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17370d3854764a82b9815fc03a6f6, type: 3}
   m_Name: Test2
   m_EditorClassIdentifier: 
-  activeDay: 1
-  defenseBoost: 1
-  attackBoost: 1
+  activeDay: 0
+  defenseBoost: 0
+  attackBoost: 0
