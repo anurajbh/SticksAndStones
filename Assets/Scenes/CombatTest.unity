@@ -1145,14 +1145,14 @@ MonoBehaviour:
   currentHealth: 100
   AttackAbilities:
   - name: Screeching Whatever
-    anxietyEffect: 5
-    willEffect: -5
+    anxietyEffect: 2
+    willEffect: -3
     npcEffect: 0
   SkillAbilities:
   - name: aaaaaa
-    anxietyEffect: 10
-    willEffect: -5
-    npcEffect: 5
+    anxietyEffect: 1
+    willEffect: 0
+    npcEffect: 1
   buffs:
   - {fileID: 11400000, guid: a42b42b83222a22429a5062fda8892ef, type: 2}
   - {fileID: 11400000, guid: d3d85322922c0294f98668f9a52623b4, type: 2}

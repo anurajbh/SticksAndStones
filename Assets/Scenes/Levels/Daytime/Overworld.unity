@@ -3648,11 +3648,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1643058538241298666, guid: 95c3aae322adb2c40a10cd83aeb129a0,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     - target: {fileID: 1643058538757697476, guid: 95c3aae322adb2c40a10cd83aeb129a0,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643058539654604686, guid: 95c3aae322adb2c40a10cd83aeb129a0,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     - target: {fileID: 3796991410977312296, guid: 95c3aae322adb2c40a10cd83aeb129a0,
         type: 3}
       propertyPath: m_Name
@@ -5603,7 +5613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daytimeSprite: {fileID: 21300000, guid: 38ede88738e2cae4ea590b122cbd0882, type: 3}
-  nighttimeSprite: {fileID: 21300000, guid: 38ede88738e2cae4ea590b122cbd0882, type: 3}
+  nighttimeSprite: {fileID: 21300000, guid: 8b6e9acff653b2c45b1478fd9db11c16, type: 3}
   nightLighting: {fileID: 2100000, guid: a5f277cf283e1f440822f0d58f92fa81, type: 2}
 --- !u!4 &983130137 stripped
 Transform:
@@ -12478,6 +12488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024339038557958708, guid: 91a61ab9514f72d499e136f5319b1e4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7024339039411129320, guid: 91a61ab9514f72d499e136f5319b1e4f,
         type: 3}
