@@ -25,6 +25,7 @@ public class DialogueBase : ScriptableObject
         public bool lockedDoor = false;
         public GameObject itemGiven;
         public int itemNumGiven;
+        public bool oneTime = false;
 
         public Info(string msg)
         {
