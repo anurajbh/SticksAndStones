@@ -60,18 +60,13 @@ public class DialogueManager : MonoBehaviour
     private bool buffer;
     [HideInInspector] public bool abilityLearned = false;
 
-    public List<DialogueBase> previousDialogues;
+    public List<DialogueBase.Info> previousDialoguesInfo;
 
     public void AddDialogue(DialogueBase db)
     {
         if (triggered)
         {
             return;
-        }
-        if (previousDialogues.Contains(db)) {
-            return;
-        } else {
-            previousDialogues.Add(db);
         }
 
         StartCoroutine(Buffer()); //required so that the first text to appear types instead of just appearing
@@ -110,6 +105,16 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueBase.Info info = dialogueInfo.Dequeue();
+        //Checks for one time dialogue
+        if (info.oneTime) {
+            isitemDialogue = true;
+            if (previousDialoguesInfo.Contains(info)) {
+                EndDialogue();
+                return;
+            } else {
+                previousDialoguesInfo.Add(info);
+            }
+        }
         completeText = info.words;
         dialogueText.text = info.words;
         dialoguePortrait.sprite = info.portrait;
@@ -143,10 +148,6 @@ public class DialogueManager : MonoBehaviour
         //Checks to give items
         if (info.givesItems) {
             isitemDialogue = true;
-            if(info.itemNumGiven == 0) {
-                previousDialogues.RemoveAt(previousDialogues.Count-1);
-                previousDialogues.RemoveAt(previousDialogues.Count-1);
-            }
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             InventoryManager inventoryManager = player.GetComponent<InventoryManager>();
             for (int i = 0; i < info.itemNumGiven; i++) {

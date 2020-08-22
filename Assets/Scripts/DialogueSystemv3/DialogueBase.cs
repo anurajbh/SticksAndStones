@@ -24,6 +24,7 @@ public class DialogueBase : ScriptableObject
         public bool givesItems = false;
         public GameObject itemGiven;
         public int itemNumGiven;
+        public bool oneTime = false;
 
         public Info(string msg)
         {
