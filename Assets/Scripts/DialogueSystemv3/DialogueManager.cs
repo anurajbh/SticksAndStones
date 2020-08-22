@@ -154,7 +154,6 @@ public class DialogueManager : MonoBehaviour
         // checks if locked door dialogue
         if (info.lockedDoor) {
             isLockedDoorDialogue = true;
-            previousDialogues.RemoveAt(previousDialogues.Count-1);
         }
 
         //Checks to give items
