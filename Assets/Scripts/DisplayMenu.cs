@@ -117,11 +117,11 @@ public class DisplayMenu : MonoBehaviour
             Resume();
         } else if (cursorIndex == 1) {    // Inventory
             ShowInventory();
-        } else if (cursorIndex == 2) {    // Options
+        } /*else if (cursorIndex == 2) {    // Options
             ShowOptions();
         } else if (cursorIndex == 3) {    // Quit
             QuitGame();
-        }
+        }*/
     }
 
     void ShowInventory() {
@@ -158,7 +158,7 @@ public class DisplayMenu : MonoBehaviour
     }
 
     void MoveCursorDown() {
-        if (cursorIndex < 3) {
+        if (cursorIndex < 1) {
             GameObject entryPrev = menuItemsUI.transform.GetChild(cursorIndex).gameObject;
             entryPrev.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
             cursorIndex += 1;
@@ -190,13 +190,13 @@ public class DisplayMenu : MonoBehaviour
         inventoryItem.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
         menuItemsUI.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().enabled = false;
 
-        GameObject optionsItem = menuItemsUI.transform.GetChild(2).gameObject;
+        /*GameObject optionsItem = menuItemsUI.transform.GetChild(2).gameObject;
         optionsItem.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
         menuItemsUI.transform.GetChild(2).GetComponent<UnityEngine.UI.Image>().enabled = false;
 
         GameObject quitItem = menuItemsUI.transform.GetChild(3).gameObject;
         quitItem.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = "";
-        menuItemsUI.transform.GetChild(3).GetComponent<UnityEngine.UI.Image>().enabled = false;
+        menuItemsUI.transform.GetChild(3).GetComponent<UnityEngine.UI.Image>().enabled = false;*/
 
         GameIsPaused = true;
         IsInSelection = false;
