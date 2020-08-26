@@ -12,7 +12,6 @@ public class Trigger : Interactable
     public GameObject npcObject;
 
     public int combatIndex =7;
-
     int prevScene;
 
     Scene combat;

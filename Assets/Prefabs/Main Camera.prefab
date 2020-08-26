@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b9986c2f419dc4ea4c52d53efdd3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionScale: 0.75
+  resolutionScale: 2
   camLerpSpeed: 0.04
   camTargetRadius: 2
   camLerpSpeedOnTarget: 0.04

@@ -4433,7 +4433,7 @@ PrefabInstance:
     - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
         type: 3}
       propertyPath: combatIndex
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 778485169421851244, guid: 8c06a0808b5851f47b9d495ff5bd813d,
         type: 3}
