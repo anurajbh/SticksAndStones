@@ -18,7 +18,7 @@ public class ChangeCharlotteSprite : MonoBehaviour
             GetComponent<Renderer>().material = nightLighting; // change the material on the sprites
             GetComponent<SpriteRenderer>().sprite = nighttimeSprite;
             changedToNight = true;
-        } else if (TimeProgression.Instance.myCycle == TimeProgression.Cycle.dawn && !changedToDay) {
+        } else if (TimeProgression.Instance.myCycle != TimeProgression.Cycle.night && !changedToDay) {
             changedToNight = false;
             GetComponent<SpriteRenderer>().sprite = daytimeSprite;
             changedToDay = true;

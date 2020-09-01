@@ -1141,8 +1141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Charlotte
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 10
+  currentHealth: 10
   AttackAbilities:
   - name: Screeching Whatever
     anxietyEffect: 2
